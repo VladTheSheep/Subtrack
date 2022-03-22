@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:subtrack/consts/colors.dart';
-import 'package:subtrack/consts/sizes.dart';
-import 'package:subtrack/consts/strings.dart';
-import 'package:subtrack/consts/text_styles.dart';
-import 'package:subtrack/managers/file_manager.dart';
-import 'package:subtrack/navigation/nav.dart';
-import 'package:subtrack/utils/image_helper.dart';
-import 'package:subtrack/utils/themes.dart';
-import 'package:subtrack/widgets/buttons/button_row.dart';
-import 'package:subtrack/widgets/show_up.dart';
+import 'package:imperium/consts/colors.dart';
+import 'package:imperium/consts/sizes.dart';
+import 'package:imperium/consts/strings.dart';
+import 'package:imperium/consts/text_styles.dart';
+import 'package:imperium/managers/file_manager.dart';
+import 'package:imperium/navigation/nav.dart';
+import 'package:imperium/utils/image_helper.dart';
+import 'package:imperium/utils/themes.dart';
+import 'package:imperium/widgets/buttons/button_row.dart';
+import 'package:imperium/widgets/show_up.dart';
 
 final animateProvider = StateProvider<int>((ref) => 1);
 final beginLoadProvider = StateProvider<double>((ref) => _progressBarStartPos);
@@ -109,17 +109,27 @@ class _DatabaseLoadView extends StatelessWidget {
               color: Themes().getTheme().colorScheme.secondary,
             ),
           ),
-          const Positioned(
+          Positioned(
             left: 0,
             right: 0,
             bottom: 0,
             top: 50,
             child: Align(
-              child: Text(
-                "Pretend to do stuff...",
-                style: TextStyle(
-                  fontSize: 16.0,
-                ),
+              child: Consumer(
+                builder: (context, ref, child) {
+                  String text = "Creating directories...";
+                  final bool pathInit = ref.watch(pathInitProvider);
+                  if (pathInit) {
+                    text = "Paths created";
+                  }
+
+                  return Text(
+                    text,
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  );
+                },
               ),
             ),
           ),
@@ -160,6 +170,10 @@ class _FirstTimeSetupView extends StatelessWidget {
                     callback(val).then((value) {
                       if (value != null) {
                         ref.watch(beginLoadProvider.notifier).state = _progressBarFinalPos;
+                        if (value.isNotEmpty) {
+                        } else {
+                          FileManager().initPaths(ref);
+                        }
                       }
                     });
                   },
