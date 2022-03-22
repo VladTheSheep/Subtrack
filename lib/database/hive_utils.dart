@@ -17,7 +17,6 @@ import 'package:imperium/managers/file_manager.dart';
 import 'package:imperium/scraping/models/data/psycho_dose_data.dart';
 import 'package:imperium/scraping/models/data/psycho_duration_data.dart';
 import 'package:imperium/scraping/models/psycho_dose.dart';
-import 'package:imperium/scraping/models/psycho_duration.dart';
 import 'package:imperium/scraping/models/psycho_roa.dart';
 
 class HiveUtils {
@@ -79,7 +78,6 @@ class HiveUtils {
     Hive.registerAdapter(InteractionTypeAdapter());
     Hive.registerAdapter(InteractionAdapter());
     Hive.registerAdapter(PsychoROAAdapter());
-    Hive.registerAdapter(PsychoDurationAdapter());
     Hive.registerAdapter(PsychoDoseAdapter());
     Hive.registerAdapter(PsychoDurationDataAdapter());
     Hive.registerAdapter(PsychoDoseDataAdapter());
