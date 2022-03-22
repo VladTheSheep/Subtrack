@@ -33,13 +33,18 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_svg: ^1.0.3
+  file_picker: ^4.3.0
   path_provider: ^2.0.5
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
   font_awesome_flutter: ^10.0.0-beta
   html: ^0.14.0+4
   http: ^0.13.3
+  flutter_spinkit: ^5.0.0
   url_launcher: ^6.0.12
   permission_handler: 9.2.0
-  json_annotation: ^4.3.0
+  json_annotation: ^4.4.0
   flutter_riverpod: ^1.0.3
 
 dependency_overrides:
@@ -47,25 +52,21 @@ dependency_overrides:
     path: ../font_awesome_flutter
 
 dev_dependencies:
+  build_runner: ^2.1.2
+  date_utils: ^0.2.0
+  hive_generator: ^1.1.1
   json_serializable: ^6.0.1
-  flutter_launcher_icons_maker: "^0.10.2"
+  lint: ^1.0.0
+  flutter_launcher_icons: "^0.9.2"
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  lint: ^1.8.2
-  # flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 flutter_icons:
-  android: true
-  ios: true
+  android: "launcher_icon"
+  # ios: true
   image_path: "assets/icons/appIcon.png"
   adaptive_icon_background: "assets/icons/appicon_bg.png"
   adaptive_icon_foreground: "assets/icons/appicon_fg.png"
