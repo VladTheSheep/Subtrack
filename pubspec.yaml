@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -30,12 +30,25 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  path_provider: ^2.0.5
+  font_awesome_flutter: ^10.0.0-beta
+  html: ^0.14.0+4
+  http: ^0.13.3
+  url_launcher: ^6.0.12
+  permission_handler: 9.2.0
+  json_annotation: ^4.3.0
+  flutter_riverpod: ^1.0.3
+
+dependency_overrides:
+  font_awesome_flutter:
+    path: ../font_awesome_flutter
 
 dev_dependencies:
+  json_serializable: ^6.0.1
+  flutter_launcher_icons_maker: "^0.10.2"
   flutter_test:
     sdk: flutter
 
@@ -44,18 +57,59 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^1.0.0
+  lint: ^1.8.2
+  # flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/appIcon.png"
+  adaptive_icon_background: "assets/icons/appicon_bg.png"
+  adaptive_icon_foreground: "assets/icons/appicon_fg.png"
+
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/fonts/
+
+  fonts:
+    - family: SourceSansPro
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Black.ttf
+          weight: 900
+        - asset: assets/fonts/SourceSansPro-BlackItalic.ttf
+          weight: 900
+          style: italic
+        - asset: assets/fonts/SourceSansPro-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SourceSansPro-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/SourceSansPro-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/SourceSansPro-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/SourceSansPro-Italic.ttf
+          style: italic
+        - asset: assets/fonts/SourceSansPro-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/SourceSansPro-Regular.ttf
+        - asset: assets/fonts/SourceSansPro-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/SourceSansPro-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
 
   # To add assets to your application, add an assets section, like this:
   # assets:
