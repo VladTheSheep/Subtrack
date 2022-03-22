@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:imperium/database/hive_utils.dart';
 import 'package:imperium/navigation/nav.dart';
 import 'package:imperium/pages/landing_page.dart';
 import 'package:imperium/providers/theme.dart';
@@ -10,6 +11,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   Themes().initTheme();
+  HiveUtils().registerAdapters();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) => runApp(const ProviderScope(child: MyApp())));
 }

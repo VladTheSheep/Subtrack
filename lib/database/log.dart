@@ -1,4 +1,7 @@
+import 'package:collection/collection.dart';
 import 'package:hive/hive.dart';
+import 'package:imperium/data/imported_database.dart';
+import 'package:imperium/database/hive_utils.dart';
 import 'package:imperium/database/models/category.dart';
 import 'package:imperium/database/models/date.dart';
 import 'package:imperium/database/models/entry.dart';
@@ -6,6 +9,8 @@ import 'package:imperium/database/models/note.dart';
 import 'package:imperium/database/models/stash.dart';
 import 'package:imperium/database/models/substance.dart';
 import 'package:imperium/database/models/substance_extra.dart';
+import 'package:imperium/managers/cache_manager.dart';
+import 'package:imperium/utils/string_manipulation.dart';
 
 class Log {
   static final Log _log = Log._internal();
@@ -19,6 +24,43 @@ class Log {
   Box<Substance> get substances => Hive.box('substances');
   Box<SubstanceExtra> get substanceExtras => Hive.box('substanceExtras');
   Box<Category> get categories => Hive.box('categories');
+
+  Stash? getStash(String? key) => stashes.values.firstWhereOrNull((element) => element.stashKey == key);
+  Entry? getEntry(String? key) => entries.values.firstWhereOrNull((element) => element.entryKey == key);
+  Note? getNote(String? key) => notes.values.firstWhereOrNull((element) => element.noteKey == key);
+  SubstanceExtra? getSubstanceExtra(String? key) => HiveUtils().getValueExtra(substanceExtras, key);
+  Substance? getSubstance(String name) {
+    final String _name = name.toLowerCase();
+    final Substance? sub = HiveUtils().getValueByName(substances, _name) as Substance?;
+    if (sub == null) {
+      print("Warning! Log::getSubstance: Substance with name '$_name' does not exist!");
+      if (CacheManager().ignoreCacheError) {
+        print('Warning! Log::getSubstance: Error detected while loading cache but user ignored. Creating new substance entry to compensate...');
+        return Substance(
+          name: _name.toLowerCase(),
+          prettyName: firstCharUppercase(_name),
+        );
+      }
+    }
+    return sub;
+  }
+
+  Category? getCategory(String name) {
+    final String _name = name.toLowerCase();
+    Category? cat = HiveUtils().getValueByName(categories, _name) as Category?;
+    if (cat == null) {
+      // print('Warning! Log::getCategory: Category with name \'' + name + '\' does not exist! Stripping last letter and trying again...');
+      try {
+        cat = HiveUtils().getValueByName(categories, _name.substring(0, _name.length - 1)) as Category?;
+        // print('Log::getCategory: Found category after stripping last letter');
+      } catch (e) {}
+      if (CacheManager().ignoreCacheError) {
+        print('Warning! Log::getCategory: Error detected while loading cache but user ignored. Creating new category entry to compensate...');
+        return Category(name: _name.toLowerCase());
+      }
+    }
+    return cat;
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -148,4 +190,14 @@ class Log {
 
   List<Note> get getAllNotes => notes.values.toList();
   List<SubstanceExtra> get getAllExtra => substanceExtras.values.toList();
+
+  Future<void> addFromImport(ImportedDatabase imported) async {
+    // await eraseDatabase();
+    await HiveUtils().deleteDatabase();
+    await HiveUtils().openBoxes();
+    await entries.addAll(imported.entries!);
+    await stashes.addAll(imported.stashes!);
+    await notes.addAll(imported.notes!);
+    await substanceExtras.addAll(imported.substanceExtras!);
+  }
 }

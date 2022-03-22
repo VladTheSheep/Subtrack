@@ -25,9 +25,8 @@ class SubstanceAdapter extends TypeAdapter<Substance> {
       halflife: fields[8] as String?,
       marquis: fields[10] as String?,
       name: fields[11] as String?,
-      interactions: (fields[26] as Map?)?.map(
-        (dynamic k, dynamic v) => MapEntry(k as String, (v as List).cast<Interaction>()),
-      ),
+      interactions: (fields[26] as Map?)?.map((dynamic k, dynamic v) =>
+          MapEntry(k as String, (v as List).cast<Interaction>())),
       prettyName: fields[12] as String?,
       summary: fields[14] as String?,
       testkits: fields[15] as String?,
@@ -89,5 +88,9 @@ class SubstanceAdapter extends TypeAdapter<Substance> {
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SubstanceAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SubstanceAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

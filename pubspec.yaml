@@ -47,6 +47,7 @@ dependencies:
   permission_handler: 9.2.0
   json_annotation: ^4.4.0
   flutter_riverpod: ^1.0.3
+  collection: ^1.15.0
 
 dependency_overrides:
   font_awesome_flutter:

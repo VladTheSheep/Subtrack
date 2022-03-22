@@ -1,13 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imperium/consts/colors.dart';
 import 'package:imperium/consts/sizes.dart';
 import 'package:imperium/consts/strings.dart';
 import 'package:imperium/consts/text_styles.dart';
+import 'package:imperium/database/hive_utils.dart';
+import 'package:imperium/managers/cache_manager.dart';
+import 'package:imperium/managers/database_manager.dart';
 import 'package:imperium/managers/file_manager.dart';
 import 'package:imperium/navigation/nav.dart';
+import 'package:imperium/providers/loading.dart';
 import 'package:imperium/utils/image_helper.dart';
+import 'package:imperium/utils/snackbar_helper.dart';
 import 'package:imperium/utils/themes.dart';
 import 'package:imperium/widgets/buttons/button_row.dart';
 import 'package:imperium/widgets/show_up.dart';
@@ -105,28 +113,64 @@ class _DatabaseLoadView extends StatelessWidget {
             top: 35,
             left: 0,
             right: 0,
-            child: SpinKitDoubleBounce(
-              color: Themes().getTheme().colorScheme.secondary,
+            child: Consumer(
+              builder: (context, ref, child) {
+                final FailStates minor = ref.watch(loadMinorFailProvider);
+                final FailStates major = ref.watch(loadFailProvider);
+
+                if (minor != FailStates.None) {
+                  return const SpinKitPulse(
+                    color: depressantColorMat,
+                  );
+                } else if (major != FailStates.None) {
+                  return const SpinKitPulse(
+                    color: empathogenColorMat,
+                  );
+                } else {
+                  return SpinKitDoubleBounce(
+                    color: Themes().getTheme().colorScheme.secondary,
+                  );
+                }
+              },
             ),
           ),
           Positioned(
             left: 0,
             right: 0,
             bottom: 0,
-            top: 50,
+            top: 115,
             child: Align(
               child: Consumer(
                 builder: (context, ref, child) {
-                  String text = "Creating directories...";
-                  final bool pathInit = ref.watch(pathInitProvider);
-                  if (pathInit) {
-                    text = "Paths created";
+                  String loadText = ref.watch(loadingProvider);
+                  String subText = ref.watch(subtitleLoadingProvider);
+                  final FailStates minor = ref.watch(loadMinorFailProvider);
+                  final FailStates major = ref.watch(loadFailProvider);
+
+                  if (minor != FailStates.None || major != FailStates.None) {
+                    loadText = "An error occurred during loading";
                   }
 
-                  return Text(
-                    text,
-                    style: const TextStyle(
-                      fontSize: 16.0,
+                  if (minor != FailStates.None) {
+                    subText = "${failStateToString(minor)}. Cached response found on device, proceeding to load log";
+                  } else if (major != FailStates.None) {
+                    subText = "${failStateToString(minor)}. No cached API response on device. Unable to proceed";
+                  }
+
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          loadText,
+                          style: const TextStyle(fontSize: 16.0),
+                        ),
+                        const Padding(padding: EdgeInsets.all(4.0)),
+                        Text(
+                          subText,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -169,10 +213,21 @@ class _FirstTimeSetupView extends StatelessWidget {
                   callback: (val) {
                     callback(val).then((value) {
                       if (value != null) {
-                        ref.watch(beginLoadProvider.notifier).state = _progressBarFinalPos;
                         if (value.isNotEmpty) {
+                          try {
+                            final Map<String, dynamic> map = jsonDecode(value) as Map<String, dynamic>;
+                            _beginLoading(ref, import: map);
+                          } catch (e) {
+                            showSnackBar(
+                              "Unable to import the specified file",
+                              icon: const FaIcon(
+                                FontAwesomeIcons.lightFileExclamation,
+                              ),
+                              duration: 5000,
+                            );
+                          }
                         } else {
-                          FileManager().initPaths(ref);
+                          _beginLoading(ref);
                         }
                       }
                     });
@@ -184,6 +239,17 @@ class _FirstTimeSetupView extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _beginLoading(WidgetRef ref, {Map<String, dynamic>? import}) {
+    ref.watch(beginLoadProvider.notifier).state = _progressBarFinalPos;
+    FileManager().initPaths(ref).then((value) {
+      HiveUtils().initHive().then((value) {
+        CacheManager().loadCache(ref).then((value) {
+          DatabaseManager().loadLog(ref, import: import);
+        });
+      });
+    });
   }
 }
 
@@ -320,12 +386,24 @@ class _WelcomeHeader extends StatelessWidget {
                       child: ShowUp(
                         stateProvider: beginLoadProvider,
                         offset: const Offset(1.5, 0.0),
-                        child: const Text(
-                          "Loading...",
-                          style: TextStyle(
-                            fontSize: HEADER_TEXT_SIZE,
-                            fontWeight: FontWeight.w600,
-                          ),
+                        child: Consumer(
+                          builder: (context, ref, child) {
+                            String text = "Loading...";
+                            final FailStates minor = ref.watch(loadMinorFailProvider);
+                            final FailStates major = ref.watch(loadFailProvider);
+
+                            if (minor != FailStates.None || major != FailStates.None) {
+                              text = "Error";
+                            }
+
+                            return Text(
+                              text,
+                              style: const TextStyle(
+                                fontSize: HEADER_TEXT_SIZE,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),

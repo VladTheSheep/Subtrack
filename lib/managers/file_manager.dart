@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:imperium/providers/loading.dart';
 import 'package:imperium/utils/string_manipulation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -32,17 +33,16 @@ class FileManager {
     return !storageDenied;
   }
 
-  void initPaths(WidgetRef ref) {
-    hasStoragePermission.then((value) async {
-      if (value) {
-        storageDenied = false;
-        await _startInit();
-        await _initRootDirectory();
-        ref.watch(pathInitProvider.notifier).state = true;
-      } else {
-        storageDenied = true;
-      }
-    });
+  Future<void> initPaths(WidgetRef ref) async {
+    if (await hasStoragePermission) {
+      storageDenied = false;
+      ref.watch(loadingProvider.notifier).state = "Creating directories...";
+      await _startInit();
+      await _initRootDirectory();
+      ref.watch(loadingProvider.notifier).state = "Paths created";
+    } else {
+      storageDenied = true;
+    }
   }
 
   Future<void> _startInit() async {

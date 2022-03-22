@@ -241,8 +241,8 @@ class Substance extends HiveObject {
     return result;
   }
 
-  set lastUsedROA(PsychoROA? roa) => _lastUsedROA = roa;
-  PsychoROA? get lastUsedROA => _lastUsedROA;
+  void setLastUsedROA(PsychoROA? roa) => _lastUsedROA = roa;
+  PsychoROA? getLastUsedROA() => _lastUsedROA;
 
   Category get getPrimaryCategory => categories.isNotEmpty ? categories.first : Category(name: 'Unknown');
   Color get getPrimaryCategoryColor {
@@ -284,6 +284,5 @@ class Substance extends HiveObject {
   }
 
   List<String?> get getAliasList => List<String?>.from(aliases!);
-
   List<Effect?>? get getEffectsList => effects;
 }
