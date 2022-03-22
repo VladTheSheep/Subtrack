@@ -11,7 +11,8 @@ SettingsData _$SettingsDataFromJson(Map<String, dynamic> json) => SettingsData(
       lastCacheRefresh: json['lastCacheRefresh'] as String? ?? "",
       autoArchiveStashes: json['autoArchiveStashes'] as bool? ?? false,
       checkInteractions: json['checkInteractions'] as bool? ?? true,
-      checkDangerousInteraction: json['checkDangerousInteraction'] as bool? ?? true,
+      checkDangerousInteraction:
+          json['checkDangerousInteraction'] as bool? ?? true,
       checkCautionInteraction: json['checkCautionInteraction'] as bool? ?? true,
       checkUnsafeInteraction: json['checkUnsafeInteraction'] as bool? ?? true,
       useBlur: json['useBlur'] as bool? ?? true,
@@ -24,7 +25,8 @@ SettingsData _$SettingsDataFromJson(Map<String, dynamic> json) => SettingsData(
       wokeMode: json['wokeMode'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$SettingsDataToJson(SettingsData instance) => <String, dynamic>{
+Map<String, dynamic> _$SettingsDataToJson(SettingsData instance) =>
+    <String, dynamic>{
       'accentColor': instance.accentColor,
       'lastCacheRefresh': instance.lastCacheRefresh,
       'autoArchiveStashes': instance.autoArchiveStashes,

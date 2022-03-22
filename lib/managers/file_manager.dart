@@ -24,7 +24,7 @@ class FileManager {
   String? get getAppDirPath => Platform.isLinux ? _externalDirPath : _appDirPath;
   String? get getRootAppDirPath => _rootAppDirPath;
   String? get getExportPath => Platform.isAndroid ? '${_rootAppDirPath!}/Export' : _externalDirPath;
-  String? get getDatabasePath => Platform.isAndroid ? '${_rootAppDirPath!}/Databases' : _externalDirPath;
+  String? get getDatabasePath => Platform.isAndroid ? '${_rootAppDirPath!}/Database' : _externalDirPath;
   String? get getTempBackupPath => Platform.isAndroid ? '${_rootAppDirPath!}/Backup' : _externalDirPath;
 
   Future<bool> get hasStoragePermission async {
