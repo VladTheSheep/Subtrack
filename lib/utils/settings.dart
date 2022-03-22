@@ -1,4 +1,4 @@
-import 'package:subtrack/data/settings_data.dart';
+import 'package:imperium/data/settings_data.dart';
 
 class Settings {
   static final Settings _settings = Settings._internal();

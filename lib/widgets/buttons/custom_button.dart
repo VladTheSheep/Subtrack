@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:subtrack/consts/sizes.dart';
-import 'package:subtrack/consts/text_styles.dart';
+import 'package:imperium/consts/sizes.dart';
+import 'package:imperium/consts/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

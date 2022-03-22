@@ -1,4 +1,4 @@
-package com.example.subtrack
+package sh.lmao.imperium
 
 import io.flutter.embedding.android.FlutterActivity
 

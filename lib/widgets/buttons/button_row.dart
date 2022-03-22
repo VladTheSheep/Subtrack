@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:subtrack/consts/colors.dart';
-import 'package:subtrack/consts/sizes.dart';
-import 'package:subtrack/widgets/buttons/custom_button.dart';
+import 'package:imperium/consts/colors.dart';
+import 'package:imperium/consts/sizes.dart';
+import 'package:imperium/widgets/buttons/custom_button.dart';
 
 class ButtonRow extends StatelessWidget {
   const ButtonRow({

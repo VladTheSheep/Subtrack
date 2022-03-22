@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:subtrack/navigation/nav.dart';
-import 'package:subtrack/pages/landing_page.dart';
-import 'package:subtrack/providers/theme.dart';
-import 'package:subtrack/utils/themes.dart';
+import 'package:imperium/navigation/nav.dart';
+import 'package:imperium/pages/landing_page.dart';
+import 'package:imperium/providers/theme.dart';
+import 'package:imperium/utils/themes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       builder: (context, ref, child) {
         final ThemeData theme = ref.watch(themeProvider);
         return MaterialApp(
-          title: 'Subtrack',
+          title: 'Imperium',
           theme: theme,
           navigatorKey: Nav().navKey,
           home: Navigator(
