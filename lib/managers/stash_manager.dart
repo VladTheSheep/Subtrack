@@ -7,11 +7,10 @@ class StashManager {
   factory StashManager() => _stashManager;
   StashManager._internal();
 
-  Future<String?> loadStashData(List<Stash> stashes) async {
+  void loadStashData(List<Stash> stashes) {
     // int count = 0;
     for (final Stash stash in stashes) {
-      await Future.delayed(Duration.zero);
-      if (Log().substances.values.isEmpty) return "StashManager::loadStashData: No substances in cache";
+      // if (Log().substances.values.isEmpty) return "StashManager::loadStashData: No substances in cache";
       stash.substanceKey = Log()
           .substances
           .values
@@ -20,10 +19,7 @@ class StashManager {
           )
           .key as int?;
 
-      if (stash.substanceKey == null) print("ERROR!! StashManager::loadStashData: No substance key!");
+      // if (stash.substanceKey == null) print("ERROR!! StashManager::loadStashData: No substance key!");
     }
-
-    // print("StashManager::loadStashData: Fixed $count");
-    return null;
   }
 }

@@ -53,7 +53,7 @@ class HiveUtils {
   Future<Box<TValue>> openBox<TValue>(String box, {List<int>? password}) async {
     try {
       if (!Hive.isBoxOpen(box)) {
-        print("HiveUtils::openBox: '$box' not open, opening${password != null ? " with password" : ""}...");
+        // print("HiveUtils::openBox: '$box' not open, opening${password != null ? " with password" : ""}...");
         if (password != null) {
           return await Hive.openBox<TValue>(box, crashRecovery: false, encryptionCipher: HiveAesCipher(password));
         } else {

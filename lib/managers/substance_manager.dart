@@ -6,6 +6,7 @@ import 'package:imperium/database/log.dart';
 import 'package:imperium/database/models/category.dart';
 import 'package:imperium/database/models/entry.dart';
 import 'package:imperium/database/models/substance.dart';
+import 'package:imperium/database/models/substance_extra.dart';
 import 'package:imperium/scraping/models/psycho_roa.dart';
 import 'package:imperium/utils/string_manipulation.dart';
 import 'package:imperium/utils/themes.dart';
@@ -63,8 +64,14 @@ class SubstanceManager {
     }
   }
 
-  Future<void> setLastUsedROAs(Map<String, PsychoROA> roas) async {
+  Future<void> setLastUsedROAs(List<SubstanceExtra> extra) async {
     print('SubstanceManager::setLastUsedROAs: Setting last used ROAs...');
+
+    final Map<String, PsychoROA> roas = <String, PsychoROA>{};
+    for (final SubstanceExtra elem in extra) {
+      roas[elem.name!] = elem.lastROA!;
+    }
+
     lastUsedROAs = roas;
     try {
       final List<Substance> substances = Log().getAllSubstances;
@@ -78,11 +85,11 @@ class SubstanceManager {
     }
   }
 
-  Future<void> setLastUsedSubstances() async {
+  Future<void> setLastUsedSubstances(List<Entry> entries) async {
     print('SubstanceManager::setLastUsedSubstances: Setting last used substances...');
-    final List<Entry> entries = Log().getAllEntries.reversed.toList();
+    final List<Entry> _entries = entries.reversed.toList();
     _lastUsedSubstances = [];
-    for (final Entry ent in entries) {
+    for (final Entry ent in _entries) {
       final bool exists = _lastUsedSubstances.any((element) => element.name!.toLowerCase() == ent.getSubstance!.name!.toLowerCase());
       if ((_lastUsedSubstances.isEmpty || !exists) && _lastUsedSubstances.length < _lastUsedLimit) {
         _lastUsedSubstances.add(ent.getSubstance!);
@@ -180,26 +187,24 @@ class SubstanceManager {
     return firstCharUppercase(res);
   }
 
-  Future<void> setSubstances(List<Substance>? input, {bool clearAndUpdate = false}) async {
-    if (clearAndUpdate) {
-      await Log().substances.clear();
-      await Log().substances.addAll(input!);
+  Future<void> setSubstances(List<Substance> input) async {
+    await Log().substances.clear();
+    await Log().substances.addAll(input);
 
-      if (Log().entries.isOpen && Log().entries.isNotEmpty) {
-        for (final Entry? entry in Log().entries.values) {
-          if (entry!.getSubstance != null) entry.getSubstance!.timesUsed++;
-        }
+    if (Log().entries.isOpen && Log().entries.isNotEmpty) {
+      for (final Entry entry in Log().entries.values) {
+        if (entry.getSubstance != null) entry.getSubstance!.timesUsed++;
       }
     }
   }
 
-  Future<void> setCategories(Map<String?, Category> input) async {
+  Future<void> setCategories(List<Category> input) async {
     await Log().categories.clear();
-    await Log().categories.addAll(input.values.toList());
+    await Log().categories.addAll(input);
     await Log().categories.addAll(addCustomCategories());
 
     for (final Category cat in Log().categories.values) {
-      await setCategoriesIcon(category: cat);
+      await _setCategoryIcon(cat);
 
       if (cat.name == 'tentative' ||
           cat.name == 'research-chemical' ||

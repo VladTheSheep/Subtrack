@@ -5,12 +5,12 @@ import 'package:imperium/database/models/substance.dart';
 import 'package:imperium/managers/substance_manager.dart';
 
 class DiaryManager {
-  static final DiaryManager _hiveUtils = DiaryManager._internal();
+  static final DiaryManager _diaryManager = DiaryManager._internal();
 
-  factory DiaryManager() => _hiveUtils;
+  factory DiaryManager() => _diaryManager;
   DiaryManager._internal();
 
-  Future<String?> loadDiaryData(List<Entry> data) async {
+  void loadDiaryData(List<Entry> data) {
     for (final Entry entry in data) {
       final Substance? sub = Log().getSubstance(entry.substanceName!);
 
@@ -22,21 +22,17 @@ class DiaryManager {
       entry.stashBoxKey = Log().getStash(entry.stashKey)?.key as int?;
       SubstanceManager().addTriedDrug(entry.getSubstance!);
     }
-
-    return null;
   }
 
-  Future<void> loadNotes(List<Note> data) async {
+  void loadNotes(List<Note> data) {
     for (final Note note in data) {
       if (note.entryKey!.isNotEmpty) {
-        await Future(() async {
-          final Entry? entry = Log().getEntry(note.entryKey);
-          if (entry != null) {
-            entry.noteKeys!.add(note.noteKey);
-          } else {
-            print("Warning! DiaryManager::loadNotes: Entry not found");
-          }
-        });
+        final Entry? entry = Log().getEntry(note.entryKey);
+        if (entry != null) {
+          entry.noteKeys!.add(note.noteKey);
+        } else {
+          print("Warning! DiaryManager::loadNotes: Entry not found");
+        }
       }
     }
   }

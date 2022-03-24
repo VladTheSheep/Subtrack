@@ -56,7 +56,11 @@ class PsychoROAAdapter extends TypeAdapter<PsychoROA> {
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PsychoROAAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PsychoROAAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -65,17 +69,28 @@ class PsychoROAAdapter extends TypeAdapter<PsychoROA> {
 
 PsychoROA _$PsychoROAFromJson(Map<String, dynamic> json) => PsychoROA(
       name: json['name'] as String?,
-      dose: json['dose'] == null ? null : PsychoDose.fromJson(json['dose'] as Map<String, dynamic>),
+      dose: json['dose'] == null
+          ? null
+          : PsychoDose.fromJson(json['dose'] as Map<String, dynamic>),
       afterglow: json['afterglow'] == null
           ? null
           : PsychoDurationData.fromJson(
-              json['afterglow'] as Map<String, dynamic>,
-            ),
-      comeup: json['comeup'] == null ? null : PsychoDurationData.fromJson(json['comeup'] as Map<String, dynamic>),
-      onset: json['onset'] == null ? null : PsychoDurationData.fromJson(json['onset'] as Map<String, dynamic>),
-      offset: json['offset'] == null ? null : PsychoDurationData.fromJson(json['offset'] as Map<String, dynamic>),
-      peak: json['peak'] == null ? null : PsychoDurationData.fromJson(json['peak'] as Map<String, dynamic>),
-      total: json['total'] == null ? null : PsychoDurationData.fromJson(json['total'] as Map<String, dynamic>),
+              json['afterglow'] as Map<String, dynamic>),
+      comeup: json['comeup'] == null
+          ? null
+          : PsychoDurationData.fromJson(json['comeup'] as Map<String, dynamic>),
+      onset: json['onset'] == null
+          ? null
+          : PsychoDurationData.fromJson(json['onset'] as Map<String, dynamic>),
+      offset: json['offset'] == null
+          ? null
+          : PsychoDurationData.fromJson(json['offset'] as Map<String, dynamic>),
+      peak: json['peak'] == null
+          ? null
+          : PsychoDurationData.fromJson(json['peak'] as Map<String, dynamic>),
+      total: json['total'] == null
+          ? null
+          : PsychoDurationData.fromJson(json['total'] as Map<String, dynamic>),
     )..iconPath = json['iconPath'] as String?;
 
 Map<String, dynamic> _$PsychoROAToJson(PsychoROA instance) => <String, dynamic>{

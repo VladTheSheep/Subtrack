@@ -12,7 +12,7 @@ class ShowUp extends ConsumerStatefulWidget {
   }) : super(key: key);
 
   final Widget child;
-  final StateProvider<double> stateProvider;
+  final StateProvider<bool> stateProvider;
   final Offset offset;
   final bool startInstantly;
   final int duration;
@@ -55,9 +55,11 @@ class _ShowUpState extends ConsumerState<ShowUp> with TickerProviderStateMixin {
 
     return FadeTransition(
       opacity: _animController,
-      child: SlideTransition(
-        position: _animOffset,
-        child: widget.child,
+      child: ClipRect(
+        child: SlideTransition(
+          position: _animOffset,
+          child: widget.child,
+        ),
       ),
     );
   }

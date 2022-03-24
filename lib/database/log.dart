@@ -9,8 +9,6 @@ import 'package:imperium/database/models/note.dart';
 import 'package:imperium/database/models/stash.dart';
 import 'package:imperium/database/models/substance.dart';
 import 'package:imperium/database/models/substance_extra.dart';
-import 'package:imperium/managers/cache_manager.dart';
-import 'package:imperium/utils/string_manipulation.dart';
 
 class Log {
   static final Log _log = Log._internal();
@@ -32,34 +30,14 @@ class Log {
   Substance? getSubstance(String name) {
     final String _name = name.toLowerCase();
     final Substance? sub = HiveUtils().getValueByName(substances, _name) as Substance?;
-    if (sub == null) {
-      print("Warning! Log::getSubstance: Substance with name '$_name' does not exist!");
-      if (CacheManager().ignoreCacheError) {
-        print('Warning! Log::getSubstance: Error detected while loading cache but user ignored. Creating new substance entry to compensate...');
-        return Substance(
-          name: _name.toLowerCase(),
-          prettyName: firstCharUppercase(_name),
-        );
-      }
-    }
+
     return sub;
   }
 
   Category? getCategory(String name) {
     final String _name = name.toLowerCase();
     Category? cat = HiveUtils().getValueByName(categories, _name) as Category?;
-    if (cat == null) {
-      // print('Warning! Log::getCategory: Category with name \'' + name + '\' does not exist! Stripping last letter and trying again...');
-      try {
-        cat = HiveUtils().getValueByName(categories, _name.substring(0, _name.length - 1)) as Category?;
-        // print('Log::getCategory: Found category after stripping last letter');
-      } catch (e) {}
-      if (CacheManager().ignoreCacheError) {
-        print('Warning! Log::getCategory: Error detected while loading cache but user ignored. Creating new category entry to compensate...');
-        return Category(name: _name.toLowerCase());
-      }
-    }
-    return cat;
+    return cat ??= HiveUtils().getValueByName(categories, _name.substring(0, _name.length - 1)) as Category?;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -191,13 +169,18 @@ class Log {
   List<Note> get getAllNotes => notes.values.toList();
   List<SubstanceExtra> get getAllExtra => substanceExtras.values.toList();
 
-  Future<void> addFromImport(ImportedDatabase imported) async {
+  Future<bool> addFromImport(ImportedDatabase imported) async {
     // await eraseDatabase();
-    await HiveUtils().deleteDatabase();
-    await HiveUtils().openBoxes();
-    await entries.addAll(imported.entries!);
-    await stashes.addAll(imported.stashes!);
-    await notes.addAll(imported.notes!);
-    await substanceExtras.addAll(imported.substanceExtras!);
+    if (imported.entries != null) {
+      await HiveUtils().deleteDatabase();
+      await HiveUtils().openBoxes();
+      await entries.addAll(imported.entries!);
+      await stashes.addAll(imported.stashes!);
+      await notes.addAll(imported.notes!);
+      await substanceExtras.addAll(imported.substanceExtras!);
+      return true;
+    }
+
+    return false;
   }
 }

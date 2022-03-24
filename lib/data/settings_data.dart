@@ -1,7 +1,12 @@
+// ignore_for_file: avoid_positional_boolean_parameters
+
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:imperium/database/models/date.dart';
-import 'package:imperium/providers/theme.dart';
+import 'package:imperium/managers/file_manager.dart';
+import 'package:imperium/providers.dart';
 import 'package:imperium/utils/themes.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -126,11 +131,11 @@ class SettingsData {
   bool get isCacheEmpty => !substanceCache && !categoryCache;
 
   Future<void> writeSettings([String? settingChanged]) async {
-    // if (settingChanged != null) Settings.settingsStreamController.add(StreamAction(content: true, identifier: settingChanged));
-    // await FileHandler.writeFile(
-    //   jsonEncode(this),
-    //   path: FileHandler.getAppDirPath,
-    //   fileName: settingsFileName,
-    // );
+    // if (settingChanged != null) Settings().settingsStreamController.add(StreamAction(content: true, identifier: settingChanged));
+    await FileManager().writeFile(
+      jsonEncode(this),
+      path: FileManager().getAppDirPath,
+      fileName: settingsFileName,
+    );
   }
 }

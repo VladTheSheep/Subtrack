@@ -2,12 +2,13 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:imperium/providers/loading.dart';
+import 'package:imperium/database/log.dart';
+import 'package:imperium/utils/settings.dart';
 import 'package:imperium/utils/string_manipulation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-final pathInitProvider = StateProvider<bool>((ref) => false);
+final pathInitProvider = StateProvider.autoDispose<bool>((ref) => false);
 
 class FileManager {
   static final FileManager _fileManager = FileManager._internal();
@@ -33,13 +34,11 @@ class FileManager {
     return !storageDenied;
   }
 
-  Future<void> initPaths(WidgetRef ref) async {
+  Future<void> initPaths() async {
     if (await hasStoragePermission) {
       storageDenied = false;
-      ref.watch(loadingProvider.notifier).state = "Creating directories...";
       await _startInit();
       await _initRootDirectory();
-      ref.watch(loadingProvider.notifier).state = "Paths created";
     } else {
       storageDenied = true;
     }
@@ -131,5 +130,46 @@ class FileManager {
     }
 
     return null;
+  }
+
+  Future<File> getFile(String? path, {String? fileName, bool checkExist = true}) async {
+    String? _path = path;
+    if (fileName != null) _path = '${_path!}/$fileName';
+
+    try {
+      final File file = File(_path!);
+      if (checkExist) {
+        final bool exists = await file.exists();
+        if (!exists) await file.writeAsString('');
+      }
+
+      return file;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<File?> writeFile(String content, {String? path, String? fileName, File? file}) async {
+    try {
+      if (file != null) {
+        return file.writeAsString(content);
+      } else if (path != null && fileName != null && fileName.isNotEmpty && path.isNotEmpty) {
+        final File file = await getFile(path, fileName: fileName);
+        return file.writeAsString(content);
+      } else {
+        print('ERROR!! FileHandler::writeFile: No file or path given!');
+        return null;
+      }
+    } catch (e) {
+      print('ERROR!! FileHandler::writeFile: Something happened while writing to disk! -- $e');
+      return null;
+    }
+  }
+
+  Future<void> clearCache() async {
+    await Log().categories.clear();
+    await Settings().data.setCacheStatus(categoryStatus: false);
+    await Log().substances.clear();
+    await Settings().data.setCacheStatus(substanceStatus: false);
   }
 }

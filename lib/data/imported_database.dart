@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:imperium/database/models/entry.dart';
 import 'package:imperium/database/models/note.dart';
 import 'package:imperium/database/models/stash.dart';
@@ -10,6 +12,16 @@ part 'imported_database.g.dart';
 class ImportedDatabase {
   ImportedDatabase(this.entries, this.stashes, this.notes, this.substanceExtras);
 
+  factory ImportedDatabase.fromRawJson(String json) {
+    final Map<String, dynamic> mapped = jsonDecode(json) as Map<String, dynamic>;
+    final ImportedDatabase result = ImportedDatabase.fromJson(mapped);
+
+    if (result.entries == null) {
+      throw InvalidJsonException();
+    }
+
+    return result;
+  }
   factory ImportedDatabase.fromJson(Map<String, dynamic> json) => _$ImportedDatabaseFromJson(json);
 
   List<Entry>? entries;
@@ -19,3 +31,5 @@ class ImportedDatabase {
 
   Map<String, dynamic> toJson() => _$ImportedDatabaseToJson(this);
 }
+
+class InvalidJsonException implements Exception {}

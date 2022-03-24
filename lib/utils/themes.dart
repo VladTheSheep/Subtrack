@@ -38,7 +38,7 @@ class Themes {
       dialogBackgroundColor: inactiveColorMat,
       cardColor: bottomAppBarColorMat,
       hintColor: color.withOpacity(0.3),
-      scaffoldBackgroundColor: bgColorMat,
+      scaffoldBackgroundColor: Colors.transparent,
       bottomAppBarColor: lightBottomAppBarColorMat,
       snackBarTheme: const SnackBarThemeData(
         backgroundColor: appBarColorMat,
