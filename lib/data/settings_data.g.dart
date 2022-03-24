@@ -23,6 +23,7 @@ SettingsData _$SettingsDataFromJson(Map<String, dynamic> json) => SettingsData(
       use24hourTime: json['use24hourTime'] as bool? ?? true,
       useFromStash: json['useFromStash'] as bool? ?? false,
       wokeMode: json['wokeMode'] as bool? ?? false,
+      hasCompletedSetup: json['hasCompletedSetup'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$SettingsDataToJson(SettingsData instance) =>
@@ -42,4 +43,5 @@ Map<String, dynamic> _$SettingsDataToJson(SettingsData instance) =>
       'use24hourTime': instance.use24hourTime,
       'useFromStash': instance.useFromStash,
       'wokeMode': instance.wokeMode,
+      'hasCompletedSetup': instance.hasCompletedSetup,
     };

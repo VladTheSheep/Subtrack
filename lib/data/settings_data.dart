@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:imperium/consts/strings.dart';
 import 'package:imperium/database/models/date.dart';
 import 'package:imperium/managers/file_manager.dart';
 import 'package:imperium/providers.dart';
@@ -11,8 +12,6 @@ import 'package:imperium/utils/themes.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'settings_data.g.dart';
-
-const settingsFileName = "settings.json";
 
 @JsonSerializable()
 class SettingsData {
@@ -32,6 +31,7 @@ class SettingsData {
     this.use24hourTime = true,
     this.useFromStash = false,
     this.wokeMode = false,
+    this.hasCompletedSetup = false,
   });
 
   factory SettingsData.fromJson(Map<String, dynamic> json) => _$SettingsDataFromJson(json);
@@ -51,6 +51,7 @@ class SettingsData {
   bool use24hourTime = true;
   bool useFromStash = false;
   bool wokeMode = false;
+  bool hasCompletedSetup = false;
 
   Map<String, dynamic> toJson() => _$SettingsDataToJson(this);
 
@@ -122,6 +123,11 @@ class SettingsData {
     writeSettings('wokeMode');
   }
 
+  void setHasCompletedSetup(bool value) {
+    hasCompletedSetup = value;
+    writeSettings("hasCompletedSetup");
+  }
+
   Future<void> setCacheStatus({bool? substanceStatus, bool? categoryStatus}) async {
     if (substanceStatus != null) substanceCache = substanceStatus;
     if (categoryStatus != null) categoryCache = categoryStatus;
@@ -134,7 +140,7 @@ class SettingsData {
     // if (settingChanged != null) Settings().settingsStreamController.add(StreamAction(content: true, identifier: settingChanged));
     await FileManager().writeFile(
       jsonEncode(this),
-      path: FileManager().getAppDirPath,
+      path: FileManager().getRootAppDirPath,
       fileName: settingsFileName,
     );
   }

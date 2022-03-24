@@ -1,14 +1,11 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:imperium/database/log.dart';
 import 'package:imperium/utils/settings.dart';
 import 'package:imperium/utils/string_manipulation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-final pathInitProvider = StateProvider.autoDispose<bool>((ref) => false);
 
 class FileManager {
   static final FileManager _fileManager = FileManager._internal();
@@ -18,16 +15,14 @@ class FileManager {
 
   bool storageDenied = true;
 
-  String? _appDirPath;
-  String? _rootAppDirPath;
-  String? _externalDirPath;
-  String? _rootDirPath;
+  late String _rootAppDirPath;
+  late String _externalDirPath;
+  late String _rootDirPath;
 
-  String? get getAppDirPath => Platform.isLinux ? _externalDirPath : _appDirPath;
-  String? get getRootAppDirPath => _rootAppDirPath;
-  String? get getExportPath => Platform.isAndroid ? '${_rootAppDirPath!}/Export' : _externalDirPath;
-  String? get getDatabasePath => Platform.isAndroid ? '${_rootAppDirPath!}/Database' : _externalDirPath;
-  String? get getTempBackupPath => Platform.isAndroid ? '${_rootAppDirPath!}/Backup' : _externalDirPath;
+  String get getRootAppDirPath => _rootAppDirPath;
+  String get getExportPath => Platform.isAndroid ? '$_rootAppDirPath/Export' : _externalDirPath;
+  String get getDatabasePath => Platform.isAndroid ? '$_rootAppDirPath/Database' : _externalDirPath;
+  String get getTempBackupPath => Platform.isAndroid ? '$_rootAppDirPath/Backup' : _externalDirPath;
 
   Future<bool> get hasStoragePermission async {
     storageDenied = !await Permission.storage.request().isGranted;
@@ -35,7 +30,7 @@ class FileManager {
   }
 
   Future<void> initPaths() async {
-    if (await hasStoragePermission) {
+    if (Platform.isLinux || await hasStoragePermission) {
       storageDenied = false;
       await _startInit();
       await _initRootDirectory();
@@ -45,14 +40,13 @@ class FileManager {
   }
 
   Future<void> _startInit() async {
-    _appDirPath = await _localPath;
     _externalDirPath = await _externalPath;
 
-    String? temp = _externalDirPath;
+    String temp = _externalDirPath;
     for (int i = 0; i < 1; ++i) {
       final int index = findCharPos(temp, '/', true);
       if (index != -1) {
-        temp = temp!.replaceFirst(temp.substring(index), '', index);
+        temp = temp.replaceFirst(temp.substring(index), '', index);
       } else {
         print('ERROR!! FileHandler::getRootDirPath: Could not find root directory!');
         break;
@@ -62,47 +56,27 @@ class FileManager {
   }
 
   Future<void> _initRootDirectory() async {
-    if (Platform.isAndroid) await Directory(_rootDirPath!).create(recursive: true).then((Directory dir) => _rootAppDirPath = dir.path);
+    if (Platform.isAndroid) {
+      await Directory(_rootDirPath).create(recursive: true).then((Directory dir) => _rootAppDirPath = dir.path);
+    }
 
-    await Directory(getDatabasePath!).create(recursive: true).then((value) => null);
-    await Directory(getExportPath!).create(recursive: true).then((value) => null);
-    await Directory(getTempBackupPath!).create(recursive: true).then((value) => null);
+    await Directory(getDatabasePath).create(recursive: true);
+    await Directory(getExportPath).create(recursive: true);
+    await Directory(getTempBackupPath).create(recursive: true);
   }
 
-  Future<String?> get _externalPath async {
-    try {
-      if (Platform.isAndroid) {
-        final List<Directory>? directories = await getExternalStorageDirectories();
-        if (directories != null && directories.isNotEmpty) {
-          return directories.first.path;
-        }
-      } else if (Platform.isIOS || Platform.isLinux) {
-        final Directory directory = await getApplicationDocumentsDirectory();
-        return directory.path;
-      } else {
-        print('ERROR!! FileHandler::_externalPath: Invalid platform!');
+  Future<String> get _externalPath async {
+    String path = "";
+    if (Platform.isAndroid) {
+      final List<Directory>? directories = await getExternalStorageDirectories();
+      if (directories != null && directories.isNotEmpty) {
+        path = directories.first.path;
       }
-    } catch (e) {
-      print('Error in FileHandler::_externalPath -- $e');
+    } else if (Platform.isIOS || Platform.isLinux) {
+      final Directory directory = await getApplicationDocumentsDirectory();
+      path = directory.path;
     }
-    return null;
-  }
-
-  Future<String?> get _localPath async {
-    try {
-      late Directory directory;
-
-      if (Platform.isAndroid) {
-        directory = await getApplicationDocumentsDirectory();
-      } else if (Platform.isIOS || Platform.isLinux) {
-        directory = await getApplicationSupportDirectory();
-      }
-
-      return directory.path;
-    } catch (e) {
-      print('Error in FileHandler::_localPath -- $e');
-      return null;
-    }
+    return path;
   }
 
   Future<String?> pickJson() async {
@@ -132,38 +106,28 @@ class FileManager {
     return null;
   }
 
-  Future<File> getFile(String? path, {String? fileName, bool checkExist = true}) async {
-    String? _path = path;
-    if (fileName != null) _path = '${_path!}/$fileName';
-
-    try {
-      final File file = File(_path!);
-      if (checkExist) {
-        final bool exists = await file.exists();
-        if (!exists) await file.writeAsString('');
-      }
-
-      return file;
-    } catch (e) {
-      rethrow;
+  Future<File> getFile({required String path, required String fileName, bool checkExist = true}) async {
+    final File file = File("$path/$fileName");
+    if (checkExist) {
+      final bool exists = await file.exists();
+      if (!exists) await file.writeAsString('');
     }
+
+    return file;
   }
 
-  Future<File?> writeFile(String content, {String? path, String? fileName, File? file}) async {
-    try {
-      if (file != null) {
-        return file.writeAsString(content);
-      } else if (path != null && fileName != null && fileName.isNotEmpty && path.isNotEmpty) {
-        final File file = await getFile(path, fileName: fileName);
-        return file.writeAsString(content);
-      } else {
-        print('ERROR!! FileHandler::writeFile: No file or path given!');
-        return null;
-      }
-    } catch (e) {
-      print('ERROR!! FileHandler::writeFile: Something happened while writing to disk! -- $e');
-      return null;
+  Future<String> readFile({required String path, required String fileName}) async {
+    final File file = File("$path/$fileName");
+    final bool exists = await file.exists();
+    if (!exists) {
+      await file.writeAsString("");
     }
+    return file.readAsString();
+  }
+
+  Future<File?> writeFile(String content, {required String path, required String fileName}) async {
+    final File file = await getFile(path: path, fileName: fileName);
+    return file.writeAsString(content);
   }
 
   Future<void> clearCache() async {

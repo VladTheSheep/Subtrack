@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:imperium/application/cache_notifier.dart';
 import 'package:imperium/application/diary_load_notifier.dart';
 import 'package:imperium/data/imported_database.dart';
+import 'package:imperium/utils/settings.dart';
 
 part 'create_log_notifier.freezed.dart';
 
@@ -32,6 +33,7 @@ class CreateLogNotifier extends StateNotifier<CreateLogNotifierState> {
       state = const CreateLogNotifierState.loadingLog();
       await _diaryLoadNotifier.loadLog(import: import);
 
+      Settings().data.setHasCompletedSetup(true);
       state = const CreateLogNotifierState.loaded();
     } catch (_) {
       state = const CreateLogNotifierState.error("Error occurred while creating log");

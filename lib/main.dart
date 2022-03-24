@@ -8,6 +8,7 @@ import 'package:imperium/navigation/nav.dart';
 import 'package:imperium/pages/landing_page.dart';
 import 'package:imperium/pages/root_page.dart';
 import 'package:imperium/providers.dart';
+import 'package:imperium/utils/settings.dart';
 import 'package:imperium/utils/themes.dart';
 
 void main() {
@@ -17,13 +18,15 @@ void main() {
   HiveUtils().registerAdapters();
 
   FileManager().initPaths().then(
-        (_) => SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
-          (_) => runApp(
-            const ProviderScope(
-              child: MyApp(),
+        (_) => Settings().readSettings().then(
+              (_) => SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+                (_) => runApp(
+                  const ProviderScope(
+                    child: MyApp(),
+                  ),
+                ),
+              ),
             ),
-          ),
-        ),
       );
 }
 

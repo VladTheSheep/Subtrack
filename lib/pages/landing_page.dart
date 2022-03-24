@@ -11,6 +11,7 @@ import 'package:imperium/managers/file_manager.dart';
 import 'package:imperium/navigation/nav.dart';
 import 'package:imperium/providers.dart';
 import 'package:imperium/utils/image_helper.dart';
+import 'package:imperium/utils/settings.dart';
 import 'package:imperium/utils/snackbar_helper.dart';
 import 'package:imperium/utils/themes.dart';
 import 'package:imperium/widgets/buttons/button_row.dart';
@@ -33,6 +34,8 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool hasCompletedSetup = Settings().data.hasCompletedSetup;
+
     return Stack(
       children: [
         const _Logo(),
@@ -47,7 +50,7 @@ class LandingPage extends StatelessWidget {
               top: Nav().screenHeight / ref.watch(_animateProvider),
               left: 35,
               right: 35,
-              child: const _FirstTimeSetup(),
+              child: _FirstTimeSetup(setupComplete: hasCompletedSetup),
             );
           },
         ),
@@ -59,10 +62,21 @@ class LandingPage extends StatelessWidget {
 class _FirstTimeSetup extends StatelessWidget {
   const _FirstTimeSetup({
     Key? key,
+    this.setupComplete = false,
   }) : super(key: key);
+
+  final bool setupComplete;
 
   @override
   Widget build(BuildContext context) {
+    const Widget child1 = _FirstTimeSetupView(key: ValueKey("child_1"));
+    const Widget child2 = _DatabaseLoadView(key: ValueKey("child_2"));
+    final Widget firstTimeSlideWidget = SlideReplaceWidget(
+      child1: child1,
+      child2: child2,
+      stateProvider: _beginLoadProvider,
+    );
+
     return Material(
       color: Colors.transparent,
       elevation: ELEVATION,
@@ -75,16 +89,12 @@ class _FirstTimeSetup extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const SizedBox(
+            SizedBox(
               width: double.infinity,
-              child: _WelcomeHeader(),
+              child: _WelcomeHeader(setupComplete: setupComplete),
             ),
             Expanded(
-              child: SlideReplaceWidget(
-                child1: const _FirstTimeSetupView(key: ValueKey("child_1")),
-                child2: const _DatabaseLoadView(key: ValueKey("child_2")),
-                stateProvider: _beginLoadProvider,
-              ),
+              child: setupComplete ? child2 : firstTimeSlideWidget,
             ),
           ],
         ),
@@ -355,7 +365,10 @@ class _WelcomeContent extends StatelessWidget {
 class _WelcomeHeader extends StatelessWidget {
   const _WelcomeHeader({
     Key? key,
+    this.setupComplete = false,
   }) : super(key: key);
+
+  final bool setupComplete;
 
   @override
   Widget build(BuildContext context) {
