@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:subtrack/application/create_log_notifier.dart';
+import 'package:subtrack/application/log_notifier.dart';
 import 'package:subtrack/consts/colors.dart';
 import 'package:subtrack/consts/sizes.dart';
 import 'package:subtrack/providers.dart';
@@ -107,7 +107,7 @@ class HeaderProgressBar extends StatelessWidget {
                 child2: Consumer(
                   key: const ValueKey("child_2"),
                   builder: (context, ref, child) {
-                    final CreateLogNotifierState state = ref.watch(createLogNotifierProvider);
+                    final LogNotifierState state = ref.watch(createLogNotifierProvider);
 
                     final String text = state.maybeWhen(
                       error: (errorText) => "Error $errorText",

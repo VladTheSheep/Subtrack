@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:subtrack/application/cache_notifier.dart';
-import 'package:subtrack/application/create_log_notifier.dart';
-import 'package:subtrack/application/diary_load_notifier.dart';
+import 'package:subtrack/application/log_notifier.dart';
 import 'package:subtrack/application/permissions_notifier.dart';
 import 'package:subtrack/infrastructure/category_repository.dart';
 import 'package:subtrack/infrastructure/substance_repository.dart';
@@ -25,14 +24,9 @@ final cacheNotifierProvider = StateNotifierProvider(
   ),
 );
 
-final diaryLoadNotifierProvider = StateNotifierProvider(
-  (ref) => DiaryLoadNotifier(),
-);
-
-final createLogNotifierProvider = StateNotifierProvider<CreateLogNotifier, CreateLogNotifierState>(
-  (ref) => CreateLogNotifier(
+final createLogNotifierProvider = StateNotifierProvider<LogNotifier, LogNotifierState>(
+  (ref) => LogNotifier(
     ref.watch(cacheNotifierProvider.notifier),
-    ref.watch(diaryLoadNotifierProvider.notifier),
   ),
 );
 

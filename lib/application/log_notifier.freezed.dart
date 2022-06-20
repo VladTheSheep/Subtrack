@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'diary_load_notifier.dart';
+part of 'log_notifier.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,13 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$DiaryLoadNotifierState {
+mixin _$LogNotifierState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
+    required TResult Function() loadingCache,
+    required TResult Function() loadingLog,
     required TResult Function() loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,8 @@ mixin _$DiaryLoadNotifierState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +38,8 @@ mixin _$DiaryLoadNotifierState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
     required TResult orElse(),
   }) =>
@@ -45,7 +48,8 @@ mixin _$DiaryLoadNotifierState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingCache value) loadingCache,
+    required TResult Function(_LoadingLog value) loadingLog,
     required TResult Function(_Loaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +57,8 @@ mixin _$DiaryLoadNotifierState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +66,8 @@ mixin _$DiaryLoadNotifierState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) =>
@@ -69,20 +75,20 @@ mixin _$DiaryLoadNotifierState {
 }
 
 /// @nodoc
-abstract class $DiaryLoadNotifierStateCopyWith<$Res> {
-  factory $DiaryLoadNotifierStateCopyWith(DiaryLoadNotifierState value,
-          $Res Function(DiaryLoadNotifierState) then) =
-      _$DiaryLoadNotifierStateCopyWithImpl<$Res>;
+abstract class $LogNotifierStateCopyWith<$Res> {
+  factory $LogNotifierStateCopyWith(
+          LogNotifierState value, $Res Function(LogNotifierState) then) =
+      _$LogNotifierStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$DiaryLoadNotifierStateCopyWithImpl<$Res>
-    implements $DiaryLoadNotifierStateCopyWith<$Res> {
-  _$DiaryLoadNotifierStateCopyWithImpl(this._value, this._then);
+class _$LogNotifierStateCopyWithImpl<$Res>
+    implements $LogNotifierStateCopyWith<$Res> {
+  _$LogNotifierStateCopyWithImpl(this._value, this._then);
 
-  final DiaryLoadNotifierState _value;
+  final LogNotifierState _value;
   // ignore: unused_field
-  final $Res Function(DiaryLoadNotifierState) _then;
+  final $Res Function(LogNotifierState) _then;
 }
 
 /// @nodoc
@@ -94,7 +100,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$DiaryLoadNotifierStateCopyWithImpl<$Res>
+    extends _$LogNotifierStateCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, (v) => _then(v as _$_Initial));
@@ -110,7 +116,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'DiaryLoadNotifierState.initial()';
+    return 'LogNotifierState.initial()';
   }
 
   @override
@@ -127,7 +133,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
+    required TResult Function() loadingCache,
+    required TResult Function() loadingLog,
     required TResult Function() loaded,
   }) {
     return initial();
@@ -138,7 +145,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
   }) {
     return initial?.call();
@@ -149,7 +157,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
     required TResult orElse(),
   }) {
@@ -164,7 +173,8 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingCache value) loadingCache,
+    required TResult Function(_LoadingLog value) loadingLog,
     required TResult Function(_Loaded value) loaded,
   }) {
     return initial(this);
@@ -175,7 +185,8 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
   }) {
     return initial?.call(this);
@@ -186,7 +197,8 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -197,7 +209,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements DiaryLoadNotifierState {
+abstract class _Initial implements LogNotifierState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -211,7 +223,7 @@ abstract class _$$_ErrorTextCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorTextCopyWithImpl<$Res>
-    extends _$DiaryLoadNotifierStateCopyWithImpl<$Res>
+    extends _$LogNotifierStateCopyWithImpl<$Res>
     implements _$$_ErrorTextCopyWith<$Res> {
   __$$_ErrorTextCopyWithImpl(
       _$_ErrorText _value, $Res Function(_$_ErrorText) _then)
@@ -243,7 +255,7 @@ class _$_ErrorText implements _ErrorText {
 
   @override
   String toString() {
-    return 'DiaryLoadNotifierState.error(errorText: $errorText)';
+    return 'LogNotifierState.error(errorText: $errorText)';
   }
 
   @override
@@ -268,7 +280,8 @@ class _$_ErrorText implements _ErrorText {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
+    required TResult Function() loadingCache,
+    required TResult Function() loadingLog,
     required TResult Function() loaded,
   }) {
     return error(errorText);
@@ -279,7 +292,8 @@ class _$_ErrorText implements _ErrorText {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
   }) {
     return error?.call(errorText);
@@ -290,7 +304,8 @@ class _$_ErrorText implements _ErrorText {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
     required TResult orElse(),
   }) {
@@ -305,7 +320,8 @@ class _$_ErrorText implements _ErrorText {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingCache value) loadingCache,
+    required TResult Function(_LoadingLog value) loadingLog,
     required TResult Function(_Loaded value) loaded,
   }) {
     return error(this);
@@ -316,7 +332,8 @@ class _$_ErrorText implements _ErrorText {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
   }) {
     return error?.call(this);
@@ -327,7 +344,8 @@ class _$_ErrorText implements _ErrorText {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -338,7 +356,7 @@ class _$_ErrorText implements _ErrorText {
   }
 }
 
-abstract class _ErrorText implements DiaryLoadNotifierState {
+abstract class _ErrorText implements LogNotifierState {
   const factory _ErrorText(final String errorText) = _$_ErrorText;
 
   String get errorText => throw _privateConstructorUsedError;
@@ -348,37 +366,38 @@ abstract class _ErrorText implements DiaryLoadNotifierState {
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCacheCopyWith<$Res> {
+  factory _$$_LoadingCacheCopyWith(
+          _$_LoadingCache value, $Res Function(_$_LoadingCache) then) =
+      __$$_LoadingCacheCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$DiaryLoadNotifierStateCopyWithImpl<$Res>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+class __$$_LoadingCacheCopyWithImpl<$Res>
+    extends _$LogNotifierStateCopyWithImpl<$Res>
+    implements _$$_LoadingCacheCopyWith<$Res> {
+  __$$_LoadingCacheCopyWithImpl(
+      _$_LoadingCache _value, $Res Function(_$_LoadingCache) _then)
+      : super(_value, (v) => _then(v as _$_LoadingCache));
 
   @override
-  _$_Loading get _value => super._value as _$_Loading;
+  _$_LoadingCache get _value => super._value as _$_LoadingCache;
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$_LoadingCache implements _LoadingCache {
+  const _$_LoadingCache();
 
   @override
   String toString() {
-    return 'DiaryLoadNotifierState.loading()';
+    return 'LogNotifierState.loadingCache()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$_LoadingCache);
   }
 
   @override
@@ -389,10 +408,11 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
+    required TResult Function() loadingCache,
+    required TResult Function() loadingLog,
     required TResult Function() loaded,
   }) {
-    return loading();
+    return loadingCache();
   }
 
   @override
@@ -400,10 +420,11 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
   }) {
-    return loading?.call();
+    return loadingCache?.call();
   }
 
   @override
@@ -411,12 +432,13 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (loadingCache != null) {
+      return loadingCache();
     }
     return orElse();
   }
@@ -426,10 +448,11 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingCache value) loadingCache,
+    required TResult Function(_LoadingLog value) loadingLog,
     required TResult Function(_Loaded value) loaded,
   }) {
-    return loading(this);
+    return loadingCache(this);
   }
 
   @override
@@ -437,10 +460,11 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
   }) {
-    return loading?.call(this);
+    return loadingCache?.call(this);
   }
 
   @override
@@ -448,19 +472,143 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading(this);
+    if (loadingCache != null) {
+      return loadingCache(this);
     }
     return orElse();
   }
 }
 
-abstract class _Loading implements DiaryLoadNotifierState {
-  const factory _Loading() = _$_Loading;
+abstract class _LoadingCache implements LogNotifierState {
+  const factory _LoadingCache() = _$_LoadingCache;
+}
+
+/// @nodoc
+abstract class _$$_LoadingLogCopyWith<$Res> {
+  factory _$$_LoadingLogCopyWith(
+          _$_LoadingLog value, $Res Function(_$_LoadingLog) then) =
+      __$$_LoadingLogCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadingLogCopyWithImpl<$Res>
+    extends _$LogNotifierStateCopyWithImpl<$Res>
+    implements _$$_LoadingLogCopyWith<$Res> {
+  __$$_LoadingLogCopyWithImpl(
+      _$_LoadingLog _value, $Res Function(_$_LoadingLog) _then)
+      : super(_value, (v) => _then(v as _$_LoadingLog));
+
+  @override
+  _$_LoadingLog get _value => super._value as _$_LoadingLog;
+}
+
+/// @nodoc
+
+class _$_LoadingLog implements _LoadingLog {
+  const _$_LoadingLog();
+
+  @override
+  String toString() {
+    return 'LogNotifierState.loadingLog()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadingLog);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String errorText) error,
+    required TResult Function() loadingCache,
+    required TResult Function() loadingLog,
+    required TResult Function() loaded,
+  }) {
+    return loadingLog();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String errorText)? error,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
+    TResult Function()? loaded,
+  }) {
+    return loadingLog?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String errorText)? error,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
+    TResult Function()? loaded,
+    required TResult orElse(),
+  }) {
+    if (loadingLog != null) {
+      return loadingLog();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ErrorText value) error,
+    required TResult Function(_LoadingCache value) loadingCache,
+    required TResult Function(_LoadingLog value) loadingLog,
+    required TResult Function(_Loaded value) loaded,
+  }) {
+    return loadingLog(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ErrorText value)? error,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
+    TResult Function(_Loaded value)? loaded,
+  }) {
+    return loadingLog?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ErrorText value)? error,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loadingLog != null) {
+      return loadingLog(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingLog implements LogNotifierState {
+  const factory _LoadingLog() = _$_LoadingLog;
 }
 
 /// @nodoc
@@ -470,8 +618,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res>
-    extends _$DiaryLoadNotifierStateCopyWithImpl<$Res>
+class __$$_LoadedCopyWithImpl<$Res> extends _$LogNotifierStateCopyWithImpl<$Res>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
       : super(_value, (v) => _then(v as _$_Loaded));
@@ -487,7 +634,7 @@ class _$_Loaded implements _Loaded {
 
   @override
   String toString() {
-    return 'DiaryLoadNotifierState.loaded()';
+    return 'LogNotifierState.loaded()';
   }
 
   @override
@@ -504,7 +651,8 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
+    required TResult Function() loadingCache,
+    required TResult Function() loadingLog,
     required TResult Function() loaded,
   }) {
     return loaded();
@@ -515,7 +663,8 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
   }) {
     return loaded?.call();
@@ -526,7 +675,8 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
+    TResult Function()? loadingCache,
+    TResult Function()? loadingLog,
     TResult Function()? loaded,
     required TResult orElse(),
   }) {
@@ -541,7 +691,8 @@ class _$_Loaded implements _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingCache value) loadingCache,
+    required TResult Function(_LoadingLog value) loadingLog,
     required TResult Function(_Loaded value) loaded,
   }) {
     return loaded(this);
@@ -552,7 +703,8 @@ class _$_Loaded implements _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
   }) {
     return loaded?.call(this);
@@ -563,7 +715,8 @@ class _$_Loaded implements _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingCache value)? loadingCache,
+    TResult Function(_LoadingLog value)? loadingLog,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -574,6 +727,6 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements DiaryLoadNotifierState {
+abstract class _Loaded implements LogNotifierState {
   const factory _Loaded() = _$_Loaded;
 }

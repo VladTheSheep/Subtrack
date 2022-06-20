@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:subtrack/application/permissions_notifier.dart';
 import 'package:subtrack/database/hive_utils.dart';
+import 'package:subtrack/managers/file_manager.dart';
 import 'package:subtrack/navigation/nav.dart';
 import 'package:subtrack/pages/diary.dart';
 import 'package:subtrack/pages/landing_page.dart';
@@ -16,17 +17,21 @@ void main() {
   Themes().initTheme();
   HiveUtils().registerAdapters();
 
-  PermissionsNotifier().hasPermissions().then(
-    (_) {
-      Settings().readSettings().then(
-            (_) => SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
-              (_) => runApp(
-                const ProviderScope(
-                  child: MyApp(),
+  FileManager().initAppDirectory().then(
+    (value) {
+      PermissionsNotifier().hasPermissions().then(
+        (_) {
+          Settings().readSettings().then(
+                (_) => SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+                  (_) => runApp(
+                    const ProviderScope(
+                      child: MyApp(),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          );
+              );
+        },
+      );
     },
   );
 }
