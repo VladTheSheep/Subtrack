@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:subtrack/application/permissions_notifier.dart';
-import 'package:subtrack/consts/colors.dart';
 import 'package:subtrack/database/hive_utils.dart';
 import 'package:subtrack/navigation/nav.dart';
 import 'package:subtrack/pages/diary.dart';
 import 'package:subtrack/pages/landing_page.dart';
-import 'package:subtrack/pages/root_page.dart';
 import 'package:subtrack/providers.dart';
 import 'package:subtrack/utils/settings.dart';
 import 'package:subtrack/utils/themes.dart';
@@ -46,10 +44,6 @@ class MyApp extends StatelessWidget {
           navigatorKey: Nav().navKey,
           initialRoute: "/landing",
           routes: {
-            "/": (context) => DecoratedBox(
-                  decoration: LINEAR_BG,
-                  child: const RootPage(),
-                ),
             "/landing": (context) => const LandingPage(),
             "/diary": (context) => const DiaryPage(),
           },
