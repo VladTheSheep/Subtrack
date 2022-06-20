@@ -5,6 +5,7 @@ import 'package:subtrack/consts/colors.dart';
 import 'package:subtrack/managers/file_manager.dart';
 import 'package:subtrack/navigation/nav.dart';
 import 'package:subtrack/pages/landing_page/firsttime_setup.dart';
+import 'package:subtrack/pages/landing_page/load_prompt.dart';
 import 'package:subtrack/pages/landing_page/storage_prompt.dart';
 import 'package:subtrack/providers.dart';
 import 'package:subtrack/utils/image_helper.dart';
@@ -19,10 +20,14 @@ class LandingPage extends StatelessWidget {
     PermissionsNotifierState state = ref.watch(storagePermissionsNotifierProvider);
     if (FileManager().storageGranted) {
       state = const PermissionsNotifierState.granted();
+      if (Settings().data.hasCompletedSetup) {
+        state = const PermissionsNotifierState.grantedSetupComplete();
+      }
     }
     return state.maybeWhen(
       granted: () => FirstTimeSetup(setupComplete: Settings().data.hasCompletedSetup),
       notGranted: () => const StoragePrompt(),
+      grantedSetupComplete: () => const LoadPrompt(),
       orElse: () => const Text("wut"),
     );
   });

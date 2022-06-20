@@ -46,7 +46,7 @@ class LogNotifier extends StateNotifier<LogNotifierState> {
     await _cacheNotifier.loadCache();
   }
 
-  Future<void> loadLog({ImportedDatabase? import}) async {
+  Future<LogNotifierState> loadLog({ImportedDatabase? import}) async {
     try {
       await HiveUtils().initHive();
 
@@ -68,7 +68,7 @@ class LogNotifier extends StateNotifier<LogNotifierState> {
       StashManager().loadStashData(stashes);
 
       Settings().data.setHasCompletedSetup(true);
-      state = const LogNotifierState.loaded();
+      return state = const LogNotifierState.loaded();
     } catch (err) {
       state = LogNotifierState.error("Error occurred while loading the log - $err");
       rethrow;

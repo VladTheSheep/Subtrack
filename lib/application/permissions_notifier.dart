@@ -9,6 +9,7 @@ class PermissionsNotifierState with _$PermissionsNotifierState {
   const factory PermissionsNotifierState.error(String errorText) = _ErrorText;
   const factory PermissionsNotifierState.granted() = _Granted;
   const factory PermissionsNotifierState.notGranted() = _NotGranted;
+  const factory PermissionsNotifierState.grantedSetupComplete() = _GrantedSetupComplete;
 }
 
 class PermissionsNotifier extends StateNotifier<PermissionsNotifierState> {

@@ -18,51 +18,51 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PermissionsNotifierState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(String errorText) error,
     required TResult Function() granted,
     required TResult Function() notGranted,
+    required TResult Function() grantedSetupComplete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
     required TResult Function(_Granted value) granted,
     required TResult Function(_NotGranted value) notGranted,
+    required TResult Function(_GrantedSetupComplete value) grantedSetupComplete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,122 +83,6 @@ class _$PermissionsNotifierStateCopyWithImpl<$Res>
   final PermissionsNotifierState _value;
   // ignore: unused_field
   final $Res Function(PermissionsNotifierState) _then;
-}
-
-/// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$PermissionsNotifierStateCopyWithImpl<$Res>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'PermissionsNotifierState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String errorText) error,
-    required TResult Function() granted,
-    required TResult Function() notGranted,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String errorText)? error,
-    TResult Function()? granted,
-    TResult Function()? notGranted,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String errorText)? error,
-    TResult Function()? granted,
-    TResult Function()? notGranted,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_ErrorText value) error,
-    required TResult Function(_Granted value) granted,
-    required TResult Function(_NotGranted value) notGranted,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ErrorText value)? error,
-    TResult Function(_Granted value)? granted,
-    TResult Function(_NotGranted value)? notGranted,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ErrorText value)? error,
-    TResult Function(_Granted value)? granted,
-    TResult Function(_NotGranted value)? notGranted,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements PermissionsNotifierState {
-  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -266,10 +150,10 @@ class _$_ErrorText implements _ErrorText {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(String errorText) error,
     required TResult Function() granted,
     required TResult Function() notGranted,
+    required TResult Function() grantedSetupComplete,
   }) {
     return error(errorText);
   }
@@ -277,10 +161,10 @@ class _$_ErrorText implements _ErrorText {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
   }) {
     return error?.call(errorText);
   }
@@ -288,10 +172,10 @@ class _$_ErrorText implements _ErrorText {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -303,10 +187,10 @@ class _$_ErrorText implements _ErrorText {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
     required TResult Function(_Granted value) granted,
     required TResult Function(_NotGranted value) notGranted,
+    required TResult Function(_GrantedSetupComplete value) grantedSetupComplete,
   }) {
     return error(this);
   }
@@ -314,10 +198,10 @@ class _$_ErrorText implements _ErrorText {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
   }) {
     return error?.call(this);
   }
@@ -325,10 +209,10 @@ class _$_ErrorText implements _ErrorText {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -387,10 +271,10 @@ class _$_Granted implements _Granted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(String errorText) error,
     required TResult Function() granted,
     required TResult Function() notGranted,
+    required TResult Function() grantedSetupComplete,
   }) {
     return granted();
   }
@@ -398,10 +282,10 @@ class _$_Granted implements _Granted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
   }) {
     return granted?.call();
   }
@@ -409,10 +293,10 @@ class _$_Granted implements _Granted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
     required TResult orElse(),
   }) {
     if (granted != null) {
@@ -424,10 +308,10 @@ class _$_Granted implements _Granted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
     required TResult Function(_Granted value) granted,
     required TResult Function(_NotGranted value) notGranted,
+    required TResult Function(_GrantedSetupComplete value) grantedSetupComplete,
   }) {
     return granted(this);
   }
@@ -435,10 +319,10 @@ class _$_Granted implements _Granted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
   }) {
     return granted?.call(this);
   }
@@ -446,10 +330,10 @@ class _$_Granted implements _Granted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
     required TResult orElse(),
   }) {
     if (granted != null) {
@@ -504,10 +388,10 @@ class _$_NotGranted implements _NotGranted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(String errorText) error,
     required TResult Function() granted,
     required TResult Function() notGranted,
+    required TResult Function() grantedSetupComplete,
   }) {
     return notGranted();
   }
@@ -515,10 +399,10 @@ class _$_NotGranted implements _NotGranted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
   }) {
     return notGranted?.call();
   }
@@ -526,10 +410,10 @@ class _$_NotGranted implements _NotGranted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(String errorText)? error,
     TResult Function()? granted,
     TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
     required TResult orElse(),
   }) {
     if (notGranted != null) {
@@ -541,10 +425,10 @@ class _$_NotGranted implements _NotGranted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
     required TResult Function(_Granted value) granted,
     required TResult Function(_NotGranted value) notGranted,
+    required TResult Function(_GrantedSetupComplete value) grantedSetupComplete,
   }) {
     return notGranted(this);
   }
@@ -552,10 +436,10 @@ class _$_NotGranted implements _NotGranted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
   }) {
     return notGranted?.call(this);
   }
@@ -563,10 +447,10 @@ class _$_NotGranted implements _NotGranted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
     TResult Function(_Granted value)? granted,
     TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
     required TResult orElse(),
   }) {
     if (notGranted != null) {
@@ -578,4 +462,121 @@ class _$_NotGranted implements _NotGranted {
 
 abstract class _NotGranted implements PermissionsNotifierState {
   const factory _NotGranted() = _$_NotGranted;
+}
+
+/// @nodoc
+abstract class _$$_GrantedSetupCompleteCopyWith<$Res> {
+  factory _$$_GrantedSetupCompleteCopyWith(_$_GrantedSetupComplete value,
+          $Res Function(_$_GrantedSetupComplete) then) =
+      __$$_GrantedSetupCompleteCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GrantedSetupCompleteCopyWithImpl<$Res>
+    extends _$PermissionsNotifierStateCopyWithImpl<$Res>
+    implements _$$_GrantedSetupCompleteCopyWith<$Res> {
+  __$$_GrantedSetupCompleteCopyWithImpl(_$_GrantedSetupComplete _value,
+      $Res Function(_$_GrantedSetupComplete) _then)
+      : super(_value, (v) => _then(v as _$_GrantedSetupComplete));
+
+  @override
+  _$_GrantedSetupComplete get _value => super._value as _$_GrantedSetupComplete;
+}
+
+/// @nodoc
+
+class _$_GrantedSetupComplete implements _GrantedSetupComplete {
+  const _$_GrantedSetupComplete();
+
+  @override
+  String toString() {
+    return 'PermissionsNotifierState.grantedSetupComplete()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GrantedSetupComplete);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String errorText) error,
+    required TResult Function() granted,
+    required TResult Function() notGranted,
+    required TResult Function() grantedSetupComplete,
+  }) {
+    return grantedSetupComplete();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String errorText)? error,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
+  }) {
+    return grantedSetupComplete?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String errorText)? error,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
+    TResult Function()? grantedSetupComplete,
+    required TResult orElse(),
+  }) {
+    if (grantedSetupComplete != null) {
+      return grantedSetupComplete();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ErrorText value) error,
+    required TResult Function(_Granted value) granted,
+    required TResult Function(_NotGranted value) notGranted,
+    required TResult Function(_GrantedSetupComplete value) grantedSetupComplete,
+  }) {
+    return grantedSetupComplete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ErrorText value)? error,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
+  }) {
+    return grantedSetupComplete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ErrorText value)? error,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
+    TResult Function(_GrantedSetupComplete value)? grantedSetupComplete,
+    required TResult orElse(),
+  }) {
+    if (grantedSetupComplete != null) {
+      return grantedSetupComplete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GrantedSetupComplete implements PermissionsNotifierState {
+  const factory _GrantedSetupComplete() = _$_GrantedSetupComplete;
 }
