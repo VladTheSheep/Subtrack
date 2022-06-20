@@ -1,8 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hive/hive.dart';
-import 'package:subtrack/consts/colors.dart';
 import 'package:subtrack/data/imported_database.dart';
 import 'package:subtrack/database/hive_utils.dart';
 import 'package:subtrack/database/models/category.dart';
@@ -12,8 +9,6 @@ import 'package:subtrack/database/models/note.dart';
 import 'package:subtrack/database/models/stash.dart';
 import 'package:subtrack/database/models/substance.dart';
 import 'package:subtrack/database/models/substance_extra.dart';
-import 'package:subtrack/providers.dart';
-import 'package:subtrack/utils/snackbar_helper.dart';
 
 class Log {
   static final Log _log = Log._internal();
