@@ -18,22 +18,18 @@ void main() {
   HiveUtils().registerAdapters();
 
   FileManager().initAppDirectory().then(
-    (value) {
-      PermissionsNotifier().hasPermissions().then(
-        (_) {
-          Settings().readSettings().then(
-                (_) => SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
-                  (_) => runApp(
-                    const ProviderScope(
-                      child: MyApp(),
+        (_) => PermissionsNotifier().hasPermissions().then(
+              (_) => Settings().readSettings().then(
+                    (_) => SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+                      (_) => runApp(
+                        const ProviderScope(
+                          child: MyApp(),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              );
-        },
+            ),
       );
-    },
-  );
 }
 
 class MyApp extends StatelessWidget {
