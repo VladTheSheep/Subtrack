@@ -235,9 +235,7 @@ class _FirstTimeSetupView extends StatelessWidget {
     } catch (e) {
       showSnackBar(
         "Unsupported / corrupted file",
-        icon: const FaIcon(
-          FontAwesomeIcons.lightFileExclamation,
-        ),
+        icon: const FaIcon(FontAwesomeIcons.lightFileExclamation),
         barColor: empathogenColorMat,
         duration: 3000,
       );
