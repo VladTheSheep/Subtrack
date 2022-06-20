@@ -6,21 +6,18 @@ part 'permissions_notifier.freezed.dart';
 
 @freezed
 class PermissionsNotifierState with _$PermissionsNotifierState {
-  const factory PermissionsNotifierState.initial() = _Initial;
   const factory PermissionsNotifierState.error(String errorText) = _ErrorText;
   const factory PermissionsNotifierState.granted() = _Granted;
   const factory PermissionsNotifierState.notGranted() = _NotGranted;
 }
 
 class PermissionsNotifier extends StateNotifier<PermissionsNotifierState> {
-  PermissionsNotifier() : super(const PermissionsNotifierState.initial());
+  PermissionsNotifier() : super(const PermissionsNotifierState.notGranted());
 
   Future<void> hasPermissions() async {
     final bool res = await FileManager().hasStoragePermission;
     if (res) {
       state = const PermissionsNotifierState.granted();
-    } else {
-      state = const PermissionsNotifierState.notGranted();
     }
   }
 
@@ -33,8 +30,6 @@ class PermissionsNotifier extends StateNotifier<PermissionsNotifierState> {
       final bool res = await FileManager().hasStoragePermission;
       if (res) {
         state = const PermissionsNotifierState.granted();
-      } else {
-        state = const PermissionsNotifierState.notGranted();
       }
     }
   }

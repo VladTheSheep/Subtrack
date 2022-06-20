@@ -12,21 +12,6 @@ import 'package:subtrack/utils/settings.dart';
 
 final _animateProvider = StateProvider<int>((ref) => 1);
 
-final _storagePermissionProvider = StateProvider<Widget>((ref) {
-  final bool storageGranted = FileManager().storageGranted;
-  PermissionsNotifierState state = ref.watch(storagePermissionsNotifierProvider);
-  if (storageGranted) {
-    state = const PermissionsNotifierState.granted();
-  } else {
-    state = const PermissionsNotifierState.notGranted();
-  }
-  return state.maybeWhen(
-    granted: () => FirstTimeSetup(setupComplete: Settings().data.hasCompletedSetup),
-    notGranted: () => const StoragePrompt(),
-    orElse: () => const Text("wut"),
-  );
-});
-
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
 
@@ -43,6 +28,19 @@ class LandingPage extends StatelessWidget {
                 WidgetsBinding.instance.addPostFrameCallback(
                   (_) => Future.delayed(const Duration(milliseconds: 500)).then((value) => ref.watch(_animateProvider.notifier).state = 2),
                 );
+
+                final _storagePermissionProvider = StateProvider<Widget>((ref) {
+                  final bool storageGranted = FileManager().storageGranted;
+                  PermissionsNotifierState state = ref.watch(storagePermissionsNotifierProvider);
+                  if (storageGranted) {
+                    state = const PermissionsNotifierState.granted();
+                  }
+                  return state.maybeWhen(
+                    granted: () => FirstTimeSetup(setupComplete: Settings().data.hasCompletedSetup),
+                    notGranted: () => const StoragePrompt(),
+                    orElse: () => const Text("wut"),
+                  );
+                });
 
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 1000),
