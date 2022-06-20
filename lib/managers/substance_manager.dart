@@ -77,7 +77,7 @@ class SubstanceManager {
       final List<Substance> substances = Log().getAllSubstances;
       if (substances.isNotEmpty) {
         for (final MapEntry<String, PsychoROA> roa in lastUsedROAs.entries) {
-          Log().getSubstance(roa.key)!.setLastUsedROA(roa.value);
+          Log().getSubstance(roa.key)!.lastUsedROA = roa.value;
         }
       }
     } catch (e) {
