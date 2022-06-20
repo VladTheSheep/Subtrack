@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'cache_notifier.dart';
+part of 'permissions_notifier.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,33 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CacheNotifierState {
+mixin _$PermissionsNotifierState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
-    required TResult Function(
-            List<Category> categories, List<Substance> substances)
-        loaded,
+    required TResult Function() granted,
+    required TResult Function() notGranted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,44 +45,44 @@ mixin _$CacheNotifierState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Granted value) granted,
+    required TResult Function(_NotGranted value) notGranted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CacheNotifierStateCopyWith<$Res> {
-  factory $CacheNotifierStateCopyWith(
-          CacheNotifierState value, $Res Function(CacheNotifierState) then) =
-      _$CacheNotifierStateCopyWithImpl<$Res>;
+abstract class $PermissionsNotifierStateCopyWith<$Res> {
+  factory $PermissionsNotifierStateCopyWith(PermissionsNotifierState value,
+          $Res Function(PermissionsNotifierState) then) =
+      _$PermissionsNotifierStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CacheNotifierStateCopyWithImpl<$Res>
-    implements $CacheNotifierStateCopyWith<$Res> {
-  _$CacheNotifierStateCopyWithImpl(this._value, this._then);
+class _$PermissionsNotifierStateCopyWithImpl<$Res>
+    implements $PermissionsNotifierStateCopyWith<$Res> {
+  _$PermissionsNotifierStateCopyWithImpl(this._value, this._then);
 
-  final CacheNotifierState _value;
+  final PermissionsNotifierState _value;
   // ignore: unused_field
-  final $Res Function(CacheNotifierState) _then;
+  final $Res Function(PermissionsNotifierState) _then;
 }
 
 /// @nodoc
@@ -98,7 +94,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CacheNotifierStateCopyWithImpl<$Res>
+    extends _$PermissionsNotifierStateCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, (v) => _then(v as _$_Initial));
@@ -114,7 +110,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'CacheNotifierState.initial()';
+    return 'PermissionsNotifierState.initial()';
   }
 
   @override
@@ -131,10 +127,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
-    required TResult Function(
-            List<Category> categories, List<Substance> substances)
-        loaded,
+    required TResult Function() granted,
+    required TResult Function() notGranted,
   }) {
     return initial();
   }
@@ -144,9 +138,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
   }) {
     return initial?.call();
   }
@@ -156,9 +149,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -172,8 +164,8 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Granted value) granted,
+    required TResult Function(_NotGranted value) notGranted,
   }) {
     return initial(this);
   }
@@ -183,8 +175,8 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
   }) {
     return initial?.call(this);
   }
@@ -194,8 +186,8 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -205,7 +197,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements CacheNotifierState {
+abstract class _Initial implements PermissionsNotifierState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -219,7 +211,7 @@ abstract class _$$_ErrorTextCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorTextCopyWithImpl<$Res>
-    extends _$CacheNotifierStateCopyWithImpl<$Res>
+    extends _$PermissionsNotifierStateCopyWithImpl<$Res>
     implements _$$_ErrorTextCopyWith<$Res> {
   __$$_ErrorTextCopyWithImpl(
       _$_ErrorText _value, $Res Function(_$_ErrorText) _then)
@@ -251,7 +243,7 @@ class _$_ErrorText implements _ErrorText {
 
   @override
   String toString() {
-    return 'CacheNotifierState.error(errorText: $errorText)';
+    return 'PermissionsNotifierState.error(errorText: $errorText)';
   }
 
   @override
@@ -276,10 +268,8 @@ class _$_ErrorText implements _ErrorText {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
-    required TResult Function(
-            List<Category> categories, List<Substance> substances)
-        loaded,
+    required TResult Function() granted,
+    required TResult Function() notGranted,
   }) {
     return error(errorText);
   }
@@ -289,9 +279,8 @@ class _$_ErrorText implements _ErrorText {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
   }) {
     return error?.call(errorText);
   }
@@ -301,9 +290,8 @@ class _$_ErrorText implements _ErrorText {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -317,8 +305,8 @@ class _$_ErrorText implements _ErrorText {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Granted value) granted,
+    required TResult Function(_NotGranted value) notGranted,
   }) {
     return error(this);
   }
@@ -328,8 +316,8 @@ class _$_ErrorText implements _ErrorText {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
   }) {
     return error?.call(this);
   }
@@ -339,8 +327,8 @@ class _$_ErrorText implements _ErrorText {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -350,7 +338,7 @@ class _$_ErrorText implements _ErrorText {
   }
 }
 
-abstract class _ErrorText implements CacheNotifierState {
+abstract class _ErrorText implements PermissionsNotifierState {
   const factory _ErrorText(final String errorText) = _$_ErrorText;
 
   String get errorText => throw _privateConstructorUsedError;
@@ -360,37 +348,37 @@ abstract class _ErrorText implements CacheNotifierState {
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$_GrantedCopyWith<$Res> {
+  factory _$$_GrantedCopyWith(
+          _$_Granted value, $Res Function(_$_Granted) then) =
+      __$$_GrantedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$CacheNotifierStateCopyWithImpl<$Res>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+class __$$_GrantedCopyWithImpl<$Res>
+    extends _$PermissionsNotifierStateCopyWithImpl<$Res>
+    implements _$$_GrantedCopyWith<$Res> {
+  __$$_GrantedCopyWithImpl(_$_Granted _value, $Res Function(_$_Granted) _then)
+      : super(_value, (v) => _then(v as _$_Granted));
 
   @override
-  _$_Loading get _value => super._value as _$_Loading;
+  _$_Granted get _value => super._value as _$_Granted;
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$_Granted implements _Granted {
+  const _$_Granted();
 
   @override
   String toString() {
-    return 'CacheNotifierState.loading()';
+    return 'PermissionsNotifierState.granted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$_Granted);
   }
 
   @override
@@ -401,12 +389,10 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
-    required TResult Function(
-            List<Category> categories, List<Substance> substances)
-        loaded,
+    required TResult Function() granted,
+    required TResult Function() notGranted,
   }) {
-    return loading();
+    return granted();
   }
 
   @override
@@ -414,11 +400,10 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
   }) {
-    return loading?.call();
+    return granted?.call();
   }
 
   @override
@@ -426,13 +411,12 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (granted != null) {
+      return granted();
     }
     return orElse();
   }
@@ -442,10 +426,10 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Granted value) granted,
+    required TResult Function(_NotGranted value) notGranted,
   }) {
-    return loading(this);
+    return granted(this);
   }
 
   @override
@@ -453,10 +437,10 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
   }) {
-    return loading?.call(this);
+    return granted?.call(this);
   }
 
   @override
@@ -464,116 +448,68 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading(this);
+    if (granted != null) {
+      return granted(this);
     }
     return orElse();
   }
 }
 
-abstract class _Loading implements CacheNotifierState {
-  const factory _Loading() = _$_Loading;
+abstract class _Granted implements PermissionsNotifierState {
+  const factory _Granted() = _$_Granted;
 }
 
 /// @nodoc
-abstract class _$$_LoadedCopyWith<$Res> {
-  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
-      __$$_LoadedCopyWithImpl<$Res>;
-  $Res call({List<Category> categories, List<Substance> substances});
+abstract class _$$_NotGrantedCopyWith<$Res> {
+  factory _$$_NotGrantedCopyWith(
+          _$_NotGranted value, $Res Function(_$_NotGranted) then) =
+      __$$_NotGrantedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res>
-    extends _$CacheNotifierStateCopyWithImpl<$Res>
-    implements _$$_LoadedCopyWith<$Res> {
-  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
-      : super(_value, (v) => _then(v as _$_Loaded));
+class __$$_NotGrantedCopyWithImpl<$Res>
+    extends _$PermissionsNotifierStateCopyWithImpl<$Res>
+    implements _$$_NotGrantedCopyWith<$Res> {
+  __$$_NotGrantedCopyWithImpl(
+      _$_NotGranted _value, $Res Function(_$_NotGranted) _then)
+      : super(_value, (v) => _then(v as _$_NotGranted));
 
   @override
-  _$_Loaded get _value => super._value as _$_Loaded;
-
-  @override
-  $Res call({
-    Object? categories = freezed,
-    Object? substances = freezed,
-  }) {
-    return _then(_$_Loaded(
-      categories == freezed
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<Category>,
-      substances == freezed
-          ? _value._substances
-          : substances // ignore: cast_nullable_to_non_nullable
-              as List<Substance>,
-    ));
-  }
+  _$_NotGranted get _value => super._value as _$_NotGranted;
 }
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  const _$_Loaded(
-      final List<Category> categories, final List<Substance> substances)
-      : _categories = categories,
-        _substances = substances;
-
-  final List<Category> _categories;
-  @override
-  List<Category> get categories {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
-  }
-
-  final List<Substance> _substances;
-  @override
-  List<Substance> get substances {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_substances);
-  }
+class _$_NotGranted implements _NotGranted {
+  const _$_NotGranted();
 
   @override
   String toString() {
-    return 'CacheNotifierState.loaded(categories: $categories, substances: $substances)';
+    return 'PermissionsNotifierState.notGranted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Loaded &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories) &&
-            const DeepCollectionEquality()
-                .equals(other._substances, _substances));
+        (other.runtimeType == runtimeType && other is _$_NotGranted);
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_categories),
-      const DeepCollectionEquality().hash(_substances));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
-      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String errorText) error,
-    required TResult Function() loading,
-    required TResult Function(
-            List<Category> categories, List<Substance> substances)
-        loaded,
+    required TResult Function() granted,
+    required TResult Function() notGranted,
   }) {
-    return loaded(categories, substances);
+    return notGranted();
   }
 
   @override
@@ -581,11 +517,10 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
   }) {
-    return loaded?.call(categories, substances);
+    return notGranted?.call();
   }
 
   @override
@@ -593,13 +528,12 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String errorText)? error,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, List<Substance> substances)?
-        loaded,
+    TResult Function()? granted,
+    TResult Function()? notGranted,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(categories, substances);
+    if (notGranted != null) {
+      return notGranted();
     }
     return orElse();
   }
@@ -609,10 +543,10 @@ class _$_Loaded implements _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ErrorText value) error,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Granted value) granted,
+    required TResult Function(_NotGranted value) notGranted,
   }) {
-    return loaded(this);
+    return notGranted(this);
   }
 
   @override
@@ -620,10 +554,10 @@ class _$_Loaded implements _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
   }) {
-    return loaded?.call(this);
+    return notGranted?.call(this);
   }
 
   @override
@@ -631,25 +565,17 @@ class _$_Loaded implements _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ErrorText value)? error,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Granted value)? granted,
+    TResult Function(_NotGranted value)? notGranted,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (notGranted != null) {
+      return notGranted(this);
     }
     return orElse();
   }
 }
 
-abstract class _Loaded implements CacheNotifierState {
-  const factory _Loaded(
-          final List<Category> categories, final List<Substance> substances) =
-      _$_Loaded;
-
-  List<Category> get categories => throw _privateConstructorUsedError;
-  List<Substance> get substances => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _NotGranted implements PermissionsNotifierState {
+  const factory _NotGranted() = _$_NotGranted;
 }

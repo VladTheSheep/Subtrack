@@ -1,11 +1,9 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:imperium/database/log.dart';
-import 'package:imperium/utils/settings.dart';
-import 'package:imperium/utils/string_manipulation.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:subtrack/database/log.dart';
+import 'package:subtrack/utils/settings.dart';
 
 class FileManager {
   static final FileManager _fileManager = FileManager._internal();
@@ -14,50 +12,43 @@ class FileManager {
   FileManager._internal();
 
   bool storageDenied = true;
+  bool manageStorageDenied = true;
+  bool storageGranted = false;
 
   late String _rootAppDirPath;
-  late String _externalDirPath;
-  late String _rootDirPath;
 
   String get getRootAppDirPath => _rootAppDirPath;
-  String get getExportPath => Platform.isAndroid ? '$_rootAppDirPath/Export' : _externalDirPath;
-  String get getDatabasePath => Platform.isAndroid ? '$_rootAppDirPath/Database' : _externalDirPath;
-  String get getTempBackupPath => Platform.isAndroid ? '$_rootAppDirPath/Backup' : _externalDirPath;
+  String get getExportPath => '$_rootAppDirPath/Export';
+  String get getDatabasePath => '$_rootAppDirPath/Database';
+  String get getTempBackupPath => '$_rootAppDirPath/Backup';
 
   Future<bool> get hasStoragePermission async {
-    storageDenied = !await Permission.storage.request().isGranted;
-    return !storageDenied;
+    manageStorageDenied = !await Permission.manageExternalStorage.isGranted;
+    storageDenied = !await Permission.storage.isGranted;
+    return storageGranted = !storageDenied && !manageStorageDenied;
   }
 
-  Future<void> initPaths() async {
-    if (Platform.isLinux || await hasStoragePermission) {
-      storageDenied = false;
-      await _startInit();
-      await _initRootDirectory();
-    } else {
-      storageDenied = true;
-    }
+  Future<void> get requestStoragePermission async {
+    await Permission.manageExternalStorage.request();
+    await Permission.storage.request();
   }
 
-  Future<void> _startInit() async {
-    _externalDirPath = await _externalPath;
-
-    String temp = _externalDirPath;
-    for (int i = 0; i < 1; ++i) {
-      final int index = findCharPos(temp, '/', true);
-      if (index != -1) {
-        temp = temp.replaceFirst(temp.substring(index), '', index);
-      } else {
-        print('ERROR!! FileHandler::getRootDirPath: Could not find root directory!');
-        break;
+  Future<bool> pickPath() async {
+    if (await hasStoragePermission) {
+      final String? result = await FilePicker.platform.getDirectoryPath(dialogTitle: "Create database in specified folder");
+      if (result != null) {
+        _rootAppDirPath = result;
+        await _initRootDirectory();
+        return true;
       }
+      return false;
     }
-    _rootDirPath = temp;
+    return false;
   }
 
   Future<void> _initRootDirectory() async {
     if (Platform.isAndroid) {
-      await Directory(_rootDirPath).create(recursive: true).then((Directory dir) => _rootAppDirPath = dir.path);
+      await Directory(_rootAppDirPath).create(recursive: true).then((Directory dir) => _rootAppDirPath = dir.path);
     }
 
     await Directory(getDatabasePath).create(recursive: true);
@@ -65,29 +56,18 @@ class FileManager {
     await Directory(getTempBackupPath).create(recursive: true);
   }
 
-  Future<String> get _externalPath async {
-    String path = "";
-    if (Platform.isAndroid) {
-      final List<Directory>? directories = await getExternalStorageDirectories();
-      if (directories != null && directories.isNotEmpty) {
-        path = directories.first.path;
-      }
-    } else if (Platform.isIOS || Platform.isLinux) {
-      final Directory directory = await getApplicationDocumentsDirectory();
-      path = directory.path;
-    }
-    return path;
-  }
-
   Future<String?> pickJson() async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ["json"],
-    );
+    if (await hasStoragePermission) {
+      final FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ["json"],
+      );
 
-    if (result != null && result.files.single.path != null) {
-      final File file = File(result.files.single.path!);
-      return file.readAsString();
+      if (result != null && result.files.single.path != null) {
+        final File file = File(result.files.single.path!);
+        return file.readAsString();
+      }
+      return null;
     }
 
     return null;
@@ -96,7 +76,7 @@ class FileManager {
   Future<String?> exportJsonTo() async {
     final String? outputFile = await FilePicker.platform.saveFile(
       dialogTitle: "Select export path",
-      fileName: "imperium.json",
+      fileName: "subtrack.json",
     );
 
     if (outputFile != null) {

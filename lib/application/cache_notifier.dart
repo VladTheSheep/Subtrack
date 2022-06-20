@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:imperium/database/models/category.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/infrastructure/category_repository.dart';
-import 'package:imperium/infrastructure/substance_repository.dart';
-import 'package:imperium/managers/substance_manager.dart';
+import 'package:subtrack/database/models/category.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/infrastructure/category_repository.dart';
+import 'package:subtrack/infrastructure/substance_repository.dart';
+import 'package:subtrack/managers/substance_manager.dart';
 
 part 'cache_notifier.freezed.dart';
 
@@ -30,9 +30,9 @@ class CacheNotifier extends StateNotifier<CacheNotifierState> {
       state = const CacheNotifierState.loading();
 
       final List<Category> categories = await _categoryRepository.fetchCategories();
-      final List<Substance> substances = await _substanceRepository.fetchSubstances();
-
       await SubstanceManager().setCategories(categories);
+
+      final List<Substance> substances = await _substanceRepository.fetchSubstances();
       await SubstanceManager().setSubstances(substances);
 
       state = CacheNotifierState.loaded(categories, substances);

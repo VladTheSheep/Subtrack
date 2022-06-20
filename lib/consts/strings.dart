@@ -1,3 +1,3 @@
-const String APP_NAME = "Imperium";
+const String appName = "Subtrack";
 
 const String settingsFileName = "settings.json";

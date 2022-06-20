@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
-import 'package:imperium/consts/colors.dart';
+import 'package:subtrack/consts/colors.dart';
 
 part 'effect_type.g.dart';
 

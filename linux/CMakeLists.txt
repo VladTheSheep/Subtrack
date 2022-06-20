@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "imperium")
-set(APPLICATION_ID "sh.lmao.imperium")
+set(BINARY_NAME "subtrack")
+set(APPLICATION_ID "sh.lmao.subtrack")
 
 cmake_policy(SET CMP0063 NEW)
 

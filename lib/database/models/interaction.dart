@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/database/models/enums/interaction_type.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/database/models/enums/interaction_type.dart';
 
 part 'interaction.g.dart';
 

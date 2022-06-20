@@ -1,5 +1,5 @@
-import 'package:imperium/scraping/models/psycho_roa.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/scraping/models/psycho_roa.dart';
 
 part 'psycho_substance.g.dart';
 

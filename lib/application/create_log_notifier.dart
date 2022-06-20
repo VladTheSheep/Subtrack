@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:imperium/application/cache_notifier.dart';
-import 'package:imperium/application/diary_load_notifier.dart';
-import 'package:imperium/data/imported_database.dart';
-import 'package:imperium/utils/settings.dart';
+import 'package:subtrack/application/cache_notifier.dart';
+import 'package:subtrack/application/diary_load_notifier.dart';
+import 'package:subtrack/data/imported_database.dart';
+import 'package:subtrack/utils/settings.dart';
 
 part 'create_log_notifier.freezed.dart';
 

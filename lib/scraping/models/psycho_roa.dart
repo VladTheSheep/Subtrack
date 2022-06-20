@@ -1,9 +1,9 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/managers/substance_manager.dart';
-import 'package:imperium/scraping/models/data/psycho_duration_data.dart';
-import 'package:imperium/scraping/models/psycho_dose.dart';
-import 'package:imperium/utils/string_manipulation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/managers/substance_manager.dart';
+import 'package:subtrack/scraping/models/data/psycho_duration_data.dart';
+import 'package:subtrack/scraping/models/psycho_dose.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
 
 part 'psycho_roa.g.dart';
 

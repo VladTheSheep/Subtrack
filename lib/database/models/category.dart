@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:imperium/utils/string_manipulation.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
 
 part 'category.g.dart';
 

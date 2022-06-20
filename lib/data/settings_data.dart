@@ -4,12 +4,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:imperium/consts/strings.dart';
-import 'package:imperium/database/models/date.dart';
-import 'package:imperium/managers/file_manager.dart';
-import 'package:imperium/providers.dart';
-import 'package:imperium/utils/themes.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/consts/strings.dart';
+import 'package:subtrack/database/models/date.dart';
+import 'package:subtrack/managers/file_manager.dart';
+import 'package:subtrack/providers.dart';
+import 'package:subtrack/utils/themes.dart';
 
 part 'settings_data.g.dart';
 

@@ -1,10 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:imperium/application/cache_notifier.dart';
-import 'package:imperium/application/create_log_notifier.dart';
-import 'package:imperium/application/diary_load_notifier.dart';
-import 'package:imperium/infrastructure/category_repository.dart';
-import 'package:imperium/infrastructure/substance_repository.dart';
-import 'package:imperium/utils/themes.dart';
+import 'package:subtrack/application/cache_notifier.dart';
+import 'package:subtrack/application/create_log_notifier.dart';
+import 'package:subtrack/application/diary_load_notifier.dart';
+import 'package:subtrack/application/permissions_notifier.dart';
+import 'package:subtrack/infrastructure/category_repository.dart';
+import 'package:subtrack/infrastructure/substance_repository.dart';
+import 'package:subtrack/utils/themes.dart';
 
 final themeProvider = StateProvider((ref) => Themes().getTheme());
 final settingsProvider = StateProvider((ref) => null);
@@ -33,4 +34,8 @@ final createLogNotifierProvider = StateNotifierProvider<CreateLogNotifier, Creat
     ref.watch(cacheNotifierProvider.notifier),
     ref.watch(diaryLoadNotifierProvider.notifier),
   ),
+);
+
+final storagePermissionsNotifierProvider = StateNotifierProvider<PermissionsNotifier, PermissionsNotifierState>(
+  (ref) => PermissionsNotifier(),
 );

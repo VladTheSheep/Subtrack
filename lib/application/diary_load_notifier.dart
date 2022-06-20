@@ -1,14 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:imperium/data/imported_database.dart';
-import 'package:imperium/database/log.dart';
-import 'package:imperium/database/models/entry.dart';
-import 'package:imperium/database/models/note.dart';
-import 'package:imperium/database/models/stash.dart';
-import 'package:imperium/database/models/substance_extra.dart';
-import 'package:imperium/managers/diary_manager.dart';
-import 'package:imperium/managers/stash_manager.dart';
-import 'package:imperium/managers/substance_manager.dart';
+import 'package:subtrack/data/imported_database.dart';
+import 'package:subtrack/database/log.dart';
+import 'package:subtrack/database/models/entry.dart';
+import 'package:subtrack/database/models/note.dart';
+import 'package:subtrack/database/models/stash.dart';
+import 'package:subtrack/database/models/substance_extra.dart';
+import 'package:subtrack/managers/diary_manager.dart';
+import 'package:subtrack/managers/stash_manager.dart';
+import 'package:subtrack/managers/substance_manager.dart';
 
 part 'diary_load_notifier.freezed.dart';
 

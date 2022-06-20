@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/scraping/models/data/psycho_dose_data.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/scraping/models/data/psycho_dose_data.dart';
 
 part 'psycho_dose.g.dart';
 

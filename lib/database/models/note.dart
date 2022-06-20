@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/database/models/date.dart';
-import 'package:imperium/utils/uuid.dart';
+import 'package:subtrack/database/models/date.dart';
+import 'package:subtrack/utils/uuid.dart';
 
 part 'note.g.dart';
 

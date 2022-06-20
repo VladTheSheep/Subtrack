@@ -1,8 +1,8 @@
-import 'package:imperium/database/log.dart';
-import 'package:imperium/database/models/entry.dart';
-import 'package:imperium/database/models/note.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/managers/substance_manager.dart';
+import 'package:subtrack/database/log.dart';
+import 'package:subtrack/database/models/entry.dart';
+import 'package:subtrack/database/models/note.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/managers/substance_manager.dart';
 
 class DiaryManager {
   static final DiaryManager _diaryManager = DiaryManager._internal();

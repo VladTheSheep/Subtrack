@@ -1,23 +1,23 @@
 import 'package:hive_flutter/adapters.dart';
-import 'package:imperium/database/log.dart';
-import 'package:imperium/database/models/category.dart';
-import 'package:imperium/database/models/date.dart';
-import 'package:imperium/database/models/effect.dart';
-import 'package:imperium/database/models/entry.dart';
-import 'package:imperium/database/models/enums/effect_category.dart';
-import 'package:imperium/database/models/enums/effect_type.dart';
-import 'package:imperium/database/models/enums/interaction_type.dart';
-import 'package:imperium/database/models/enums/sub_effect_category.dart';
-import 'package:imperium/database/models/interaction.dart';
-import 'package:imperium/database/models/note.dart';
-import 'package:imperium/database/models/stash.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/database/models/substance_extra.dart';
-import 'package:imperium/managers/file_manager.dart';
-import 'package:imperium/scraping/models/data/psycho_dose_data.dart';
-import 'package:imperium/scraping/models/data/psycho_duration_data.dart';
-import 'package:imperium/scraping/models/psycho_dose.dart';
-import 'package:imperium/scraping/models/psycho_roa.dart';
+import 'package:subtrack/database/log.dart';
+import 'package:subtrack/database/models/category.dart';
+import 'package:subtrack/database/models/date.dart';
+import 'package:subtrack/database/models/effect.dart';
+import 'package:subtrack/database/models/entry.dart';
+import 'package:subtrack/database/models/enums/effect_category.dart';
+import 'package:subtrack/database/models/enums/effect_type.dart';
+import 'package:subtrack/database/models/enums/interaction_type.dart';
+import 'package:subtrack/database/models/enums/sub_effect_category.dart';
+import 'package:subtrack/database/models/interaction.dart';
+import 'package:subtrack/database/models/note.dart';
+import 'package:subtrack/database/models/stash.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/database/models/substance_extra.dart';
+import 'package:subtrack/managers/file_manager.dart';
+import 'package:subtrack/scraping/models/data/psycho_dose_data.dart';
+import 'package:subtrack/scraping/models/data/psycho_duration_data.dart';
+import 'package:subtrack/scraping/models/psycho_dose.dart';
+import 'package:subtrack/scraping/models/psycho_roa.dart';
 
 class HiveUtils {
   static final HiveUtils _hiveUtils = HiveUtils._internal();
@@ -114,7 +114,7 @@ class HiveUtils {
 
   SubstanceExtra? getValueExtra(Box box, String? name) {
     try {
-      return box.values.firstWhere((element) => element.name == name) as SubstanceExtra?;
+      return box.values.firstWhere((element) => (element as SubstanceExtra).name == name) as SubstanceExtra?;
     } catch (e) {
       print("Warning! HiveUtils::getValueExtra: $e");
       return null;

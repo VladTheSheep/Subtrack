@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/scraping/models/psycho_roa.dart';
+import 'package:subtrack/scraping/models/psycho_roa.dart';
 
 part 'substance_extra.g.dart';
 

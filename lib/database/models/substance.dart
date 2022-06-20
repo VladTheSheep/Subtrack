@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:imperium/database/log.dart';
-import 'package:imperium/database/models/category.dart';
-import 'package:imperium/database/models/effect.dart';
-import 'package:imperium/database/models/interaction.dart';
-import 'package:imperium/managers/effects_manager.dart';
-import 'package:imperium/managers/substance_manager.dart';
-import 'package:imperium/scraping/models/psycho_roa.dart';
-import 'package:imperium/scraping/models/psycho_substance.dart';
-import 'package:imperium/utils/string_manipulation.dart';
+import 'package:subtrack/database/log.dart';
+import 'package:subtrack/database/models/category.dart';
+import 'package:subtrack/database/models/effect.dart';
+import 'package:subtrack/database/models/interaction.dart';
+import 'package:subtrack/managers/effects_manager.dart';
+import 'package:subtrack/managers/substance_manager.dart';
+import 'package:subtrack/scraping/models/psycho_roa.dart';
+import 'package:subtrack/scraping/models/psycho_substance.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
 
 part 'substance.g.dart';
 

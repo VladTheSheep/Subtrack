@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:imperium/utils/themes.dart';
+import 'package:subtrack/utils/themes.dart';
 
 Widget getImage(String path, {double size = 32.0}) => Image(image: AssetImage(path), width: size, height: size);
 

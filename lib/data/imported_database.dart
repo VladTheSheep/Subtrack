@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:imperium/database/models/entry.dart';
-import 'package:imperium/database/models/note.dart';
-import 'package:imperium/database/models/stash.dart';
-import 'package:imperium/database/models/substance_extra.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/database/models/entry.dart';
+import 'package:subtrack/database/models/note.dart';
+import 'package:subtrack/database/models/stash.dart';
+import 'package:subtrack/database/models/substance_extra.dart';
 
 part 'imported_database.g.dart';
 

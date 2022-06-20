@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:imperium/consts/colors.dart';
-import 'package:imperium/data/substance_stat.dart';
-import 'package:imperium/database/log.dart';
-import 'package:imperium/database/models/category.dart';
-import 'package:imperium/database/models/entry.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/database/models/substance_extra.dart';
-import 'package:imperium/scraping/models/psycho_roa.dart';
-import 'package:imperium/utils/string_manipulation.dart';
-import 'package:imperium/utils/themes.dart';
-import 'package:imperium/widgets/category_badge.dart';
+import 'package:subtrack/consts/colors.dart';
+import 'package:subtrack/data/substance_stat.dart';
+import 'package:subtrack/database/log.dart';
+import 'package:subtrack/database/models/category.dart';
+import 'package:subtrack/database/models/entry.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/database/models/substance_extra.dart';
+import 'package:subtrack/scraping/models/psycho_roa.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
+import 'package:subtrack/utils/themes.dart';
+import 'package:subtrack/widgets/category_badge.dart';
 
 class SubstanceManager {
   static final SubstanceManager _substanceManager = SubstanceManager._internal();

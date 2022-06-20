@@ -12,37 +12,7 @@ part of 'create_log_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CreateLogNotifierStateTearOff {
-  const _$CreateLogNotifierStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _ErrorText error(String errorText) {
-    return _ErrorText(
-      errorText,
-    );
-  }
-
-  _LoadingCache loadingCache() {
-    return const _LoadingCache();
-  }
-
-  _LoadingLog loadingLog() {
-    return const _LoadingLog();
-  }
-
-  _Loaded loaded() {
-    return const _Loaded();
-  }
-}
-
-/// @nodoc
-const $CreateLogNotifierState = _$CreateLogNotifierStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CreateLogNotifierState {
@@ -122,20 +92,21 @@ class _$CreateLogNotifierStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
     extends _$CreateLogNotifierStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  _$_Initial get _value => super._value as _$_Initial;
 }
 
 /// @nodoc
@@ -151,7 +122,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -243,28 +214,29 @@ abstract class _Initial implements CreateLogNotifierState {
 }
 
 /// @nodoc
-abstract class _$ErrorTextCopyWith<$Res> {
-  factory _$ErrorTextCopyWith(
-          _ErrorText value, $Res Function(_ErrorText) then) =
-      __$ErrorTextCopyWithImpl<$Res>;
+abstract class _$$_ErrorTextCopyWith<$Res> {
+  factory _$$_ErrorTextCopyWith(
+          _$_ErrorText value, $Res Function(_$_ErrorText) then) =
+      __$$_ErrorTextCopyWithImpl<$Res>;
   $Res call({String errorText});
 }
 
 /// @nodoc
-class __$ErrorTextCopyWithImpl<$Res>
+class __$$_ErrorTextCopyWithImpl<$Res>
     extends _$CreateLogNotifierStateCopyWithImpl<$Res>
-    implements _$ErrorTextCopyWith<$Res> {
-  __$ErrorTextCopyWithImpl(_ErrorText _value, $Res Function(_ErrorText) _then)
-      : super(_value, (v) => _then(v as _ErrorText));
+    implements _$$_ErrorTextCopyWith<$Res> {
+  __$$_ErrorTextCopyWithImpl(
+      _$_ErrorText _value, $Res Function(_$_ErrorText) _then)
+      : super(_value, (v) => _then(v as _$_ErrorText));
 
   @override
-  _ErrorText get _value => super._value as _ErrorText;
+  _$_ErrorText get _value => super._value as _$_ErrorText;
 
   @override
   $Res call({
     Object? errorText = freezed,
   }) {
-    return _then(_ErrorText(
+    return _then(_$_ErrorText(
       errorText == freezed
           ? _value.errorText
           : errorText // ignore: cast_nullable_to_non_nullable
@@ -290,7 +262,7 @@ class _$_ErrorText implements _ErrorText {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ErrorText &&
+            other is _$_ErrorText &&
             const DeepCollectionEquality().equals(other.errorText, errorText));
   }
 
@@ -300,8 +272,8 @@ class _$_ErrorText implements _ErrorText {
 
   @JsonKey(ignore: true)
   @override
-  _$ErrorTextCopyWith<_ErrorText> get copyWith =>
-      __$ErrorTextCopyWithImpl<_ErrorText>(this, _$identity);
+  _$$_ErrorTextCopyWith<_$_ErrorText> get copyWith =>
+      __$$_ErrorTextCopyWithImpl<_$_ErrorText>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -385,31 +357,31 @@ class _$_ErrorText implements _ErrorText {
 }
 
 abstract class _ErrorText implements CreateLogNotifierState {
-  const factory _ErrorText(String errorText) = _$_ErrorText;
+  const factory _ErrorText(final String errorText) = _$_ErrorText;
 
-  String get errorText;
+  String get errorText => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ErrorTextCopyWith<_ErrorText> get copyWith =>
+  _$$_ErrorTextCopyWith<_$_ErrorText> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoadingCacheCopyWith<$Res> {
-  factory _$LoadingCacheCopyWith(
-          _LoadingCache value, $Res Function(_LoadingCache) then) =
-      __$LoadingCacheCopyWithImpl<$Res>;
+abstract class _$$_LoadingCacheCopyWith<$Res> {
+  factory _$$_LoadingCacheCopyWith(
+          _$_LoadingCache value, $Res Function(_$_LoadingCache) then) =
+      __$$_LoadingCacheCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCacheCopyWithImpl<$Res>
+class __$$_LoadingCacheCopyWithImpl<$Res>
     extends _$CreateLogNotifierStateCopyWithImpl<$Res>
-    implements _$LoadingCacheCopyWith<$Res> {
-  __$LoadingCacheCopyWithImpl(
-      _LoadingCache _value, $Res Function(_LoadingCache) _then)
-      : super(_value, (v) => _then(v as _LoadingCache));
+    implements _$$_LoadingCacheCopyWith<$Res> {
+  __$$_LoadingCacheCopyWithImpl(
+      _$_LoadingCache _value, $Res Function(_$_LoadingCache) _then)
+      : super(_value, (v) => _then(v as _$_LoadingCache));
 
   @override
-  _LoadingCache get _value => super._value as _LoadingCache;
+  _$_LoadingCache get _value => super._value as _$_LoadingCache;
 }
 
 /// @nodoc
@@ -425,7 +397,7 @@ class _$_LoadingCache implements _LoadingCache {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoadingCache);
+        (other.runtimeType == runtimeType && other is _$_LoadingCache);
   }
 
   @override
@@ -517,22 +489,22 @@ abstract class _LoadingCache implements CreateLogNotifierState {
 }
 
 /// @nodoc
-abstract class _$LoadingLogCopyWith<$Res> {
-  factory _$LoadingLogCopyWith(
-          _LoadingLog value, $Res Function(_LoadingLog) then) =
-      __$LoadingLogCopyWithImpl<$Res>;
+abstract class _$$_LoadingLogCopyWith<$Res> {
+  factory _$$_LoadingLogCopyWith(
+          _$_LoadingLog value, $Res Function(_$_LoadingLog) then) =
+      __$$_LoadingLogCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingLogCopyWithImpl<$Res>
+class __$$_LoadingLogCopyWithImpl<$Res>
     extends _$CreateLogNotifierStateCopyWithImpl<$Res>
-    implements _$LoadingLogCopyWith<$Res> {
-  __$LoadingLogCopyWithImpl(
-      _LoadingLog _value, $Res Function(_LoadingLog) _then)
-      : super(_value, (v) => _then(v as _LoadingLog));
+    implements _$$_LoadingLogCopyWith<$Res> {
+  __$$_LoadingLogCopyWithImpl(
+      _$_LoadingLog _value, $Res Function(_$_LoadingLog) _then)
+      : super(_value, (v) => _then(v as _$_LoadingLog));
 
   @override
-  _LoadingLog get _value => super._value as _LoadingLog;
+  _$_LoadingLog get _value => super._value as _$_LoadingLog;
 }
 
 /// @nodoc
@@ -548,7 +520,7 @@ class _$_LoadingLog implements _LoadingLog {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoadingLog);
+        (other.runtimeType == runtimeType && other is _$_LoadingLog);
   }
 
   @override
@@ -640,20 +612,20 @@ abstract class _LoadingLog implements CreateLogNotifierState {
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res>
+class __$$_LoadedCopyWithImpl<$Res>
     extends _$CreateLogNotifierStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, (v) => _then(v as _$_Loaded));
 
   @override
-  _Loaded get _value => super._value as _Loaded;
+  _$_Loaded get _value => super._value as _$_Loaded;
 }
 
 /// @nodoc
@@ -669,7 +641,7 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loaded);
+        (other.runtimeType == runtimeType && other is _$_Loaded);
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:imperium/database/models/category.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/managers/substance_manager.dart';
+import 'package:subtrack/database/models/category.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/managers/substance_manager.dart';
 
 class CategoryBadge extends StatelessWidget {
   const CategoryBadge({

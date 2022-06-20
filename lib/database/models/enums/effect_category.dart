@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
-import 'package:imperium/consts/colors.dart';
-import 'package:imperium/utils/themes.dart';
+import 'package:subtrack/consts/colors.dart';
+import 'package:subtrack/utils/themes.dart';
 
 part 'effect_category.g.dart';
 

@@ -1,7 +1,7 @@
 import 'package:date_utils/date_utils.dart';
 import 'package:hive/hive.dart';
-import 'package:imperium/utils/settings.dart';
-import 'package:imperium/utils/string_manipulation.dart';
+import 'package:subtrack/utils/settings.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
 
 part 'date.g.dart';
 

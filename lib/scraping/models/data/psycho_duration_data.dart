@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/utils/string_manipulation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
 
 part 'psycho_duration_data.g.dart';
 

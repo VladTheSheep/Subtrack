@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:imperium/consts/colors.dart';
-import 'package:imperium/utils/settings.dart';
+import 'package:subtrack/consts/colors.dart';
+import 'package:subtrack/utils/settings.dart';
 
 class Themes {
   static final Themes _themes = Themes._internal();

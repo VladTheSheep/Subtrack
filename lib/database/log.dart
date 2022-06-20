@@ -1,14 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:hive/hive.dart';
-import 'package:imperium/data/imported_database.dart';
-import 'package:imperium/database/hive_utils.dart';
-import 'package:imperium/database/models/category.dart';
-import 'package:imperium/database/models/date.dart';
-import 'package:imperium/database/models/entry.dart';
-import 'package:imperium/database/models/note.dart';
-import 'package:imperium/database/models/stash.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/database/models/substance_extra.dart';
+import 'package:subtrack/data/imported_database.dart';
+import 'package:subtrack/database/hive_utils.dart';
+import 'package:subtrack/database/models/category.dart';
+import 'package:subtrack/database/models/date.dart';
+import 'package:subtrack/database/models/entry.dart';
+import 'package:subtrack/database/models/note.dart';
+import 'package:subtrack/database/models/stash.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/database/models/substance_extra.dart';
 
 class Log {
   static final Log _log = Log._internal();

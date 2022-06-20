@@ -1,9 +1,9 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/database/log.dart';
-import 'package:imperium/database/models/date.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/scraping/models/psycho_roa.dart';
-import 'package:imperium/utils/uuid.dart';
+import 'package:subtrack/database/log.dart';
+import 'package:subtrack/database/models/date.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/scraping/models/psycho_roa.dart';
+import 'package:subtrack/utils/uuid.dart';
 
 part 'entry.g.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:imperium/database/models/effect.dart';
-import 'package:imperium/database/models/enums/effect_category.dart';
-import 'package:imperium/database/models/enums/effect_type.dart';
-import 'package:imperium/database/models/enums/sub_effect_category.dart';
-import 'package:imperium/utils/string_manipulation.dart';
+import 'package:subtrack/database/models/effect.dart';
+import 'package:subtrack/database/models/enums/effect_category.dart';
+import 'package:subtrack/database/models/enums/effect_type.dart';
+import 'package:subtrack/database/models/enums/sub_effect_category.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
 
 class EffectsManager {
   static final EffectsManager _effectsManager = EffectsManager._internal();

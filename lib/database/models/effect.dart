@@ -1,9 +1,9 @@
 import 'package:hive/hive.dart';
-import 'package:imperium/database/models/enums/effect_category.dart';
-import 'package:imperium/database/models/enums/effect_type.dart';
-import 'package:imperium/database/models/enums/sub_effect_category.dart';
-import 'package:imperium/utils/string_manipulation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:subtrack/database/models/enums/effect_category.dart';
+import 'package:subtrack/database/models/enums/effect_type.dart';
+import 'package:subtrack/database/models/enums/sub_effect_category.dart';
+import 'package:subtrack/utils/string_manipulation.dart';
 
 part 'effect.g.dart';
 

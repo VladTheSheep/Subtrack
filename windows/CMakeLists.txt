@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(imperium LANGUAGES CXX)
+project(subtrack LANGUAGES CXX)
 
-set(BINARY_NAME "imperium")
+set(BINARY_NAME "subtrack")
 
 cmake_policy(SET CMP0063 NEW)
 

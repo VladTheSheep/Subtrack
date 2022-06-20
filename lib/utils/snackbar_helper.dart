@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:imperium/consts/colors.dart';
-import 'package:imperium/consts/sizes.dart';
-import 'package:imperium/navigation/nav.dart';
-import 'package:imperium/utils/themes.dart';
+import 'package:subtrack/consts/colors.dart';
+import 'package:subtrack/consts/sizes.dart';
+import 'package:subtrack/navigation/nav.dart';
+import 'package:subtrack/utils/themes.dart';
 
 void showSnackBar(
   String text, {

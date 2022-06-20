@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:imperium/database/models/substance.dart';
-import 'package:imperium/scraping/models/psycho_substance.dart';
+import 'package:subtrack/database/models/substance.dart';
+import 'package:subtrack/scraping/models/psycho_substance.dart';
 
 class SubstanceRepository {
   final Client _httpClient = Client();
