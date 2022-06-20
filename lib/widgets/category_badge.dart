@@ -50,7 +50,12 @@ class CategoryBadge extends StatelessWidget {
       ),
     );
 
-    final bool _noClick = inactive ? true : noClick;
+    final bool _noClick;
+    if (inactive) {
+      _noClick = true;
+    } else {
+      _noClick = noClick;
+    }
 
     Widget badge;
     if (!_noClick) {
