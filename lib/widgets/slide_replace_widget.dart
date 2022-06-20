@@ -57,6 +57,15 @@ class _SlideReplaceWidgetState extends ConsumerState<SlideReplaceWidget> with Ti
   }
 
   @override
+  void dispose() {
+    _animController1.dispose();
+    _animController2.dispose();
+    curve1.dispose();
+    curve2.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     ref.listen(widget.stateProvider, (_, AsyncValue<bool> after) {
       after.whenOrNull(
