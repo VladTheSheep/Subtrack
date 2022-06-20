@@ -18,14 +18,14 @@ class EffectsManager {
   bool _effectsInit = false;
 
   void initEffects() {
-    effects[EffectCategory.Visual] = <SubEffectCategory, Map<String, EffectType>>{};
-    effects[EffectCategory.Cognitive] = <SubEffectCategory, Map<String, EffectType>>{};
-    effects[EffectCategory.Physical] = <SubEffectCategory, Map<String, EffectType>>{};
-    effects[EffectCategory.Auditory] = <SubEffectCategory, Map<String, EffectType>>{};
-    effects[EffectCategory.Disconnective] = <SubEffectCategory, Map<String, EffectType>>{};
-    effects[EffectCategory.Tactile] = <SubEffectCategory, Map<String, EffectType>>{};
-    effects[EffectCategory.SmellTaste] = <SubEffectCategory, Map<String, EffectType>>{};
-    effects[EffectCategory.Multisensory] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.visual] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.cognitive] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.physical] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.auditory] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.disconnective] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.tactile] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.smellTaste] = <SubEffectCategory, Map<String, EffectType>>{};
+    effects[EffectCategory.multisensory] = <SubEffectCategory, Map<String, EffectType>>{};
     _effectsInit = true;
   }
 
@@ -54,7 +54,7 @@ class EffectsManager {
     if (effect == null || effect.isEmpty) return null;
 
     String temp = effect.toLowerCase();
-    if (temp.contains('#')) temp = temp.substring(findCharPos(temp, '#', false) + 1);
+    if (temp.contains('#')) temp = temp.substring(findCharPos(temp, '#') + 1);
     switch (temp) {
       case 'acuity enhancement':
       case 'colour enhancement':
@@ -512,483 +512,483 @@ class EffectsManager {
   }
 
   Effect _parseVisualEnhancements(String effect) {
-    if (effects[EffectCategory.Visual]![SubEffectCategory.Enhancements] == null) {
-      effects[EffectCategory.Visual]![SubEffectCategory.Enhancements] = <String, EffectType>{};
+    if (effects[EffectCategory.visual]![SubEffectCategory.enhancements] == null) {
+      effects[EffectCategory.visual]![SubEffectCategory.enhancements] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'acuity enhancement':
-        effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'colour enhancement':
       case 'color enhancement':
-        effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'brightened colour':
       case 'brightening of colors':
       case 'brightened color':
-        effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'frame rate enhancement':
-        effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'magnification':
-        effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'pattern recognition enhancement':
-        effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'peripheral vision enhancement':
-        effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Visual,
-      subCategory: SubEffectCategory.Enhancements,
-      type: effects[EffectCategory.Visual]![SubEffectCategory.Enhancements]![effect],
+      category: EffectCategory.visual,
+      subCategory: SubEffectCategory.enhancements,
+      type: effects[EffectCategory.visual]![SubEffectCategory.enhancements]![effect],
     );
   }
 
   Effect _parseVisualSuppressions(String effect) {
-    if (effects[EffectCategory.Visual]![SubEffectCategory.Suppressions] == null) {
-      effects[EffectCategory.Visual]![SubEffectCategory.Suppressions] = <String, EffectType>{};
+    if (effects[EffectCategory.visual]![SubEffectCategory.suppressions] == null) {
+      effects[EffectCategory.visual]![SubEffectCategory.suppressions] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'acuity suppression':
-        effects[EffectCategory.Visual]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'colour suppression':
-        effects[EffectCategory.Visual]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'double vision':
-        effects[EffectCategory.Visual]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'frame rate suppression':
-        effects[EffectCategory.Visual]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'pattern recognition suppression':
-        effects[EffectCategory.Visual]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'peripheral information misinterpretation':
-        effects[EffectCategory.Visual]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Visual,
-      subCategory: SubEffectCategory.Suppressions,
-      type: effects[EffectCategory.Visual]![SubEffectCategory.Suppressions]![effect],
+      category: EffectCategory.visual,
+      subCategory: SubEffectCategory.suppressions,
+      type: effects[EffectCategory.visual]![SubEffectCategory.suppressions]![effect],
     );
   }
 
   Effect _parseVisualDistortions(String effect) {
-    if (effects[EffectCategory.Visual]![SubEffectCategory.Distortions] == null) {
-      effects[EffectCategory.Visual]![SubEffectCategory.Distortions] = <String, EffectType>{};
+    if (effects[EffectCategory.visual]![SubEffectCategory.distortions] == null) {
+      effects[EffectCategory.visual]![SubEffectCategory.distortions] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'after images':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'brightness alteration':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'colour replacement':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'colour shifting':
       case 'color shifting':
       case 'hue shifts':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'colour tinting':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'depth perception distortions':
       case 'visual distortions':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'diffraction':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'closed/open eye visuals':
       case 'powerful closed/open eye visuals':
       case 'closed and open eye visuals':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'open eye visuals':
       case "mild oev's":
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'closed eye visuals':
       case "strong cev's":
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'drifting':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'environmental cubism':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'environmental patterning':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'environmental orbism':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'object alteration':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'perspective distortion':
       case 'radical shift in perspective and perception':
       case 'radical perspective shifting':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'recursion':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'scenery slicing':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'symmetrical texture repetition':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'texture liquidation':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'tracers':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'visual flipping':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'visual haze':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'visual stretching':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
       case 'visual snow':
-        effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Visual,
-      subCategory: SubEffectCategory.Distortions,
-      type: effects[EffectCategory.Visual]![SubEffectCategory.Distortions]![effect],
+      category: EffectCategory.visual,
+      subCategory: SubEffectCategory.distortions,
+      type: effects[EffectCategory.visual]![SubEffectCategory.distortions]![effect],
     );
   }
 
   Effect _parseVisualGeometry(String effect) {
-    if (effects[EffectCategory.Visual]![SubEffectCategory.Geometry] == null) {
-      effects[EffectCategory.Visual]![SubEffectCategory.Geometry] = <String, EffectType>{};
+    if (effects[EffectCategory.visual]![SubEffectCategory.geometry] == null) {
+      effects[EffectCategory.visual]![SubEffectCategory.geometry] = <String, EffectType>{};
     }
 
     switch (effect) {
       case '8a geometry - perceived exposure to semantic concept network':
-        effects[EffectCategory.Visual]![SubEffectCategory.Geometry]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.geometry]![effect] = EffectType.neutral;
         break;
       case '8b geometry - perceived exposure to inner mechanics of consciousness':
-        effects[EffectCategory.Visual]![SubEffectCategory.Geometry]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.geometry]![effect] = EffectType.neutral;
         break;
       case 'geometry':
-        effects[EffectCategory.Visual]![SubEffectCategory.Geometry]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.geometry]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Visual,
-      subCategory: SubEffectCategory.Geometry,
-      type: effects[EffectCategory.Visual]![SubEffectCategory.Geometry]![effect],
+      category: EffectCategory.visual,
+      subCategory: SubEffectCategory.geometry,
+      type: effects[EffectCategory.visual]![SubEffectCategory.geometry]![effect],
     );
   }
 
   Effect _parseVisualHallucinatory(String effect) {
-    if (effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory] == null) {
-      effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory] = <String, EffectType>{};
+    if (effects[EffectCategory.visual]![SubEffectCategory.hallucinatory] == null) {
+      effects[EffectCategory.visual]![SubEffectCategory.hallucinatory] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'autonomous entity':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.neutral;
         break;
       case 'external hallucination':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.neutral;
         break;
       case 'internal hallucination':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.neutral;
         break;
       case 'object activation':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.neutral;
         break;
       case 'perspective hallucination':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.neutral;
         break;
       case 'settings, sceneries, and landscapes':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.neutral;
         break;
       case 'shadow people':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Negative;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.negative;
         break;
       case 'transformations':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Neutral;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.neutral;
         break;
       case 'unspeakable horrors':
-        effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect] = EffectType.Negative;
+        effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect] = EffectType.negative;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Visual,
-      subCategory: SubEffectCategory.Hallucinatory,
-      type: effects[EffectCategory.Visual]![SubEffectCategory.Hallucinatory]![effect],
+      category: EffectCategory.visual,
+      subCategory: SubEffectCategory.hallucinatory,
+      type: effects[EffectCategory.visual]![SubEffectCategory.hallucinatory]![effect],
     );
   }
 
   Effect _parseCognitiveEnhancements(String effect) {
-    if (effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements] == null) {
-      effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements] = <String, EffectType>{};
+    if (effects[EffectCategory.cognitive]![SubEffectCategory.enhancements] == null) {
+      effects[EffectCategory.cognitive]![SubEffectCategory.enhancements] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'analysis enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'anxiety':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.negative;
         break;
       case 'creativity':
       case 'creativity enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'dream potentiation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'hyper-inflated ego':
       case 'ego inflation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'mood lift':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'ego softening':
       case 'ego-softening':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'emotion enhancement':
       case 'moodiness':
       case 'heightend emotions':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'empathy, affection, and sociability enhancement':
       case 'empathy, affection and sociability enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'empathy':
       case 'feelings of empathy':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'increased sociability':
       case 'sociability':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'excessive talking':
       case 'increased desire to talk':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'insight':
       case 'feelings of insight':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'increased focus':
       case 'focus enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'immersion enhancement':
       case 'immersive experience':
       case 'cognitive enhancement':
       case 'increase in cognitive abilities':
       case 'sensory enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'increased music appreciation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'increased sense of humor':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'irritability':
       case 'increase in irritability':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.negative;
         break;
       case 'agressiveness':
       case 'aggressiveness':
       case 'rage':
       case 'aggression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.negative;
         break;
       case 'memory enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'motivation enhancement':
       case 'increased motivation':
       case 'incresed motivation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'novelty enhancement':
       case 'a sense of childlike wonder':
       case 'sense of wonder':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'personal meaning enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'suggestibility enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'thought acceleration':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'racing thoughts':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.negative;
         break;
       case 'thought connectivity':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'thought organization':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'wakefulness':
       case 'increased alertness':
       case 'decreased need for sleep':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'elevated mood':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Cognitive,
-      subCategory: SubEffectCategory.Enhancements,
-      type: effects[EffectCategory.Cognitive]![SubEffectCategory.Enhancements]![effect],
+      category: EffectCategory.cognitive,
+      subCategory: SubEffectCategory.enhancements,
+      type: effects[EffectCategory.cognitive]![SubEffectCategory.enhancements]![effect],
     );
   }
 
   Effect _parseCognitiveSuppressions(String effect) {
-    if (effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions] == null) {
-      effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions] = <String, EffectType>{};
+    if (effects[EffectCategory.cognitive]![SubEffectCategory.suppressions] == null) {
+      effects[EffectCategory.cognitive]![SubEffectCategory.suppressions] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'addiction suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.positive;
         break;
       case 'amnesia':
       case 'amnesic':
       case 'blackouts':
       case 'memory loss':
       case 'blackout potential':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'analysis suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'anxiety suppression':
       case 'anxiety supression':
       case 'anxiolytic':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.positive;
         break;
       case 'cognitive fatigue':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.negative;
         break;
       case 'fatigue':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.negative;
         break;
       case 'confusion':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.negative;
         break;
       case 'creativity suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'delirium':
       case 'delirium tremens':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.negative;
         break;
       case 'disinhibition':
       case 'loss of inhibition':
       case 'lowered inhibitions':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'dream suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'emotion suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'focus suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'language suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'memory suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'motivation suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.negative;
         break;
       case 'personal bias suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'sleepiness':
       case 'tiredness':
       case 'hypnotic':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'lethargy':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'suggestibility suppression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'thought deceleration':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'thought disorganization':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Cognitive,
-      subCategory: SubEffectCategory.Suppressions,
-      type: effects[EffectCategory.Cognitive]![SubEffectCategory.Suppressions]![effect],
+      category: EffectCategory.cognitive,
+      subCategory: SubEffectCategory.suppressions,
+      type: effects[EffectCategory.cognitive]![SubEffectCategory.suppressions]![effect],
     );
   }
 
   Effect _parseCognitiveNovel(String effect) {
-    if (effects[EffectCategory.Cognitive]![SubEffectCategory.Novel] == null) {
-      effects[EffectCategory.Cognitive]![SubEffectCategory.Novel] = <String, EffectType>{};
+    if (effects[EffectCategory.cognitive]![SubEffectCategory.novel] == null) {
+      effects[EffectCategory.cognitive]![SubEffectCategory.novel] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'autonomous voice communication':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'cognitive dysphoria':
       case 'dysphoria':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.negative;
         break;
       case 'cognitive euphoria':
       case 'euphoria':
@@ -996,32 +996,32 @@ class EffectsManager {
       case 'euphoric':
       case 'feelings of euphoria':
       case 'with euphoria':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.positive;
         break;
       case 'compulsive redosing':
       case 'compulsion to redose':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.negative;
         break;
       case 'conceptual thinking':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'enhancement and suppression cycles':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'glossolalia':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'multiple thought streams':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'simultaneous emotions':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'spatial disorientation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'thought loop':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.negative;
         break;
       case 'time distortion':
       case 'change in perception of time':
@@ -1029,197 +1029,197 @@ class EffectsManager {
       case 'change in perception of  time':
       case 'loss of time':
       case 'changes in perception-of-time':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'change in perception':
       case 'altered perception':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'general change in consciousness':
       case 'change in consciousness':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
       case 'dissociation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Cognitive,
-      subCategory: SubEffectCategory.Novel,
-      type: effects[EffectCategory.Cognitive]![SubEffectCategory.Novel]![effect],
+      category: EffectCategory.cognitive,
+      subCategory: SubEffectCategory.novel,
+      type: effects[EffectCategory.cognitive]![SubEffectCategory.novel]![effect],
     );
   }
 
   Effect _parseCognitivePsychological(String effect) {
-    if (effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological] == null) {
-      effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological] = <String, EffectType>{};
+    if (effects[EffectCategory.cognitive]![SubEffectCategory.psychological] == null) {
+      effects[EffectCategory.cognitive]![SubEffectCategory.psychological] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'catharsis':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.positive;
         break;
       case 'delusions':
       case 'delusion':
       case 'delusions of sobriety':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'depersonalization':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.neutral;
         break;
       case 'derealization':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.neutral;
         break;
       case 'depression':
       case 'apathy':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'déjà vu':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.neutral;
         break;
       case 'ego replacement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.neutral;
         break;
       case 'feelings of impending doom':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'introspection':
       case 'introspective insight':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.neutral;
         break;
       case 'mania':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'mindfulness':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.positive;
         break;
       case 'panic attack':
       case 'panic':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'overwhelming fear':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'fear':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'paranoia':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'personality regression':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'personality changes':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.neutral;
         break;
       case 'psychosis':
       case 'stimulant psychosis':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'rejuvenation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.positive;
         break;
       case 'suicidal ideation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'sleep paralysis':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'insomnia':
       case 'distrubed sleep patterns':
       case 'disturbed sleep patterns':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Negative;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.negative;
         break;
       case 'relaxation':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect] = EffectType.positive;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Cognitive,
-      subCategory: SubEffectCategory.Psychological,
-      type: effects[EffectCategory.Cognitive]![SubEffectCategory.Psychological]![effect],
+      category: EffectCategory.cognitive,
+      subCategory: SubEffectCategory.psychological,
+      type: effects[EffectCategory.cognitive]![SubEffectCategory.psychological]![effect],
     );
   }
 
   Effect _parseCognitiveTranspersonal(String effect) {
-    if (effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal] == null) {
-      effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal] = <String, EffectType>{};
+    if (effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal] == null) {
+      effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'existential self-realization':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.neutral;
         break;
       case 'profound life-changing spiritual experiences':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.positive;
         break;
       case 'identity alteration':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.neutral;
         break;
       case 'perceived exposure to inner mechanics of consciousness':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.neutral;
         break;
       case 'perception of eternalism':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.neutral;
         break;
       case 'perception of interdependent opposites':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.neutral;
         break;
       case 'perception of predeterminism':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.neutral;
         break;
       case 'perception of self-design':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Neutral;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.neutral;
         break;
       case 'spirituality enhancement':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.positive;
         break;
       case 'unity and interconnectedness':
       case 'a sense of connectedness with people and the environment around you':
       case 'a sense of conectedness with the world around you':
-        effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect] = EffectType.Positive;
+        effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect] = EffectType.positive;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Cognitive,
-      subCategory: SubEffectCategory.Transpersonal,
-      type: effects[EffectCategory.Cognitive]![SubEffectCategory.Transpersonal]![effect],
+      category: EffectCategory.cognitive,
+      subCategory: SubEffectCategory.transpersonal,
+      type: effects[EffectCategory.cognitive]![SubEffectCategory.transpersonal]![effect],
     );
   }
 
   Effect _parsePhysicalEnhancements(String effect) {
-    if (effects[EffectCategory.Physical]![SubEffectCategory.Enhancements] == null) {
-      effects[EffectCategory.Physical]![SubEffectCategory.Enhancements] = <String, EffectType>{};
+    if (effects[EffectCategory.physical]![SubEffectCategory.enhancements] == null) {
+      effects[EffectCategory.physical]![SubEffectCategory.enhancements] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'appetite enhancement':
-        effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'bodily control enhancement':
-        effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'increased libido':
       case 'increase sexuality':
       case 'increased sexuality':
       case 'sexual enhancement':
       case 'increased sex drive':
-        effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect] = EffectType.neutral;
         break;
       case 'stamina enhancement':
-        effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'enhanced tactile sensation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'anti-inflammation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
       case 'stimulation':
       case 'mental/physical stimulation':
@@ -1227,21 +1227,21 @@ class EffectsManager {
       case 'mental and physical stimulation':
       case 'stimulation (mental and physical)':
       case 'stimulating high':
-        effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect] = EffectType.positive;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Physical,
-      subCategory: SubEffectCategory.Enhancements,
-      type: effects[EffectCategory.Physical]![SubEffectCategory.Enhancements]![effect],
+      category: EffectCategory.physical,
+      subCategory: SubEffectCategory.enhancements,
+      type: effects[EffectCategory.physical]![SubEffectCategory.enhancements]![effect],
     );
   }
 
   Effect _parsePhysicalSuppressions(String effect) {
-    if (effects[EffectCategory.Physical]![SubEffectCategory.Suppressions] == null) {
-      effects[EffectCategory.Physical]![SubEffectCategory.Suppressions] = <String, EffectType>{};
+    if (effects[EffectCategory.physical]![SubEffectCategory.suppressions] == null) {
+      effects[EffectCategory.physical]![SubEffectCategory.suppressions] = <String, EffectType>{};
     }
 
     switch (effect) {
@@ -1251,548 +1251,548 @@ class EffectsManager {
       case 'reduced appetite':
       case 'loss of apetite':
       case 'loss of appettite':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'cough suppression':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.positive;
         break;
       case 'decreased libido':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'motor control loss':
       case 'dystaxia':
       case 'loss of motor skills':
       case 'inability to control muscles':
       case 'motor skill impairment':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'nausea suppression':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.positive;
         break;
       case 'orgasm suppression':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.negative;
         break;
       case 'pain relief':
       case 'analgesia':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.positive;
         break;
       case 'sedation':
       case 'sedative':
       case 'sedative effects':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'seizure suppression':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.positive;
         break;
       case 'drowsiness':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.neutral;
         break;
       case 'feelings of relaxation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect] = EffectType.positive;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Physical,
-      subCategory: SubEffectCategory.Suppressions,
-      type: effects[EffectCategory.Physical]![SubEffectCategory.Suppressions]![effect],
+      category: EffectCategory.physical,
+      subCategory: SubEffectCategory.suppressions,
+      type: effects[EffectCategory.physical]![SubEffectCategory.suppressions]![effect],
     );
   }
 
   Effect _parsePhysicalAlterations(String effect) {
-    if (effects[EffectCategory.Physical]![SubEffectCategory.Alterations] == null) {
-      effects[EffectCategory.Physical]![SubEffectCategory.Alterations] = <String, EffectType>{};
+    if (effects[EffectCategory.physical]![SubEffectCategory.alterations] == null) {
+      effects[EffectCategory.physical]![SubEffectCategory.alterations] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'body odor alteration':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'bronchodilation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.positive;
         break;
       case 'changes in felt bodily form':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'changes in felt gravity':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'excessive yawning':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'laughter fits':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.positive;
         break;
       case 'giggling':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.positive;
         break;
       case 'mouth numbing':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'muscle relaxation':
       case 'relaxant':
       case 'muscle relaxant':
       case 'skeletal muscle relaxant':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.positive;
         break;
       case 'perception of bodily heaviness':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'perception of bodily lightness':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'physical autonomy':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'physical euphoria':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.positive;
         break;
       case 'pupil constriction':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'pupil dilation':
       case 'pupil-dilation':
       case 'pupil dialation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'gait alteration':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'rapid breathing':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
       case 'powerful rushing of sensation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Physical,
-      subCategory: SubEffectCategory.Alterations,
-      type: effects[EffectCategory.Physical]![SubEffectCategory.Alterations]![effect],
+      category: EffectCategory.physical,
+      subCategory: SubEffectCategory.alterations,
+      type: effects[EffectCategory.physical]![SubEffectCategory.alterations]![effect],
     );
   }
 
   Effect _parsePhysicalCardiovascular(String effect) {
-    if (effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular] == null) {
-      effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular] = <String, EffectType>{};
+    if (effects[EffectCategory.physical]![SubEffectCategory.cardiovascular] == null) {
+      effects[EffectCategory.physical]![SubEffectCategory.cardiovascular] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'abnormal heartbeat':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.negative;
         break;
       case 'decreased heart rate':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.neutral;
         break;
       case 'decreased blood pressure':
       case 'low blood pressure':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.neutral;
         break;
       case 'increased blood pressure':
       case 'hypertension':
       case 'high blood pressure':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.neutral;
         break;
       case 'increased heart rate':
       case 'elevated heart rate':
       case 'tachychardia':
       case 'elevated heartrate':
       case 'raised heartrate':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.neutral;
         break;
       case 'vasoconstriction':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.neutral;
         break;
       case 'vasodilation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.neutral;
         break;
       case 'heartburn':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.negative;
         break;
       case 'reflex syncope':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect] = EffectType.negative;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Physical,
-      subCategory: SubEffectCategory.Cardiovascular,
-      type: effects[EffectCategory.Physical]![SubEffectCategory.Cardiovascular]![effect],
+      category: EffectCategory.physical,
+      subCategory: SubEffectCategory.cardiovascular,
+      type: effects[EffectCategory.physical]![SubEffectCategory.cardiovascular]![effect],
     );
   }
 
   Effect _parsePhysicalCerebrovascular(String effect) {
-    if (effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular] == null) {
-      effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular] = <String, EffectType>{};
+    if (effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular] == null) {
+      effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'brain zaps':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular]![effect] = EffectType.negative;
         break;
       case 'dizziness':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular]![effect] = EffectType.negative;
         break;
       case 'headache':
       case 'headaches':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular]![effect] = EffectType.negative;
         break;
       case 'increased bodily temperature':
       case 'increased body temperature':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular]![effect] = EffectType.neutral;
         break;
       case 'seizure':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular]![effect] = EffectType.negative;
         break;
       case 'temperature regulation suppression':
       case 'sweating/chills':
-        effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Physical,
-      subCategory: SubEffectCategory.Cerebrovascular,
-      type: effects[EffectCategory.Physical]![SubEffectCategory.Cerebrovascular]![effect],
+      category: EffectCategory.physical,
+      subCategory: SubEffectCategory.cerebrovascular,
+      type: effects[EffectCategory.physical]![SubEffectCategory.cerebrovascular]![effect],
     );
   }
 
   Effect _parsePhysicalBodily(String effect) {
-    if (effects[EffectCategory.Physical]![SubEffectCategory.Bodily] == null) {
-      effects[EffectCategory.Physical]![SubEffectCategory.Bodily] = <String, EffectType>{};
+    if (effects[EffectCategory.physical]![SubEffectCategory.bodily] == null) {
+      effects[EffectCategory.physical]![SubEffectCategory.bodily] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'back pain':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'bodily pressures':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'constipation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'dehydration':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'diarrhea':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'difficulty urinating':
       case 'urinary retention':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'dry mouth':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'frequent urination':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'increased phlegm production':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'increased perspiration':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'increased salivation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'itchiness':
       case 'itching':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'muscle cramps':
       case 'muscle cramp':
       case 'muscle contractions':
       case 'muscle spasms':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'muscle tension':
       case 'muscle-tension':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'muscle twitching':
       case 'muscle stiffness':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'tremors':
       case 'muscle tremors':
       case 'body tremors':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'nausea':
       case 'nausea (particularly at high doses)':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'vomiting':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'optical sliding':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'photophobia':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'physical fatigue':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'respiratory depression':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'restless legs':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'restlessness':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'runny nose':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'salivation':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'skin flushing':
       case 'flushed skin':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'stomach bloating':
       case 'stomach pain':
       case 'stomach discomfort':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'stomach cramp':
       case 'stomach cramps':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'teeth grinding':
       case 'bruxia':
       case 'bruxism':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'temporary erectile dysfunction':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'vibrating vision':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'watery eyes':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'nasal damage':
       case 'nose bleeds':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'ear ringing':
       case 'tinnitus':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'ear pressure':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'dysarthria':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'convulsions':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'anticonvulsant':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Positive;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.positive;
         break;
       case 'weight gain':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'weight loss':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'sweating':
       case 'perspiration':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Neutral;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.neutral;
         break;
       case 'shortness of breath':
       case 'difficulty breathing':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
       case 'slurred speech':
-        effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect] = EffectType.Negative;
+        effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect] = EffectType.negative;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Physical,
-      subCategory: SubEffectCategory.Bodily,
-      type: effects[EffectCategory.Physical]![SubEffectCategory.Bodily]![effect],
+      category: EffectCategory.physical,
+      subCategory: SubEffectCategory.bodily,
+      type: effects[EffectCategory.physical]![SubEffectCategory.bodily]![effect],
     );
   }
 
   Effect _parseAuditory(String effect) {
-    if (effects[EffectCategory.Auditory]![SubEffectCategory.Misc] == null) {
-      effects[EffectCategory.Auditory]![SubEffectCategory.Misc] = <String, EffectType>{};
+    if (effects[EffectCategory.auditory]![SubEffectCategory.misc] == null) {
+      effects[EffectCategory.auditory]![SubEffectCategory.misc] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'auditory distortion':
-        effects[EffectCategory.Auditory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.auditory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'auditory enhancement':
-        effects[EffectCategory.Auditory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.auditory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'auditory hallucinations':
       case 'auditory hallucination':
-        effects[EffectCategory.Auditory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.auditory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'auditory misinterpretation':
-        effects[EffectCategory.Auditory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.auditory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'auditory suppression':
-        effects[EffectCategory.Auditory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.auditory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Auditory,
-      subCategory: SubEffectCategory.Misc,
-      type: effects[EffectCategory.Auditory]![SubEffectCategory.Misc]![effect],
+      category: EffectCategory.auditory,
+      subCategory: SubEffectCategory.misc,
+      type: effects[EffectCategory.auditory]![SubEffectCategory.misc]![effect],
     );
   }
 
   Effect _parseTactile(String effect) {
-    if (effects[EffectCategory.Tactile]![SubEffectCategory.Misc] == null) {
-      effects[EffectCategory.Tactile]![SubEffectCategory.Misc] = <String, EffectType>{};
+    if (effects[EffectCategory.tactile]![SubEffectCategory.misc] == null) {
+      effects[EffectCategory.tactile]![SubEffectCategory.misc] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'spontaneous bodily sensations':
-        effects[EffectCategory.Tactile]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.tactile]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'tactile enhancement':
-        effects[EffectCategory.Tactile]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.tactile]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'tactile hallucination':
-        effects[EffectCategory.Tactile]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.tactile]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'tactile suppression':
-        effects[EffectCategory.Tactile]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.tactile]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Tactile,
-      subCategory: SubEffectCategory.Misc,
-      type: effects[EffectCategory.Tactile]![SubEffectCategory.Misc]![effect],
+      category: EffectCategory.tactile,
+      subCategory: SubEffectCategory.misc,
+      type: effects[EffectCategory.tactile]![SubEffectCategory.misc]![effect],
     );
   }
 
   Effect _parseDisconnective(String effect) {
-    if (effects[EffectCategory.Disconnective]![SubEffectCategory.Misc] == null) {
-      effects[EffectCategory.Disconnective]![SubEffectCategory.Misc] = <String, EffectType>{};
+    if (effects[EffectCategory.disconnective]![SubEffectCategory.misc] == null) {
+      effects[EffectCategory.disconnective]![SubEffectCategory.misc] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'cognitive disconnection':
-        effects[EffectCategory.Disconnective]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.disconnective]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'detachment plateaus':
-        effects[EffectCategory.Disconnective]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.disconnective]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'physical disconnection':
-        effects[EffectCategory.Disconnective]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.disconnective]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'visual disconnection':
       case 'holes.2c spaces and voids':
       case 'structures':
-        effects[EffectCategory.Disconnective]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.disconnective]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Disconnective,
-      subCategory: SubEffectCategory.Misc,
-      type: effects[EffectCategory.Disconnective]![SubEffectCategory.Misc]![effect],
+      category: EffectCategory.disconnective,
+      subCategory: SubEffectCategory.misc,
+      type: effects[EffectCategory.disconnective]![SubEffectCategory.misc]![effect],
     );
   }
 
   Effect _parseSmellTaste(String effect) {
-    if (effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc] == null) {
-      effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc] = <String, EffectType>{};
+    if (effects[EffectCategory.smellTaste]![SubEffectCategory.misc] == null) {
+      effects[EffectCategory.smellTaste]![SubEffectCategory.misc] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'gustatory enhancement':
-        effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.smellTaste]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'olfactory enhancement':
-        effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.smellTaste]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'gustatory hallucination':
-        effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.smellTaste]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'olfactory hallucination':
-        effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.smellTaste]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'gustatory suppression':
-        effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.smellTaste]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'olfactory suppression':
-        effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.smellTaste]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.SmellTaste,
-      subCategory: SubEffectCategory.Misc,
-      type: effects[EffectCategory.SmellTaste]![SubEffectCategory.Misc]![effect],
+      category: EffectCategory.smellTaste,
+      subCategory: SubEffectCategory.misc,
+      type: effects[EffectCategory.smellTaste]![SubEffectCategory.misc]![effect],
     );
   }
 
   Effect _parseMultisensory(String effect) {
-    if (effects[EffectCategory.Multisensory]![SubEffectCategory.Misc] == null) {
-      effects[EffectCategory.Multisensory]![SubEffectCategory.Misc] = <String, EffectType>{};
+    if (effects[EffectCategory.multisensory]![SubEffectCategory.misc] == null) {
+      effects[EffectCategory.multisensory]![SubEffectCategory.misc] = <String, EffectType>{};
     }
 
     switch (effect) {
       case 'anticipatory response':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'component controllability':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'dosage independent intensity':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'machinescapes':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'memory replays':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'scenarios and plots':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'spontaneous physical movements':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
       case 'synaesthesia':
       case 'hallucinations through all physical means':
       case 'hallucinations through all physical senses':
-        effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect] = EffectType.Neutral;
+        effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect] = EffectType.neutral;
         break;
     }
 
     return Effect(
       name: effect,
-      category: EffectCategory.Multisensory,
-      subCategory: SubEffectCategory.Misc,
-      type: effects[EffectCategory.Multisensory]![SubEffectCategory.Misc]![effect],
+      category: EffectCategory.multisensory,
+      subCategory: SubEffectCategory.misc,
+      type: effects[EffectCategory.multisensory]![SubEffectCategory.misc]![effect],
     );
   }
 }

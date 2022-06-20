@@ -527,7 +527,7 @@ List<MaterialColor> get getColors {
   return [cannabisColorMat, researchColorMat, empathogenColorMat, depressantColorMat, habitColorMat, psychColorMat];
 }
 
-final BoxDecoration LINEAR_BG = BoxDecoration(
+final BoxDecoration linearBg = BoxDecoration(
   gradient: LinearGradient(
     begin: Alignment.bottomRight,
     end: Alignment.topLeft,

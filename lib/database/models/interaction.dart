@@ -24,19 +24,19 @@ class Interaction {
   static InteractionType stringToInteractionType(String input) {
     switch (input.toLowerCase()) {
       case 'caution':
-        return InteractionType.Caution;
+        return InteractionType.caution;
 
       case 'unsafe':
-        return InteractionType.Unsafe;
+        return InteractionType.unsafe;
 
       case 'dangerous':
-        return InteractionType.Dangerous;
+        return InteractionType.dangerous;
 
       case 'low risk & synergy':
-        return InteractionType.Synergy;
+        return InteractionType.synergy;
 
       case 'low risk & decrease':
-        return InteractionType.Decrease;
+        return InteractionType.decrease;
 
       default:
         throw 'Invalid string!';

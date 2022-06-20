@@ -14,26 +14,26 @@ class EffectTypeAdapter extends TypeAdapter<EffectType> {
   EffectType read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return EffectType.Positive;
+        return EffectType.positive;
       case 1:
-        return EffectType.Neutral;
+        return EffectType.neutral;
       case 2:
-        return EffectType.Negative;
+        return EffectType.negative;
       default:
-        return EffectType.Positive;
+        return EffectType.positive;
     }
   }
 
   @override
   void write(BinaryWriter writer, EffectType obj) {
     switch (obj) {
-      case EffectType.Positive:
+      case EffectType.positive:
         writer.writeByte(0);
         break;
-      case EffectType.Neutral:
+      case EffectType.neutral:
         writer.writeByte(1);
         break;
-      case EffectType.Negative:
+      case EffectType.negative:
         writer.writeByte(2);
         break;
     }

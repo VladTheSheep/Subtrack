@@ -74,34 +74,34 @@ Map<String, dynamic> _$EffectToJson(Effect instance) => <String, dynamic>{
     };
 
 const _$EffectCategoryEnumMap = {
-  EffectCategory.Visual: 'Visual',
-  EffectCategory.Cognitive: 'Cognitive',
-  EffectCategory.Physical: 'Physical',
-  EffectCategory.Auditory: 'Auditory',
-  EffectCategory.Disconnective: 'Disconnective',
-  EffectCategory.Tactile: 'Tactile',
-  EffectCategory.SmellTaste: 'SmellTaste',
-  EffectCategory.Multisensory: 'Multisensory',
+  EffectCategory.visual: 'visual',
+  EffectCategory.cognitive: 'cognitive',
+  EffectCategory.physical: 'physical',
+  EffectCategory.auditory: 'auditory',
+  EffectCategory.disconnective: 'disconnective',
+  EffectCategory.tactile: 'tactile',
+  EffectCategory.smellTaste: 'smellTaste',
+  EffectCategory.multisensory: 'multisensory',
 };
 
 const _$SubEffectCategoryEnumMap = {
-  SubEffectCategory.Enhancements: 'Enhancements',
-  SubEffectCategory.Suppressions: 'Suppressions',
-  SubEffectCategory.Distortions: 'Distortions',
-  SubEffectCategory.Geometry: 'Geometry',
-  SubEffectCategory.Hallucinatory: 'Hallucinatory',
-  SubEffectCategory.Novel: 'Novel',
-  SubEffectCategory.Psychological: 'Psychological',
-  SubEffectCategory.Transpersonal: 'Transpersonal',
-  SubEffectCategory.Alterations: 'Alterations',
-  SubEffectCategory.Cardiovascular: 'Cardiovascular',
-  SubEffectCategory.Cerebrovascular: 'Cerebrovascular',
-  SubEffectCategory.Bodily: 'Bodily',
-  SubEffectCategory.Misc: 'Misc',
+  SubEffectCategory.enhancements: 'enhancements',
+  SubEffectCategory.suppressions: 'suppressions',
+  SubEffectCategory.distortions: 'distortions',
+  SubEffectCategory.geometry: 'geometry',
+  SubEffectCategory.hallucinatory: 'hallucinatory',
+  SubEffectCategory.novel: 'novel',
+  SubEffectCategory.psychological: 'psychological',
+  SubEffectCategory.transpersonal: 'transpersonal',
+  SubEffectCategory.alterations: 'alterations',
+  SubEffectCategory.cardiovascular: 'cardiovascular',
+  SubEffectCategory.cerebrovascular: 'cerebrovascular',
+  SubEffectCategory.bodily: 'bodily',
+  SubEffectCategory.misc: 'misc',
 };
 
 const _$EffectTypeEnumMap = {
-  EffectType.Positive: 'Positive',
-  EffectType.Neutral: 'Neutral',
-  EffectType.Negative: 'Negative',
+  EffectType.positive: 'positive',
+  EffectType.neutral: 'neutral',
+  EffectType.negative: 'negative',
 };

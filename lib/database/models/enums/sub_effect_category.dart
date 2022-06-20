@@ -5,72 +5,72 @@ part 'sub_effect_category.g.dart';
 @HiveType(typeId: 27)
 enum SubEffectCategory {
   @HiveField(0)
-  Enhancements,
+  enhancements,
   @HiveField(1)
-  Suppressions,
+  suppressions,
   @HiveField(2)
-  Distortions,
+  distortions,
   @HiveField(3)
-  Geometry,
+  geometry,
   @HiveField(4)
-  Hallucinatory,
+  hallucinatory,
   @HiveField(5)
-  Novel,
+  novel,
   @HiveField(6)
-  Psychological,
+  psychological,
   @HiveField(7)
-  Transpersonal,
+  transpersonal,
   @HiveField(8)
-  Alterations,
+  alterations,
   @HiveField(9)
-  Cardiovascular,
+  cardiovascular,
   @HiveField(10)
-  Cerebrovascular,
+  cerebrovascular,
   @HiveField(11)
-  Bodily,
+  bodily,
   @HiveField(12)
-  Misc
+  misc
 }
 
 String? subEffectCategoryToString(SubEffectCategory category) {
   switch (category) {
-    case SubEffectCategory.Enhancements:
+    case SubEffectCategory.enhancements:
       return 'Enhancements';
 
-    case SubEffectCategory.Suppressions:
+    case SubEffectCategory.suppressions:
       return 'Suppressions';
 
-    case SubEffectCategory.Distortions:
+    case SubEffectCategory.distortions:
       return 'Distortions';
 
-    case SubEffectCategory.Geometry:
+    case SubEffectCategory.geometry:
       return 'Geometry';
 
-    case SubEffectCategory.Hallucinatory:
+    case SubEffectCategory.hallucinatory:
       return 'Hallucinatory';
 
-    case SubEffectCategory.Novel:
+    case SubEffectCategory.novel:
       return 'Novel';
 
-    case SubEffectCategory.Psychological:
+    case SubEffectCategory.psychological:
       return 'Psychological';
 
-    case SubEffectCategory.Transpersonal:
+    case SubEffectCategory.transpersonal:
       return 'Transpersonal';
 
-    case SubEffectCategory.Alterations:
+    case SubEffectCategory.alterations:
       return 'Alterations';
 
-    case SubEffectCategory.Cardiovascular:
+    case SubEffectCategory.cardiovascular:
       return 'Cardiovascular';
 
-    case SubEffectCategory.Cerebrovascular:
+    case SubEffectCategory.cerebrovascular:
       return 'Cerebrovascular';
 
-    case SubEffectCategory.Bodily:
+    case SubEffectCategory.bodily:
       return 'Bodily';
 
-    case SubEffectCategory.Misc:
+    case SubEffectCategory.misc:
       return 'Misc';
 
     default:
@@ -82,40 +82,40 @@ SubEffectCategory? toSubEffectCategory(String category) {
   final String _category = category.toLowerCase();
   switch (_category) {
     case 'enhancements':
-      return SubEffectCategory.Enhancements;
+      return SubEffectCategory.enhancements;
 
     case 'suppressions':
-      return SubEffectCategory.Suppressions;
+      return SubEffectCategory.suppressions;
 
     case 'distortions':
-      return SubEffectCategory.Distortions;
+      return SubEffectCategory.distortions;
 
     case 'hallucinatory':
-      return SubEffectCategory.Hallucinatory;
+      return SubEffectCategory.hallucinatory;
 
     case 'novel':
-      return SubEffectCategory.Novel;
+      return SubEffectCategory.novel;
 
     case 'psychological':
-      return SubEffectCategory.Psychological;
+      return SubEffectCategory.psychological;
 
     case 'transpersonal':
-      return SubEffectCategory.Transpersonal;
+      return SubEffectCategory.transpersonal;
 
     case 'alterations':
-      return SubEffectCategory.Alterations;
+      return SubEffectCategory.alterations;
 
     case 'cardiovascular':
-      return SubEffectCategory.Cardiovascular;
+      return SubEffectCategory.cardiovascular;
 
     case 'cerebrovascular':
-      return SubEffectCategory.Cerebrovascular;
+      return SubEffectCategory.cerebrovascular;
 
     case 'bodily':
-      return SubEffectCategory.Bodily;
+      return SubEffectCategory.bodily;
 
     case 'misc':
-      return SubEffectCategory.Misc;
+      return SubEffectCategory.misc;
 
     default:
       return null;

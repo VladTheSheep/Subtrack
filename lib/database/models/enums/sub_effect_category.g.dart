@@ -14,76 +14,76 @@ class SubEffectCategoryAdapter extends TypeAdapter<SubEffectCategory> {
   SubEffectCategory read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return SubEffectCategory.Enhancements;
+        return SubEffectCategory.enhancements;
       case 1:
-        return SubEffectCategory.Suppressions;
+        return SubEffectCategory.suppressions;
       case 2:
-        return SubEffectCategory.Distortions;
+        return SubEffectCategory.distortions;
       case 3:
-        return SubEffectCategory.Geometry;
+        return SubEffectCategory.geometry;
       case 4:
-        return SubEffectCategory.Hallucinatory;
+        return SubEffectCategory.hallucinatory;
       case 5:
-        return SubEffectCategory.Novel;
+        return SubEffectCategory.novel;
       case 6:
-        return SubEffectCategory.Psychological;
+        return SubEffectCategory.psychological;
       case 7:
-        return SubEffectCategory.Transpersonal;
+        return SubEffectCategory.transpersonal;
       case 8:
-        return SubEffectCategory.Alterations;
+        return SubEffectCategory.alterations;
       case 9:
-        return SubEffectCategory.Cardiovascular;
+        return SubEffectCategory.cardiovascular;
       case 10:
-        return SubEffectCategory.Cerebrovascular;
+        return SubEffectCategory.cerebrovascular;
       case 11:
-        return SubEffectCategory.Bodily;
+        return SubEffectCategory.bodily;
       case 12:
-        return SubEffectCategory.Misc;
+        return SubEffectCategory.misc;
       default:
-        return SubEffectCategory.Enhancements;
+        return SubEffectCategory.enhancements;
     }
   }
 
   @override
   void write(BinaryWriter writer, SubEffectCategory obj) {
     switch (obj) {
-      case SubEffectCategory.Enhancements:
+      case SubEffectCategory.enhancements:
         writer.writeByte(0);
         break;
-      case SubEffectCategory.Suppressions:
+      case SubEffectCategory.suppressions:
         writer.writeByte(1);
         break;
-      case SubEffectCategory.Distortions:
+      case SubEffectCategory.distortions:
         writer.writeByte(2);
         break;
-      case SubEffectCategory.Geometry:
+      case SubEffectCategory.geometry:
         writer.writeByte(3);
         break;
-      case SubEffectCategory.Hallucinatory:
+      case SubEffectCategory.hallucinatory:
         writer.writeByte(4);
         break;
-      case SubEffectCategory.Novel:
+      case SubEffectCategory.novel:
         writer.writeByte(5);
         break;
-      case SubEffectCategory.Psychological:
+      case SubEffectCategory.psychological:
         writer.writeByte(6);
         break;
-      case SubEffectCategory.Transpersonal:
+      case SubEffectCategory.transpersonal:
         writer.writeByte(7);
         break;
-      case SubEffectCategory.Alterations:
+      case SubEffectCategory.alterations:
         writer.writeByte(8);
         break;
-      case SubEffectCategory.Cardiovascular:
+      case SubEffectCategory.cardiovascular:
         writer.writeByte(9);
         break;
-      case SubEffectCategory.Cerebrovascular:
+      case SubEffectCategory.cerebrovascular:
         writer.writeByte(10);
         break;
-      case SubEffectCategory.Bodily:
+      case SubEffectCategory.bodily:
         writer.writeByte(11);
         break;
-      case SubEffectCategory.Misc:
+      case SubEffectCategory.misc:
         writer.writeByte(12);
         break;
     }

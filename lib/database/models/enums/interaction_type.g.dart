@@ -14,36 +14,36 @@ class InteractionTypeAdapter extends TypeAdapter<InteractionType> {
   InteractionType read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return InteractionType.Caution;
+        return InteractionType.caution;
       case 1:
-        return InteractionType.Unsafe;
+        return InteractionType.unsafe;
       case 2:
-        return InteractionType.Dangerous;
+        return InteractionType.dangerous;
       case 3:
-        return InteractionType.Synergy;
+        return InteractionType.synergy;
       case 4:
-        return InteractionType.Decrease;
+        return InteractionType.decrease;
       default:
-        return InteractionType.Caution;
+        return InteractionType.caution;
     }
   }
 
   @override
   void write(BinaryWriter writer, InteractionType obj) {
     switch (obj) {
-      case InteractionType.Caution:
+      case InteractionType.caution:
         writer.writeByte(0);
         break;
-      case InteractionType.Unsafe:
+      case InteractionType.unsafe:
         writer.writeByte(1);
         break;
-      case InteractionType.Dangerous:
+      case InteractionType.dangerous:
         writer.writeByte(2);
         break;
-      case InteractionType.Synergy:
+      case InteractionType.synergy:
         writer.writeByte(3);
         break;
-      case InteractionType.Decrease:
+      case InteractionType.decrease:
         writer.writeByte(4);
         break;
     }

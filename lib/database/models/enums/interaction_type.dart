@@ -5,13 +5,13 @@ part 'interaction_type.g.dart';
 @HiveType(typeId: 13)
 enum InteractionType {
   @HiveField(0)
-  Caution,
+  caution,
   @HiveField(1)
-  Unsafe,
+  unsafe,
   @HiveField(2)
-  Dangerous,
+  dangerous,
   @HiveField(3)
-  Synergy,
+  synergy,
   @HiveField(4)
-  Decrease,
+  decrease,
 }

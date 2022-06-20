@@ -7,22 +7,22 @@ part 'effect_type.g.dart';
 @HiveType(typeId: 28)
 enum EffectType {
   @HiveField(0)
-  Positive,
+  positive,
   @HiveField(1)
-  Neutral,
+  neutral,
   @HiveField(2)
-  Negative,
+  negative,
 }
 
 Color getEffectTypeColor(EffectType? type) {
   switch (type) {
-    case EffectType.Positive:
+    case EffectType.positive:
       return researchColorMat;
 
-    case EffectType.Neutral:
+    case EffectType.neutral:
       return cannabisColorMat;
 
-    case EffectType.Negative:
+    case EffectType.negative:
       return empathogenColorMat;
 
     default:
@@ -34,13 +34,13 @@ EffectType? toEffectType(String type) {
   final String _type = type.toLowerCase();
   switch (_type) {
     case 'positive':
-      return EffectType.Positive;
+      return EffectType.positive;
 
     case 'neutral':
-      return EffectType.Neutral;
+      return EffectType.neutral;
 
     case 'negative':
-      return EffectType.Negative;
+      return EffectType.negative;
 
     default:
       return null;
@@ -49,13 +49,13 @@ EffectType? toEffectType(String type) {
 
 String? effectTypeToString(EffectType type) {
   switch (type) {
-    case EffectType.Positive:
+    case EffectType.positive:
       return 'Positive';
 
-    case EffectType.Neutral:
+    case EffectType.neutral:
       return 'Neutral';
 
-    case EffectType.Negative:
+    case EffectType.negative:
       return 'Negative';
 
     default:

@@ -11,7 +11,7 @@ class DiaryPage extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: empathogenColorMat,
-          borderRadius: BorderRadius.circular(BORDER_RADIUS),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         height: 100,
         width: 100,

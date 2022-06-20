@@ -33,7 +33,7 @@ void showSnackBar(
 
   ScaffoldMessenger.of(Nav().navKey.currentContext!).showSnackBar(
     SnackBar(
-      elevation: ELEVATION,
+      elevation: elevation,
       duration: Duration(milliseconds: duration),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
       margin: const EdgeInsets.only(bottom: 10, right: 25, left: 25),

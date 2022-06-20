@@ -67,9 +67,9 @@ Map<String, dynamic> _$InteractionToJson(Interaction instance) =>
     };
 
 const _$InteractionTypeEnumMap = {
-  InteractionType.Caution: 'Caution',
-  InteractionType.Unsafe: 'Unsafe',
-  InteractionType.Dangerous: 'Dangerous',
-  InteractionType.Synergy: 'Synergy',
-  InteractionType.Decrease: 'Decrease',
+  InteractionType.caution: 'caution',
+  InteractionType.unsafe: 'unsafe',
+  InteractionType.dangerous: 'dangerous',
+  InteractionType.synergy: 'synergy',
+  InteractionType.decrease: 'decrease',
 };

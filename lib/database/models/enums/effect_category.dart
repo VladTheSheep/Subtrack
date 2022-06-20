@@ -8,47 +8,47 @@ part 'effect_category.g.dart';
 @HiveType(typeId: 26)
 enum EffectCategory {
   @HiveField(0)
-  Visual,
+  visual,
   @HiveField(1)
-  Cognitive,
+  cognitive,
   @HiveField(2)
-  Physical,
+  physical,
   @HiveField(3)
-  Auditory,
+  auditory,
   @HiveField(4)
-  Disconnective,
+  disconnective,
   @HiveField(5)
-  Tactile,
+  tactile,
   @HiveField(6)
-  SmellTaste,
+  smellTaste,
   @HiveField(7)
-  Multisensory,
+  multisensory,
 }
 
 String getEffectCategorySvgPath(EffectCategory? category) {
   switch (category) {
-    case EffectCategory.Visual:
+    case EffectCategory.visual:
       return 'assets/icons/visual.svg';
 
-    case EffectCategory.Auditory:
+    case EffectCategory.auditory:
       return 'assets/icons/auditory.svg';
 
-    case EffectCategory.Cognitive:
+    case EffectCategory.cognitive:
       return 'assets/icons/cognitive.svg';
 
-    case EffectCategory.Disconnective:
+    case EffectCategory.disconnective:
       return 'assets/icons/disconnective.svg';
 
-    case EffectCategory.Multisensory:
+    case EffectCategory.multisensory:
       return 'assets/icons/multisensory.svg';
 
-    case EffectCategory.Physical:
+    case EffectCategory.physical:
       return 'assets/icons/physical.svg';
 
-    case EffectCategory.SmellTaste:
+    case EffectCategory.smellTaste:
       return 'assets/icons/smelltaste.svg';
 
-    case EffectCategory.Tactile:
+    case EffectCategory.tactile:
       return 'assets/icons/tactile.svg';
 
     default:
@@ -58,28 +58,28 @@ String getEffectCategorySvgPath(EffectCategory? category) {
 
 Color getEffectCategoryColor(EffectCategory category) {
   switch (category) {
-    case EffectCategory.Visual:
+    case EffectCategory.visual:
       return psychColorMat;
 
-    case EffectCategory.Auditory:
+    case EffectCategory.auditory:
       return habitColorMat;
 
-    case EffectCategory.Cognitive:
+    case EffectCategory.cognitive:
       return empathogenColorMat;
 
-    case EffectCategory.Disconnective:
+    case EffectCategory.disconnective:
       return dissoColorMat;
 
-    case EffectCategory.Multisensory:
+    case EffectCategory.multisensory:
       return nootropicColorMat;
 
-    case EffectCategory.Physical:
+    case EffectCategory.physical:
       return stimColorMat;
 
-    case EffectCategory.SmellTaste:
+    case EffectCategory.smellTaste:
       return depressantColorMat;
 
-    case EffectCategory.Tactile:
+    case EffectCategory.tactile:
       return researchColorMat;
 
     default:
@@ -89,28 +89,28 @@ Color getEffectCategoryColor(EffectCategory category) {
 
 String? effectCategoryToString(EffectCategory? category) {
   switch (category) {
-    case EffectCategory.Visual:
+    case EffectCategory.visual:
       return 'Visual';
 
-    case EffectCategory.Cognitive:
+    case EffectCategory.cognitive:
       return 'Cognitive';
 
-    case EffectCategory.Physical:
+    case EffectCategory.physical:
       return 'Physical';
 
-    case EffectCategory.Auditory:
+    case EffectCategory.auditory:
       return 'Auditory';
 
-    case EffectCategory.Disconnective:
+    case EffectCategory.disconnective:
       return 'Disconnective';
 
-    case EffectCategory.Tactile:
+    case EffectCategory.tactile:
       return 'Tactile';
 
-    case EffectCategory.SmellTaste:
+    case EffectCategory.smellTaste:
       return 'Smell and taste';
 
-    case EffectCategory.Multisensory:
+    case EffectCategory.multisensory:
       return 'Multisensory';
 
     default:
@@ -122,28 +122,28 @@ EffectCategory? toEffectCategory(String input) {
   final String _input = input.toLowerCase();
   switch (_input) {
     case 'visual':
-      return EffectCategory.Visual;
+      return EffectCategory.visual;
 
     case 'cognitive':
-      return EffectCategory.Cognitive;
+      return EffectCategory.cognitive;
 
     case 'physical':
-      return EffectCategory.Physical;
+      return EffectCategory.physical;
 
     case 'auditory':
-      return EffectCategory.Auditory;
+      return EffectCategory.auditory;
 
     case 'disconnective':
-      return EffectCategory.Disconnective;
+      return EffectCategory.disconnective;
 
     case 'tactile':
-      return EffectCategory.Tactile;
+      return EffectCategory.tactile;
 
     case 'smelltaste':
-      return EffectCategory.SmellTaste;
+      return EffectCategory.smellTaste;
 
     case 'multisensory':
-      return EffectCategory.Multisensory;
+      return EffectCategory.multisensory;
 
     default:
       return null;

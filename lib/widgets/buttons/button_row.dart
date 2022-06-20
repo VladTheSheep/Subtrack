@@ -33,7 +33,7 @@ class ButtonRow extends StatelessWidget {
           ),
         ),
         Container(
-          height: BUTTON_HEIGHT - 20,
+          height: buttonHeight - 20,
           width: 1,
           color: appBarColorMat,
         ),

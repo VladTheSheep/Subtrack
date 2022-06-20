@@ -14,51 +14,51 @@ class EffectCategoryAdapter extends TypeAdapter<EffectCategory> {
   EffectCategory read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return EffectCategory.Visual;
+        return EffectCategory.visual;
       case 1:
-        return EffectCategory.Cognitive;
+        return EffectCategory.cognitive;
       case 2:
-        return EffectCategory.Physical;
+        return EffectCategory.physical;
       case 3:
-        return EffectCategory.Auditory;
+        return EffectCategory.auditory;
       case 4:
-        return EffectCategory.Disconnective;
+        return EffectCategory.disconnective;
       case 5:
-        return EffectCategory.Tactile;
+        return EffectCategory.tactile;
       case 6:
-        return EffectCategory.SmellTaste;
+        return EffectCategory.smellTaste;
       case 7:
-        return EffectCategory.Multisensory;
+        return EffectCategory.multisensory;
       default:
-        return EffectCategory.Visual;
+        return EffectCategory.visual;
     }
   }
 
   @override
   void write(BinaryWriter writer, EffectCategory obj) {
     switch (obj) {
-      case EffectCategory.Visual:
+      case EffectCategory.visual:
         writer.writeByte(0);
         break;
-      case EffectCategory.Cognitive:
+      case EffectCategory.cognitive:
         writer.writeByte(1);
         break;
-      case EffectCategory.Physical:
+      case EffectCategory.physical:
         writer.writeByte(2);
         break;
-      case EffectCategory.Auditory:
+      case EffectCategory.auditory:
         writer.writeByte(3);
         break;
-      case EffectCategory.Disconnective:
+      case EffectCategory.disconnective:
         writer.writeByte(4);
         break;
-      case EffectCategory.Tactile:
+      case EffectCategory.tactile:
         writer.writeByte(5);
         break;
-      case EffectCategory.SmellTaste:
+      case EffectCategory.smellTaste:
         writer.writeByte(6);
         break;
-      case EffectCategory.Multisensory:
+      case EffectCategory.multisensory:
         writer.writeByte(7);
         break;
     }
