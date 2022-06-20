@@ -45,7 +45,7 @@ class EffectsManager {
       }
       return result;
     }
-    print("ERROR!! EffectsManager::parseEffects: Invalid input given");
+    // print("ERROR!! EffectsManager::parseEffects: Invalid input given");
     return null;
   }
 
