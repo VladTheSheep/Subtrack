@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           navigatorKey: Nav().navKey,
           initialRoute: "/landing",
           routes: {
-            "/landing": (context) => const LandingPage(),
+            "/landing": (context) => LandingPage(),
             "/diary": (context) => const DiaryPage(),
           },
         );

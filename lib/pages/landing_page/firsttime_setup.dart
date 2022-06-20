@@ -16,28 +16,28 @@ import 'package:subtrack/widgets/buttons/button_row.dart';
 import 'package:subtrack/widgets/slide_replace_widget.dart';
 
 class FirstTimeSetup extends StatelessWidget {
-  const FirstTimeSetup({
+  FirstTimeSetup({
     Key? key,
     this.setupComplete = false,
   }) : super(key: key);
 
   final bool setupComplete;
 
+  final _beginLoadProvider = FutureProvider<bool>((ref) {
+    final LogNotifierState state = ref.watch(createLogNotifierProvider);
+
+    return state.maybeWhen(
+      initial: () => false,
+      loadingCache: () => true,
+      loadingLog: () => true,
+      error: (_) => true,
+      loaded: () => true,
+      orElse: () => false,
+    );
+  });
+
   @override
   Widget build(BuildContext context) {
-    final _beginLoadProvider = FutureProvider<bool>((ref) {
-      final LogNotifierState state = ref.watch(createLogNotifierProvider);
-
-      return state.maybeWhen(
-        initial: () => false,
-        loadingCache: () => true,
-        loadingLog: () => true,
-        error: (_) => true,
-        loaded: () => true,
-        orElse: () => false,
-      );
-    });
-
     const Widget child1 = _FirstTimeSetupView(key: ValueKey("child_1"));
     final Widget child2 = _DatabaseLoadView(
       key: const ValueKey("child_2"),
@@ -79,12 +79,49 @@ class FirstTimeSetup extends StatelessWidget {
 }
 
 class _DatabaseLoadView extends StatelessWidget {
-  const _DatabaseLoadView({
+  _DatabaseLoadView({
     Key? key,
     this.setupComplete = false,
   }) : super(key: key);
 
   final bool setupComplete;
+
+  final _beginLoadWidgetProvider = StateProvider<Widget>((ref) {
+    final LogNotifierState state = ref.watch(createLogNotifierProvider);
+    const double size = 75;
+    final Widget loading = SpinKitDoubleBounce(
+      size: size,
+      color: Themes().getTheme().colorScheme.secondary,
+    );
+
+    return state.maybeWhen(
+      initial: () => Container(),
+      loadingCache: () => loading,
+      loadingLog: () => loading,
+      error: (_) => const SpinKitPulse(
+        duration: Duration(milliseconds: 500),
+        color: empathogenColorMat,
+      ),
+      loaded: () => const FaIcon(
+        FontAwesomeIcons.lightCheckCircle,
+        color: cannabisColorMat,
+        size: size,
+      ),
+      orElse: () => Container(),
+    );
+  });
+
+  final loadTextProvider = StateProvider((ref) {
+    final LogNotifierState state = ref.watch(createLogNotifierProvider);
+    return state.maybeWhen(
+      initial: () => "Idle...",
+      loaded: () => "Loaded!",
+      loadingCache: () => "Fetching API data...",
+      loadingLog: () => "Loading log...",
+      error: (errorText) => errorText,
+      orElse: () => "Something went wrong!",
+    );
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -97,31 +134,6 @@ class _DatabaseLoadView extends StatelessWidget {
           bottom: 100,
           child: Consumer(
             builder: (context, ref, child) {
-              final _beginLoadWidgetProvider = StateProvider<Widget>((ref) {
-                final LogNotifierState state = ref.watch(createLogNotifierProvider);
-                const double size = 75;
-                final Widget loading = SpinKitDoubleBounce(
-                  size: size,
-                  color: Themes().getTheme().colorScheme.secondary,
-                );
-
-                return state.maybeWhen(
-                  initial: () => Container(),
-                  loadingCache: () => loading,
-                  loadingLog: () => loading,
-                  error: (_) => const SpinKitPulse(
-                    duration: Duration(milliseconds: 500),
-                    color: empathogenColorMat,
-                  ),
-                  loaded: () => const FaIcon(
-                    FontAwesomeIcons.lightCheckCircle,
-                    color: cannabisColorMat,
-                    size: size,
-                  ),
-                  orElse: () => Container(),
-                );
-              });
-
               return AnimatedSwitcher(
                 duration: const Duration(milliseconds: 500),
                 child: ref.watch(_beginLoadWidgetProvider),
@@ -140,18 +152,6 @@ class _DatabaseLoadView extends StatelessWidget {
                 if (setupComplete) {
                   ref.watch(createLogNotifierProvider.notifier).loadLog();
                 }
-
-                final loadTextProvider = StateProvider((ref) {
-                  final LogNotifierState state = ref.watch(createLogNotifierProvider);
-                  return state.maybeWhen(
-                    initial: () => "Idle...",
-                    loaded: () => "Loaded!",
-                    loadingCache: () => "Fetching API data...",
-                    loadingLog: () => "Loading log...",
-                    error: (errorText) => errorText,
-                    orElse: () => "Something went wrong!",
-                  );
-                });
 
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
