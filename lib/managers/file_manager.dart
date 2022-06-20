@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:subtrack/database/log.dart';
 import 'package:subtrack/utils/settings.dart';
@@ -15,16 +16,23 @@ class FileManager {
   bool manageStorageDenied = true;
   bool storageGranted = false;
 
-  late String _rootAppDirPath;
+  String rootAppDirPath = "";
+  String _appDocDirPath = "";
 
-  String get getRootAppDirPath => _rootAppDirPath;
-  String get getExportPath => '$_rootAppDirPath/Export';
-  String get getDatabasePath => '$_rootAppDirPath/Database';
-  String get getTempBackupPath => '$_rootAppDirPath/Backup';
+  String get getAppDocDirPath => _appDocDirPath;
+  String get getRootAppDirPath => rootAppDirPath;
+  String get getExportPath => '$rootAppDirPath/Export';
+  String get getDatabasePath => '$rootAppDirPath/Database';
+  String get getTempBackupPath => '$rootAppDirPath/Backup';
 
   Future<bool> get hasStoragePermission async {
-    manageStorageDenied = !await Permission.manageExternalStorage.isGranted;
-    storageDenied = !await Permission.storage.isGranted;
+    if (Platform.isAndroid) {
+      manageStorageDenied = !await Permission.manageExternalStorage.isGranted;
+      storageDenied = !await Permission.storage.isGranted;
+    } else {
+      manageStorageDenied = false;
+      storageDenied = false;
+    }
     return storageGranted = !storageDenied && !manageStorageDenied;
   }
 
@@ -36,9 +44,12 @@ class FileManager {
   Future<bool> pickPath() async {
     if (await hasStoragePermission) {
       final String? result = await FilePicker.platform.getDirectoryPath(dialogTitle: "Create database in specified folder");
+
       if (result != null) {
-        _rootAppDirPath = result;
-        await _initRootDirectory();
+        rootAppDirPath = result;
+        await Settings().readSettings();
+        Settings().data.setDatabasePath(result);
+        await _initDirectories();
         return true;
       }
       return false;
@@ -46,9 +57,11 @@ class FileManager {
     return false;
   }
 
-  Future<void> _initRootDirectory() async {
+  Future<void> initAppDirectory() async => _appDocDirPath = (await getApplicationDocumentsDirectory()).path;
+
+  Future<void> _initDirectories() async {
     if (Platform.isAndroid) {
-      await Directory(_rootAppDirPath).create(recursive: true).then((Directory dir) => _rootAppDirPath = dir.path);
+      await Directory(rootAppDirPath).create(recursive: true).then((Directory dir) => rootAppDirPath = dir.path);
     }
 
     await Directory(getDatabasePath).create(recursive: true);
