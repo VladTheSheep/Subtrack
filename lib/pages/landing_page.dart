@@ -32,28 +32,30 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: linearBg,
-      child: Stack(
-        children: [
-          const _Logo(),
-          Consumer(
-            builder: (context, ref, child) {
-              WidgetsBinding.instance.addPostFrameCallback(
-                (_) => Future.delayed(const Duration(milliseconds: 500)).then((value) => ref.watch(_animateProvider.notifier).state = 2),
-              );
+    return Scaffold(
+      body: Container(
+        decoration: linearBg,
+        child: Stack(
+          children: [
+            const _Logo(),
+            Consumer(
+              builder: (context, ref, child) {
+                WidgetsBinding.instance.addPostFrameCallback(
+                  (_) => Future.delayed(const Duration(milliseconds: 500)).then((value) => ref.watch(_animateProvider.notifier).state = 2),
+                );
 
-              return AnimatedPositioned(
-                duration: const Duration(milliseconds: 1000),
-                curve: Curves.easeOutExpo,
-                top: Nav().screenHeight / ref.watch(_animateProvider),
-                left: 35,
-                right: 35,
-                child: ref.watch(_storagePermissionProvider),
-              );
-            },
-          ),
-        ],
+                return AnimatedPositioned(
+                  duration: const Duration(milliseconds: 1000),
+                  curve: Curves.easeOutExpo,
+                  top: Nav().screenHeight / ref.watch(_animateProvider),
+                  left: 35,
+                  right: 35,
+                  child: ref.watch(_storagePermissionProvider),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

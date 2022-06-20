@@ -188,29 +188,4 @@ class Log {
 
     return false;
   }
-
-  Future<void> createLog(WidgetRef ref, {String? value}) async {
-    try {
-      ImportedDatabase? import;
-      if (value != null && value.isNotEmpty) {
-        import = ImportedDatabase.fromRawJson(value);
-      }
-      ref.watch(createLogNotifierProvider.notifier).createLog(import: import);
-    } on InvalidJsonException {
-      late String text;
-      if (value != null) {
-        text = "Unable to import the specified file";
-      } else {
-        text = "Something went wrong!";
-      }
-      showSnackBar(
-        text,
-        icon: const FaIcon(
-          FontAwesomeIcons.lightFileExclamation,
-        ),
-        barColor: empathogenColorMat,
-        duration: 3000,
-      );
-    }
-  }
 }

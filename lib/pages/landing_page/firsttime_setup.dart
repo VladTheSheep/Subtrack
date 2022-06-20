@@ -5,11 +5,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:subtrack/application/log_notifier.dart';
 import 'package:subtrack/consts/colors.dart';
 import 'package:subtrack/consts/sizes.dart';
-import 'package:subtrack/database/log.dart';
+import 'package:subtrack/data/imported_database.dart';
 import 'package:subtrack/managers/file_manager.dart';
 import 'package:subtrack/navigation/nav.dart';
 import 'package:subtrack/pages/landing_page/prompt_header.dart';
 import 'package:subtrack/providers.dart';
+import 'package:subtrack/utils/snackbar_helper.dart';
 import 'package:subtrack/utils/themes.dart';
 import 'package:subtrack/widgets/buttons/button_row.dart';
 import 'package:subtrack/widgets/slide_replace_widget.dart';
@@ -214,19 +215,32 @@ class _FirstTimeSetupView extends StatelessWidget {
   }
 
   Future<void> _buttonTapped(bool val, WidgetRef ref) async {
-    String? response;
-    String? imported;
-    if (val) {
-      response = await FileManager().pickPath() == false ? null : "";
-    } else {
-      imported = await FileManager().pickJson();
-      if (imported != null) {
+    try {
+      String? response;
+      String? imported;
+      ImportedDatabase? import;
+      if (val) {
         response = await FileManager().pickPath() == false ? null : "";
+      } else {
+        imported = await FileManager().pickJson();
+        if (imported != null) {
+          import = ImportedDatabase.fromRawJson(imported);
+          response = await FileManager().pickPath() == false ? null : "";
+        }
       }
-    }
 
-    if (response != null) {
-      Log().createLog(ref, value: imported);
+      if (response != null) {
+        ref.watch(createLogNotifierProvider.notifier).createLog(import: import);
+      }
+    } catch (e) {
+      showSnackBar(
+        "Unsupported / corrupted file",
+        icon: const FaIcon(
+          FontAwesomeIcons.lightFileExclamation,
+        ),
+        barColor: empathogenColorMat,
+        duration: 3000,
+      );
     }
   }
 }
