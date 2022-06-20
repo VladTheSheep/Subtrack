@@ -1,17 +1,9 @@
-int findCharPos(String? string, String pattern, bool reversed) {
+int findCharPos(String? string, String pattern) {
   final String _pattern = pattern[0];
 
-  if (!reversed) {
-    for (int i = 0; i < string!.length; ++i) {
-      if (_pattern == string[i]) {
-        return i;
-      }
-    }
-  } else {
-    for (int i = string!.length - 1; i >= 0; --i) {
-      if (_pattern == string[i]) {
-        return i;
-      }
+  for (int i = string!.length - 1; i >= 0; --i) {
+    if (_pattern == string[i]) {
+      return i;
     }
   }
 
@@ -69,7 +61,7 @@ int findDigitNoSymbols(String input) {
 }
 
 String stripTrailingZero(String input) {
-  final int index = findCharPos(input, '.', true);
+  final int index = findCharPos(input, '.');
   int iter = 0;
 
   try {

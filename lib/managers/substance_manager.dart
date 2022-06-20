@@ -104,7 +104,7 @@ class SubstanceManager {
     String? _temp = roa;
     int index = -1;
     if (roa != null) {
-      index = findCharPos(_temp, ':', false);
+      index = findCharPos(_temp, ':');
       if (index != -1 && index == _temp!.length) {
         print("SubstanceManager::sanitizeROA: Fixing ROA string...");
         _temp = _temp.substring(0, index);

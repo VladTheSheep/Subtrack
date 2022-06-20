@@ -15,7 +15,7 @@ class PsychoDoseData {
     final PsychoDoseData result = PsychoDoseData();
     final String noDigits = removeAllChars(input, skipSymbols: true);
     if (noDigits.isNotEmpty) {
-      int index = findCharPos(input, '-', false);
+      int index = findCharPos(input, '-');
       if (index != -1) {
         final String tempLow = input.substring(0, index);
         final int lowIndex = findChar(tempLow);

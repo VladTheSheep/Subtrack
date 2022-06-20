@@ -45,7 +45,7 @@ class Date {
         }
 
         int val;
-        final int index = findCharPos(input, searchPattern, false);
+        final int index = findCharPos(input, searchPattern);
 
         val = int.parse(input!.substring(0, index != -1 ? index : input.length));
         if (index != -1) {
@@ -64,7 +64,7 @@ class Date {
           date.hour = val;
 
           if (input.contains(':')) {
-            final int charPos = findCharPos(input, ':', false);
+            final int charPos = findCharPos(input, ':');
             date.minute = int.parse(input.substring(0, charPos));
             date.second = int.parse(input.substring(charPos + 1));
           } else {
@@ -170,7 +170,7 @@ class Date {
               } else {
                 if (second <= date.second) {
                   return 1;
-                } else if (second > date.second) {
+                } else if (second >= date.second) {
                   return -1;
                 }
               }
@@ -308,7 +308,7 @@ class Date {
           searchPattern = ':';
         }
 
-        final int index = findCharPos(str, searchPattern, false);
+        final int index = findCharPos(str, searchPattern);
         final int val = int.parse(str.substring(0, index));
         str = str.substring(index + 1);
 
@@ -322,7 +322,7 @@ class Date {
           hour = val;
 
           if (str.contains(':')) {
-            final int charPos = findCharPos(str, ':', false);
+            final int charPos = findCharPos(str, ':');
             minute = int.parse(str.substring(0, charPos));
             second = int.parse(str.substring(charPos + 1));
           } else {
@@ -557,7 +557,7 @@ bool isBeforeDate(Date d1, Date d2) {
             } else {
               if (d1.second <= d2.second) {
                 return true;
-              } else if (d1.second > d2.second) {
+              } else if (d1.second >= d2.second) {
                 return false;
               }
             }
