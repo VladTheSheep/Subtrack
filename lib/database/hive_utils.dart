@@ -25,9 +25,14 @@ class HiveUtils {
   factory HiveUtils() => _hiveUtils;
   HiveUtils._internal();
 
-  Future<bool> initHive() async {
-    await Hive.initFlutter(FileManager().getDatabasePath);
-    return openBoxes();
+  bool _initialized = false;
+
+  Future<void> initHive() async {
+    if (!_initialized) {
+      await Hive.initFlutter(FileManager().getDatabasePath);
+      _initialized = true;
+    }
+    await openBoxes();
   }
 
   Future<bool> openBoxes({List<int>? password, bool debugThrow = false}) async {
