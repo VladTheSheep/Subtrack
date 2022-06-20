@@ -32,12 +32,14 @@ class SettingsData {
     this.useFromStash = false,
     this.wokeMode = false,
     this.hasCompletedSetup = false,
+    this.databasePath,
   });
 
   factory SettingsData.fromJson(Map<String, dynamic> json) => _$SettingsDataFromJson(json);
 
   String accentColor = "Green";
   String? lastCacheRefresh = "";
+  String? databasePath;
   bool autoArchiveStashes = false;
   bool checkInteractions = true;
   bool checkDangerousInteraction = true;
@@ -128,6 +130,11 @@ class SettingsData {
     writeSettings("hasCompletedSetup");
   }
 
+  void setDatabasePath(String path) {
+    databasePath = path;
+    writeSettings("databasePath");
+  }
+
   Future<void> setCacheStatus({bool? substanceStatus, bool? categoryStatus}) async {
     if (substanceStatus != null) substanceCache = substanceStatus;
     if (categoryStatus != null) categoryCache = categoryStatus;
@@ -137,10 +144,9 @@ class SettingsData {
   bool get isCacheEmpty => !substanceCache && !categoryCache;
 
   Future<void> writeSettings([String? settingChanged]) async {
-    // if (settingChanged != null) Settings().settingsStreamController.add(StreamAction(content: true, identifier: settingChanged));
     await FileManager().writeFile(
       jsonEncode(this),
-      path: FileManager().getRootAppDirPath,
+      path: FileManager().getAppDocDirPath,
       fileName: settingsFileName,
     );
   }

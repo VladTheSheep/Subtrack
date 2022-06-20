@@ -24,12 +24,14 @@ SettingsData _$SettingsDataFromJson(Map<String, dynamic> json) => SettingsData(
       useFromStash: json['useFromStash'] as bool? ?? false,
       wokeMode: json['wokeMode'] as bool? ?? false,
       hasCompletedSetup: json['hasCompletedSetup'] as bool? ?? false,
+      databasePath: json['databasePath'] as String?,
     );
 
 Map<String, dynamic> _$SettingsDataToJson(SettingsData instance) =>
     <String, dynamic>{
       'accentColor': instance.accentColor,
       'lastCacheRefresh': instance.lastCacheRefresh,
+      'databasePath': instance.databasePath,
       'autoArchiveStashes': instance.autoArchiveStashes,
       'checkInteractions': instance.checkInteractions,
       'checkDangerousInteraction': instance.checkDangerousInteraction,
