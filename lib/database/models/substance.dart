@@ -146,7 +146,7 @@ class Substance extends HiveObject {
   Map<String, List<Interaction>>? interactions = <String, List<Interaction>>{};
   int timesUsed = 0;
 
-  PsychoROA? _lastUsedROA;
+  PsychoROA? lastUsedROA;
 
   Map<String, dynamic> toJson() => {
         "avoid": avoid,
@@ -240,9 +240,6 @@ class Substance extends HiveObject {
     }
     return result;
   }
-
-  void setLastUsedROA(PsychoROA? roa) => _lastUsedROA = roa;
-  PsychoROA? getLastUsedROA() => _lastUsedROA;
 
   Category get getPrimaryCategory => categories.isNotEmpty ? categories.first : Category(name: 'Unknown');
   Color get getPrimaryCategoryColor {
