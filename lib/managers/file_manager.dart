@@ -29,8 +29,8 @@ class FileManager {
   }
 
   Future<void> get requestStoragePermission async {
-    await Permission.manageExternalStorage.request();
     await Permission.storage.request();
+    await Permission.manageExternalStorage.request();
   }
 
   Future<bool> pickPath() async {
