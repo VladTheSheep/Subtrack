@@ -41,10 +41,7 @@ class FirstTimeSetup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Widget child1 = _FirstTimeSetupView(key: ValueKey("child_1"));
-    final Widget child2 = _DatabaseLoadView(
-      key: const ValueKey("child_2"),
-      setupComplete: setupComplete,
-    );
+    final Widget child2 = _DatabaseLoadView(key: const ValueKey("child_2"));
     final Widget firstTimeSlideWidget = SlideReplaceWidget(
       child1: child1,
       child2: child2,
@@ -83,10 +80,7 @@ class FirstTimeSetup extends StatelessWidget {
 class _DatabaseLoadView extends StatelessWidget {
   _DatabaseLoadView({
     Key? key,
-    this.setupComplete = false,
   }) : super(key: key);
-
-  final bool setupComplete;
 
   final _beginLoadWidgetProvider = StateProvider<Widget>((ref) {
     final LogNotifierState state = ref.watch(createLogNotifierProvider);
@@ -151,10 +145,6 @@ class _DatabaseLoadView extends StatelessWidget {
           child: Align(
             child: Consumer(
               builder: (context, ref, child) {
-                if (setupComplete) {
-                  ref.watch(createLogNotifierProvider.notifier).loadLog();
-                }
-
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Column(
