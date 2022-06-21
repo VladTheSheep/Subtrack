@@ -43,7 +43,9 @@ class LandingPage extends StatelessWidget {
             Consumer(
               builder: (context, ref, child) {
                 WidgetsBinding.instance.addPostFrameCallback(
-                  (_) => Future.delayed(const Duration(milliseconds: 500)).then((value) => ref.watch(_animateProvider.notifier).state = 2),
+                  (_) => Future.delayed(const Duration(milliseconds: 500)).then(
+                    (value) => ref.watch(_animateProvider.notifier).state = 2,
+                  ),
                 );
 
                 return AnimatedPositioned(
