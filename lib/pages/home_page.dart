@@ -7,7 +7,6 @@ import 'package:subtrack/pages/diary_page.dart';
 import 'package:subtrack/pages/stashes_page.dart';
 import 'package:subtrack/pages/stats_page.dart';
 import 'package:subtrack/pages/substances_page.dart';
-import 'package:subtrack/providers.dart';
 import 'package:subtrack/utils/settings.dart';
 import 'package:subtrack/widgets/nav_bar.dart';
 
@@ -37,7 +36,6 @@ class HomePage extends ConsumerWidget {
           physics: const NeverScrollableScrollPhysics(),
           controller: controller,
           children: pages,
-          onPageChanged: (i) => ref.watch(navBarNotifierProvider.notifier).intToState(i),
         ),
       ),
       bottomNavigationBar: NavBar(controller: controller),
