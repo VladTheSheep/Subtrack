@@ -11,6 +11,7 @@ class ButtonRow extends StatelessWidget {
     this.leftColor = Colors.white,
     this.rightColor = Colors.white,
     required this.callback,
+    this.radius,
   }) : super(key: key);
 
   final String leftText;
@@ -18,6 +19,7 @@ class ButtonRow extends StatelessWidget {
   final Color leftColor;
   final Color rightColor;
   final Function(bool val) callback;
+  final BorderRadius? radius;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,10 @@ class ButtonRow extends StatelessWidget {
             color: leftColor,
             callback: callback,
             callbackValue: false,
+            radius: radius ??
+                const BorderRadius.only(
+                  bottomLeft: Radius.circular(borderRadius),
+                ),
           ),
         ),
         Container(
@@ -43,6 +49,10 @@ class ButtonRow extends StatelessWidget {
             color: rightColor,
             callback: callback,
             callbackValue: true,
+            radius: radius ??
+                const BorderRadius.only(
+                  bottomRight: Radius.circular(borderRadius),
+                ),
           ),
         ),
       ],
