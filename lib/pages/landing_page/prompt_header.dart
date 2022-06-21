@@ -92,7 +92,7 @@ class HeaderProgressBar extends StatelessWidget {
         borderRadius: const BorderRadius.vertical(top: Radius.circular(borderRadius)),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(7.5),
         child: stateProvider != null
             ? SlideReplaceWidget(
                 child1: Text(
