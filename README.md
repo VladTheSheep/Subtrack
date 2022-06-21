@@ -2,6 +2,12 @@
 
 A Flutter app designed to help people keep track of their drug use.
 
+This is the app's second iteration. Originally called Imperium and been in development since 2019. Due to my inexperience with app development at the time, I decided to start fresh.
+
+You can find Imperium on the Play Store.
+
+https://play.google.com/store/apps/details?id=me.pred.imperium
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
