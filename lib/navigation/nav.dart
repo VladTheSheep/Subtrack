@@ -7,6 +7,7 @@ class Nav {
   Nav._internal();
 
   GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
+  GlobalKey<NavigatorState> homeNavKey = GlobalKey<NavigatorState>();
 
   double get screenWidth => MediaQuery.of(navKey.currentContext!).size.width;
   double get screenHeight => MediaQuery.of(navKey.currentContext!).size.height;
