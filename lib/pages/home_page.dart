@@ -34,6 +34,7 @@ class HomePage extends ConsumerWidget {
       body: DecoratedBox(
         decoration: linearBg,
         child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
           controller: controller,
           children: pages,
           onPageChanged: (i) => ref.watch(navBarNotifierProvider.notifier).intToState(i),
