@@ -166,7 +166,7 @@ class DrawerEntryPage extends StatelessWidget {
             MaterialPageRoute(builder: (context) => page!),
           );
         } else if (func != null) {
-          func!();
+          func?.call();
         }
       },
     );
