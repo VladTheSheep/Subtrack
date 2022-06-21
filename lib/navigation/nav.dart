@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class Nav {
   static final Nav _nav = Nav._internal();
@@ -6,8 +6,7 @@ class Nav {
   factory Nav() => _nav;
   Nav._internal();
 
-  GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
-  GlobalKey<NavigatorState> homeNavKey = GlobalKey<NavigatorState>();
+  GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>(debugLabel: "root");
 
   double get screenWidth => MediaQuery.of(navKey.currentContext!).size.width;
   double get screenHeight => MediaQuery.of(navKey.currentContext!).size.height;
@@ -23,5 +22,9 @@ class Nav {
         );
       },
     );
+  }
+
+  Future<dynamic> pushNamed(String routeName) async {
+    return Navigator.of(Nav().navKey.currentContext!).pushNamed(routeName);
   }
 }

@@ -154,7 +154,7 @@ class _DatabaseLoadView extends StatelessWidget {
                             (_) {
                               final watch = ref.watch(loadTextProvider);
                               if (watch == "Loaded!") {
-                                Navigator.pushReplacement(context, Nav().createRoute(const HomePage()));
+                                Navigator.pushReplacement(context, Nav().createRoute(HomePage()));
                               }
                             },
                           );

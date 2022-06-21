@@ -17,7 +17,7 @@ class LoadPrompt extends ConsumerWidget {
         ref.watch(createLogNotifierProvider.notifier).loadLog().then(
           (state) {
             if (state == const LogNotifierState.loaded()) {
-              Navigator.pushReplacement(context, Nav().createRoute(const HomePage()));
+              Navigator.pushReplacement(context, Nav().createRoute(HomePage()));
             }
           },
         );
