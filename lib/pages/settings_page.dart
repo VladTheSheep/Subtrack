@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:subtrack/consts/colors.dart';
-import 'package:subtrack/navigation/nav.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -9,7 +8,10 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => await Nav().pushNamed("/home") as bool,
+      onWillPop: () async {
+        Navigator.pop(context);
+        return true;
+      },
       child: Scaffold(
         backgroundColor: bgColorMat,
         appBar: AppBar(
@@ -17,7 +19,7 @@ class SettingsPage extends StatelessWidget {
           leading: Builder(
             builder: (context) {
               return IconButton(
-                onPressed: () => Nav().pushNamed("/home"),
+                onPressed: () => Navigator.pop(context),
                 icon: const FaIcon(FontAwesomeIcons.lightChevronLeft),
               );
             },
