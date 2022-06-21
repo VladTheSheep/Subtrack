@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:subtrack/consts/colors.dart';
 import 'package:subtrack/consts/strings.dart';
@@ -119,7 +120,10 @@ class HomeDrawer extends StatelessWidget {
                 ),
                 DrawerEntryPage(
                   text: 'Lock database',
-                  func: () async => HiveUtils().closeBoxes(),
+                  func: () async {
+                    await HiveUtils().closeBoxes();
+                    await SystemNavigator.pop();
+                  },
                   leading: const FaIcon(
                     FontAwesomeIcons.lightSignOut,
                     color: empathogenColorMat,

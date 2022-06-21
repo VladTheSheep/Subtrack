@@ -36,12 +36,7 @@ class HiveUtils {
   }
 
   Future<void> closeBoxes() async {
-    await Hive.box("stashes").close();
-    await Hive.box("entries").close();
-    await Hive.box("notes").close();
-    await Hive.box("substanceExtras").close();
-    await Hive.box("substances").close();
-    await Hive.box("categories").close();
+    await Hive.close();
   }
 
   Future<bool> openBoxes({List<int>? password, bool debugThrow = false}) async {
