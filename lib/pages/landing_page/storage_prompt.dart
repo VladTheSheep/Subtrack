@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:subtrack/consts/colors.dart';
 import 'package:subtrack/consts/sizes.dart';
 import 'package:subtrack/navigation/nav.dart';
@@ -57,7 +58,7 @@ class _StoragePromptView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16.0,
-                  vertical: 8.0,
+                  vertical: 12.0,
                 ),
                 child: Column(
                   children: const [
@@ -73,46 +74,55 @@ class _StoragePromptView extends StatelessWidget {
             },
           ),
         ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 8.0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "- Manage External Storage",
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  "- Storage",
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 8.0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  '"Manage External Storage" is needed to store the database wherever you want',
-                ),
-                Padding(padding: EdgeInsets.all(8.0)),
-                Text(
-                  '"Storage" is needed to read/write to the database',
-                ),
-              ],
+        Expanded(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8.0,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "- Manage External Storage",
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      FaIcon(FontAwesomeIcons.lightHdd),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      'Required to store your database',
+                      style: TextStyle(fontSize: 11),
+                    ),
+                  ),
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "- Storage",
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      FaIcon(FontAwesomeIcons.lightFolderOpen),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      'Required to read/write to the database',
+                      style: TextStyle(fontSize: 11),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -123,6 +133,7 @@ class _StoragePromptView extends StatelessWidget {
               return CustomButton(
                 text: "Grant permissions",
                 color: cannabisColorMat,
+                radius: const BorderRadius.vertical(bottom: Radius.circular(borderRadius)),
                 callback: (val) {
                   ref.watch(storagePermissionsNotifierProvider.notifier).grantPermissions();
                 },
