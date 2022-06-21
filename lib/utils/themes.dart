@@ -66,6 +66,8 @@ class Themes {
     );
   }
 
+  Color get accentColor => Themes().getTheme().colorScheme.secondary;
+
   ThemeData get green => theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(secondary: cannabisColorMat).copyWith(secondary: cannabisColorMat),
       );

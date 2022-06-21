@@ -87,7 +87,7 @@ class _DatabaseLoadView extends StatelessWidget {
     const double size = 75;
     final Widget loading = SpinKitDoubleBounce(
       size: size,
-      color: Themes().getTheme().colorScheme.secondary,
+      color: Themes().accentColor,
     );
 
     return state.maybeWhen(

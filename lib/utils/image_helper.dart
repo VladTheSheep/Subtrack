@@ -11,5 +11,8 @@ Widget getSVG(String? path, {Color? color, double size = 32.0}) => SvgPicture.as
       width: size,
     );
 
-Widget getLogo({Color? color, double size = 86.0}) =>
-    getSVG('assets/icons/logo.svg', color: color ?? Themes().getTheme().colorScheme.secondary, size: size);
+Widget getLogo({Color? color, double size = 86.0}) => getSVG(
+      'assets/icons/logo.svg',
+      color: color ?? Themes().accentColor,
+      size: size,
+    );

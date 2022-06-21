@@ -28,7 +28,7 @@ class LoadPrompt extends ConsumerWidget {
       padding: EdgeInsets.only(top: Nav().screenHeight / 6),
       child: SpinKitDancingSquare(
         size: 82,
-        color: Themes().getTheme().colorScheme.secondary,
+        color: Themes().accentColor,
       ),
     );
   }

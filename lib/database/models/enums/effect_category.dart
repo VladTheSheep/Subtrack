@@ -83,7 +83,7 @@ Color getEffectCategoryColor(EffectCategory category) {
       return researchColorMat;
 
     default:
-      return Themes().getTheme().colorScheme.secondary;
+      return Themes().accentColor;
   }
 }
 

@@ -22,14 +22,18 @@ void showSnackBar(
     if (secondStyle != null) {
       style = secondStyle;
     } else if (secondTextStyle) {
-      style = TextStyle(color: Themes().getTheme().colorScheme.secondary, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic);
+      style = TextStyle(
+        color: Themes().accentColor,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic,
+      );
     }
 
     secondText = Text(secondaryText, style: style);
   }
 
   barColor ??= bgColorMat;
-  // barColor ??= Themes().getTheme().colorScheme.secondary;
+  // barColor ??= Themes().accentColor;
 
   ScaffoldMessenger.of(Nav().navKey.currentContext!).showSnackBar(
     SnackBar(
