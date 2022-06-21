@@ -23,8 +23,4 @@ class Nav {
       },
     );
   }
-
-  Future<dynamic> pushNamed(String routeName) async {
-    return Navigator.of(Nav().navKey.currentContext!).pushNamed(routeName);
-  }
 }
