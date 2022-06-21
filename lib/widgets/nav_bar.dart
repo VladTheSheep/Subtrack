@@ -27,19 +27,22 @@ class NavBar extends StatelessWidget {
       ),
       child: Consumer(
         builder: (context, ref, child) {
+          final int state = ref.watch(navBarStateNotifierProvider);
           return BottomNavigationBar(
             showUnselectedLabels: true,
             fixedColor: Themes().accentColor,
             unselectedItemColor: Themes().getTheme().unselectedWidgetColor,
             unselectedLabelStyle: TextStyle(color: Themes().getTheme().unselectedWidgetColor),
-            currentIndex: ref.watch(navBarStateNotifierProvider),
+            currentIndex: state,
             onTap: (int index) {
-              ref.watch(navBarNotifierProvider.notifier).intToState(index);
-              controller.animateToPage(
-                index,
-                duration: const Duration(milliseconds: 250),
-                curve: Curves.easeInOut,
-              );
+              if (state != index) {
+                ref.watch(navBarNotifierProvider.notifier).intToState(index);
+                controller.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 250),
+                  curve: Curves.easeInOut,
+                );
+              }
             },
             items: [
               const BottomNavigationBarItem(
