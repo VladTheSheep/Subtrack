@@ -109,7 +109,8 @@ class HomeDrawer extends StatelessWidget {
                 DrawerEntryPage(
                   text: 'Settings',
                   func: () async {
-                    await Navigator.of(Nav().navKey.currentContext!).pushNamed("/settings");
+                    Navigator.pop(context);
+                    await Navigator.of(context).pushNamed("/settings");
                     // Navigator.of(Nav().navKey.currentContext!).popUntil(ModalRoute.withName("/settings"));
                   },
                   leading: const FaIcon(FontAwesomeIcons.lightCog),
