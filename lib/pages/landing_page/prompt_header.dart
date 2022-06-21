@@ -86,7 +86,7 @@ class HeaderProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         color: appBarColorMat.shade600,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(borderRadius)),
