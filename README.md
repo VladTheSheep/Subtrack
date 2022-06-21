@@ -1,6 +1,6 @@
-# subtrack
+# Subtrack
 
-A new Flutter project.
+A Flutter app designed to help people keep track of their drug use.
 
 ## Getting Started
 
