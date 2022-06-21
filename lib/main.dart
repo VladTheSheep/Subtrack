@@ -5,7 +5,7 @@ import 'package:subtrack/application/permissions_notifier.dart';
 import 'package:subtrack/database/hive_utils.dart';
 import 'package:subtrack/managers/file_manager.dart';
 import 'package:subtrack/navigation/nav.dart';
-import 'package:subtrack/pages/diary.dart';
+import 'package:subtrack/pages/home_page.dart';
 import 'package:subtrack/pages/landing_page.dart';
 import 'package:subtrack/providers.dart';
 import 'package:subtrack/utils/settings.dart';
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           initialRoute: "/landing",
           routes: {
             "/landing": (context) => LandingPage(),
-            "/diary": (context) => const DiaryPage(),
+            "/diary": (context) => const HomePage(),
           },
         );
       },
