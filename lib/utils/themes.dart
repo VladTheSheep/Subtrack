@@ -8,7 +8,7 @@ class Themes {
   factory Themes() => _themes;
   Themes._internal();
 
-  static const String fontFamily = 'SourceSansPro';
+  static const String fontFamily = 'GoogleSans';
   late ThemeData theme;
 
   void initTheme() {
