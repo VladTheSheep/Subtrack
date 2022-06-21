@@ -10,6 +10,7 @@ class CustomButton extends StatelessWidget {
     this.fontSize = buttonTextSize,
     this.height = buttonHeight,
     this.fontWeight = buttonTextWeight,
+    this.radius,
     required this.callback,
     required this.callbackValue,
   }) : super(key: key);
@@ -19,6 +20,7 @@ class CustomButton extends StatelessWidget {
   final double fontSize;
   final double height;
   final FontWeight fontWeight;
+  final BorderRadius? radius;
 
   final Function(bool val) callback;
   final bool callbackValue;
@@ -30,7 +32,7 @@ class CustomButton extends StatelessWidget {
       child: InkWell(
         splashColor: color.withOpacity(0.5),
         highlightColor: color.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: radius ?? BorderRadius.circular(borderRadius),
         onTap: () => callback(callbackValue),
         child: SizedBox(
           height: height,
