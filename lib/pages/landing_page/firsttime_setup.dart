@@ -8,8 +8,7 @@ import 'package:subtrack/consts/sizes.dart';
 import 'package:subtrack/data/imported_database.dart';
 import 'package:subtrack/managers/file_manager.dart';
 import 'package:subtrack/navigation/nav.dart';
-import 'package:subtrack/pages/animated_route.dart';
-import 'package:subtrack/pages/diary.dart';
+import 'package:subtrack/pages/home_page.dart';
 import 'package:subtrack/pages/landing_page/prompt_header.dart';
 import 'package:subtrack/providers.dart';
 import 'package:subtrack/utils/snackbar_helper.dart';
@@ -155,7 +154,7 @@ class _DatabaseLoadView extends StatelessWidget {
                             (_) {
                               final watch = ref.watch(loadTextProvider);
                               if (watch == "Loaded!") {
-                                Navigator.pushReplacement(context, createRoute(const DiaryPage()));
+                                Navigator.pushReplacement(context, Nav().createRoute(const HomePage()));
                               }
                             },
                           );

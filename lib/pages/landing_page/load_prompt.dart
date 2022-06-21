@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:subtrack/application/log_notifier.dart';
 import 'package:subtrack/navigation/nav.dart';
-import 'package:subtrack/pages/animated_route.dart';
-import 'package:subtrack/pages/diary.dart';
+import 'package:subtrack/pages/home_page.dart';
 import 'package:subtrack/providers.dart';
 import 'package:subtrack/utils/themes.dart';
 
@@ -18,7 +17,7 @@ class LoadPrompt extends ConsumerWidget {
         ref.watch(createLogNotifierProvider.notifier).loadLog().then(
           (state) {
             if (state == const LogNotifierState.loaded()) {
-              Navigator.pushReplacement(context, createRoute(const DiaryPage()));
+              Navigator.pushReplacement(context, Nav().createRoute(const HomePage()));
             }
           },
         );
