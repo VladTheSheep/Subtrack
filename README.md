@@ -8,6 +8,11 @@ You can find Imperium on the Play Store.
 
 https://play.google.com/store/apps/details?id=me.pred.imperium
 
+## Setup
+
+- [Install flutter](https://docs.flutter.dev/get-started/install)
+- Move the font-awesome-flutter dependenccy into `dependencies/`
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
