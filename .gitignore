@@ -49,3 +49,6 @@ app.*.map.json
 .vscode/
 linux/flutter/generated_plugins.cmake
 windows/flutter/generated_plugins.cmake
+
+# Private/paid dependencies
+/dependencies/font_awesome_flutter
