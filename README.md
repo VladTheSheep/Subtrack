@@ -11,7 +11,7 @@ https://play.google.com/store/apps/details?id=me.pred.imperium
 ## Setup
 
 - [Install flutter](https://docs.flutter.dev/get-started/install)
-- Move the font-awesome-flutter dependenccy into `dependencies/`
+- Move the font-awesome-flutter dependency into `dependencies/`
 
 ## Getting Started
 
