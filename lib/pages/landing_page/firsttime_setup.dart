@@ -52,7 +52,7 @@ class FirstTimeSetup extends StatelessWidget {
       elevation: elevation,
       child: Container(
         width: Nav().screenWidth - (Nav().screenWidth / 5),
-        height: Nav().screenHeight - (Nav().screenHeight / 1.5),
+        height: 320,
         decoration: BoxDecoration(
           color: bgColorMat,
           borderRadius: BorderRadius.circular(borderRadius),
@@ -154,7 +154,8 @@ class _DatabaseLoadView extends StatelessWidget {
                             (_) {
                               final watch = ref.watch(loadTextProvider);
                               if (watch == "Loaded!") {
-                                Navigator.pushReplacement(context, Nav().createRoute(HomePage()));
+                                Navigator.pushReplacement(
+                                    context, Nav().createRoute(HomePage()));
                               }
                             },
                           );
@@ -249,7 +250,17 @@ class _WelcomeContent extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: RichText(
               text: const TextSpan(
-                text: "To create a new log, hit ",
+                  text:
+                      "Subtrack does not store your information in a cloud. Instead it needs to save the data to a file on your device."),
+            ),
+          ),
+          const Padding(padding: EdgeInsets.all(8.0)),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: RichText(
+              text: const TextSpan(
+                text:
+                    "Select a folder where this file should be located by hitting ",
                 children: [
                   TextSpan(
                     text: "Next",
@@ -267,7 +278,7 @@ class _WelcomeContent extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: RichText(
               text: const TextSpan(
-                text: "Already using a drug logging app? Use ",
+                text: "Already using a substance logging app? Use ",
                 children: [
                   TextSpan(
                     text: "Import",
