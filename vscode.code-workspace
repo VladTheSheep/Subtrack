@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "./"
+		}
+	],
+	"settings": {
+		"[dart]": {
+			"editor.formatOnSave": true,
+			"editor.rulers": [
+				150
+			],
+		},
+		"dart.lineLength": 150
+	}
+}
